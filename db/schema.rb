@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502143723) do
+ActiveRecord::Schema.define(version: 20170502223256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "decks", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "brand",       null: false
+    t.string   "description", null: false
+    t.string   "concave",     null: false
+    t.string   "flex",        null: false
+    t.string   "mount",       null: false
+    t.string   "traction",    null: false
+    t.string   "shape",       null: false
+    t.integer  "price",       null: false
+    t.float    "length",      null: false
+    t.float    "width",       null: false
+    t.float    "wheelbase",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "decks", ["brand"], name: "index_decks_on_brand", using: :btree
+  add_index "decks", ["concave"], name: "index_decks_on_concave", using: :btree
+  add_index "decks", ["flex"], name: "index_decks_on_flex", using: :btree
+  add_index "decks", ["length"], name: "index_decks_on_length", using: :btree
+  add_index "decks", ["mount"], name: "index_decks_on_mount", using: :btree
+  add_index "decks", ["name"], name: "index_decks_on_name", using: :btree
+  add_index "decks", ["price"], name: "index_decks_on_price", using: :btree
+  add_index "decks", ["shape"], name: "index_decks_on_shape", using: :btree
+  add_index "decks", ["traction"], name: "index_decks_on_traction", using: :btree
+  add_index "decks", ["wheelbase"], name: "index_decks_on_wheelbase", using: :btree
+  add_index "decks", ["width"], name: "index_decks_on_width", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
