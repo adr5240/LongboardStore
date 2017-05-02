@@ -34,7 +34,6 @@ export const signup = (user) => {
             return data;
         },
         error: function(xhr) {
-            debugger
             return xhr.responseJSON.errors;
         }
     });
