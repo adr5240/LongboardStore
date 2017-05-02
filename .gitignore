@@ -18,5 +18,5 @@ bundle.js.map
 
 DS_Store
 npm-debug.log
-byebug_history
+.byebug_history
 test
