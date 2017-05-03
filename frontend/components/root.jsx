@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
+import DeckContainer from './decks/deck_container';
 
 const Root = ({ store }) => {
     const isLoggedIn = () => {
@@ -20,6 +21,8 @@ const Root = ({ store }) => {
                     <Route exact path="/signup" render={() => (
                         isLoggedIn() ? ( <Redirect to="/"/> ) : ( <SessionFormContainer /> )
                     )}/>
+                    <Route exact path="/longboard/decks/" component={ DeckContainer }/>
+
                 </App>
             </Router>
         </Provider>

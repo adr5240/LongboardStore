@@ -20,3 +20,5 @@ DS_Store
 npm-debug.log
 .byebug_history
 test
+
+app/assets/images/*
