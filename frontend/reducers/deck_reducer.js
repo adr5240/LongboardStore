@@ -1,14 +1,27 @@
 import { RECEIVE_DECKS, RECEIVE_DECK, RECEIVE_ERRORS } from '../actions/deck_actions';
-import merge from 'lodash/merge';
 
+const initialState = {
+    decks: {},
+    currentDeck: null,
+    errors: []
+};
 
-const decksReducer = (state = {}, action) => {
+const decksReducer = (state = initialState, action) => {
     Object.freeze(state);
+    let newState;
     switch(action.type) {
         case RECEIVE_DECKS:
-            return action.decks;
+            const decks = action.decks;
+            newState = Object.assign({}, state, { decks }, { errors: [], currentDeck: null });
+            return newState;
         case RECEIVE_DECK:
-            return action.deck;
+            const currentDeck = action.currentDeck;
+            newState = Object.assign({}, state, { currentDeck }, { errors: [] });
+            return newState;
+        case RECEIVE_ERRORS:
+            const errors = action.errors.responseJSON.errors;
+            newState = Object.assign({}, state, { errors });
+            return newState;
         default:
             return state;
         }

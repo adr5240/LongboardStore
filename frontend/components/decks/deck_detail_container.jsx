@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchDecks, fetchDeck } from '../../actions/deck_actions';
-import DeckList from './deck_list.jsx';
+import { fetchDeck } from '../../actions/deck_actions';
+import DeckDetail from './deck_detail.jsx';
 
 const mapStateToProps = ({ decks }) => ({
-    decks: Object.keys(decks.decks).map(key => decks.decks[key]),
     currentDeck: decks.currentDeck,
-    state: decks
+    errors: decks.errors
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchDecks: () => dispatch(fetchDecks()),
     fetchDeck: id => dispatch(fetchDeck(id))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(DeckList);
+)(DeckDetail);

@@ -9,22 +9,28 @@ export const receiveDecks = decks => ({
     decks
 });
 
-export const receiveDeck = deck => ({
+export const receiveDeck = currentDeck => ({
     type: RECEIVE_DECK,
-    deck
+    currentDeck
 });
 
-export const receiveErrors = (errors) => ({
+export const receiveErrors = errors => ({
     type: RECEIVE_ERRORS,
     errors
 });
 
 export const fetchDecks = () => dispatch => (
     DeckApiUtil.fetchDecks()
-        .then(decks => dispatch(receiveDecks(decks)))
+        .then(
+            decks => dispatch(receiveDecks(decks)),
+            errors => dispatch(receiveErrors(errors))
+        )
 );
 
-export const fetchDeck = (deck_id) => dispatch => (
+export const fetchDeck = deck_id => dispatch => (
     DeckApiUtil.fetchDeck(deck_id)
-        .then(deck => dispatch(receiveDeck(deck)))
+        .then(
+            currentDeck => dispatch(receiveDeck(currentDeck)),
+            errors => dispatch(receiveErrors(errors))
+        )
 );

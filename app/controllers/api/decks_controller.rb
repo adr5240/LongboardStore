@@ -16,7 +16,11 @@ class Api::DecksController < ApplicationController
 
     def show
         @deck = Deck.find_by_id(params[:id])
-        render :show
+        if @deck
+            render :show
+        else
+            render json: { :errors => ["It doesn't look like this deck exists."] }, status: 404
+        end
     end
 
     def update

@@ -7,7 +7,7 @@ class DeckList extends React.Component {
 
         this.state = { decks: [] };
         this.props.fetchDecks().then(
-            data => this.setState({ decks: data.decks })
+            data => this.setState({ decks: data.decks, currentDeck: data.currentDeck })
         );
 
         this._handleClick = this._handleClick.bind(this);
@@ -21,7 +21,7 @@ class DeckList extends React.Component {
         let decks = <div></div>;
         if(this.props.decks.length > 0) {
             decks = this.props.decks.map((deck) => {
-                return <DeckListItem deck={ deck } _handleClick={this._handleClick} key={ deck.id }/>;
+                return <DeckListItem deck={ deck } _handleClick={ this._handleClick } key={ deck.id }/>;
             });
         }
 
