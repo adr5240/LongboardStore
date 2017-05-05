@@ -5,6 +5,9 @@ u1 = User.create(username: "Billy", password: "password")
 u2 = User.create(username: "Sally", password: "password")
 u3 = User.create(username: "abc123", password: "password")
 
+# ---------------------------------------------------------------------------------------------------------
+# DECKS
+# ---------------------------------------------------------------------------------------------------------
 
 Deck.destroy_all
 
@@ -50,3 +53,34 @@ d8 = Deck.create(name: 'Bustin Mission 36" Hana Longboard Deck - 2017', brand: '
 
 # d1 = Deck.create(name: , brand: , description: , concave: , flex: , mount: ,
 #                  traction: , shape: , price: , length: , width: , wheelbase: )
+
+
+# ---------------------------------------------------------------------------------------------------------
+# TRUCKS
+# ---------------------------------------------------------------------------------------------------------
+
+Truck.destroy_all
+
+t1 = Truck.create(name: 'Arsenal 180mm 50 Degree Trucks', brand: 'Arsenal', hole_pattern: 'Old School',
+                  description: "Arsenal 180mm 50 Degree Raw Longboard Trucks are the newest all-round cast trucks in the scene, raw and ready to take you anywhere. They have the best feedback. Designed to be as close to precision as the gravity casting process can provide.
+Arsenal Cast Trucks are designed to be as close to precision as the gravity casting process can provide. With extremely low tolerances and superior engineering, Cast Arsenals are the strongest and most comfortable cast truck on the market period. They feature tall bushings, a bushing seat that complements the aggressive geometry and allows for ample lean and stability. After hundreds of hours of testing the strength, durability, and overall feel: we believe that Cast Arsenals just may be the best cast truck you will ever ride.",
+                  width: 250, angle: 50, price: 6400)
+
+t2 = Truck.create(name: 'Bear Polar Bear 105mm Trucks', brand: 'Bear', hole_pattern: "New School",
+                  description: "The Bear Polar Bear 105mm Black trucks are designed for park, pool, street, freestyle, cruising, and freeriding. The cast hanger measures 105mm long with 173mm axle length. With a board side barrel bushing for stability, the road side short cone bushing has a tight turn radius.",
+                  width: 173, angle: 40, price: 3900)
+
+t3 = Truck.create(name: 'Bear Polar Bear 155mm Raw Trucks', brand: 'Bear', hole_pattern: 'New School',
+                  description: "The Bear Polar Bear 155mm Raw trucks are designed for park, pool, street, freestyle, freeride, and cruising. The cast hanger measures 154mm long with 222mm axle length. With a board side barrel bushing for stability, the road side short cone bushing has a tight turn radius.",
+                  width: 222, angle: 45, price: 4700)
+
+t4 = Truck.create(name: 'Caliber II 44 Degree Trucks', brand: "Caliber", hole_pattern: 'New School',
+                  description: 'The Caliber II 44 Degree Black Out trucks are designed for downhill, freeriding, freestyle, carving, and cruising. Cast with aluminum, the hanger measures 7.25" long with a 10" axle length. The 44 degree baseplate has a broad turing radius and is stable at high speeds. The double barrel bushings provide additional stability.
+The inner-step bushing seat has a large contact area for high rebound from the bushing.
+The outer-step bushing seat is a perfect circle to provide a snug fit with oversized aftermarket bushings.
+The decreased chamfer in the pivot cup seat increases contact with the baseplate. This creates a tight fit for the pivot pin.
+The circular pivot hole matches the specs in Caliber precision trucks. This offers a consistent lean and avoides kingpin bite on the hanger.
+The trucks are heat treated in-house for a 40% increase in strength. The pressed in kingpin provides maximum response and control through corners. It can be hammered out and replaced for personalized kingpin lengths. The reinforced baseplate provides additional protection during high speed impacts. Unlike powder coats, these trucks have thinner paints to insure tightened tolerances.',
+                  width: 254, angle: 44, price: 5400)
+
+# t1 = Truck.create(name: , brand: , hole_pattern: , description: , width: , angle: , price: )

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502223256) do
+ActiveRecord::Schema.define(version: 20170505043814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,23 @@ ActiveRecord::Schema.define(version: 20170502223256) do
   add_index "decks", ["traction"], name: "index_decks_on_traction", using: :btree
   add_index "decks", ["wheelbase"], name: "index_decks_on_wheelbase", using: :btree
   add_index "decks", ["width"], name: "index_decks_on_width", using: :btree
+
+  create_table "trucks", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "brand",        null: false
+    t.string   "hole_pattern", null: false
+    t.string   "description",  null: false
+    t.float    "width",        null: false
+    t.float    "angle",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "price"
+  end
+
+  add_index "trucks", ["brand"], name: "index_trucks_on_brand", using: :btree
+  add_index "trucks", ["hole_pattern"], name: "index_trucks_on_hole_pattern", using: :btree
+  add_index "trucks", ["price"], name: "index_trucks_on_price", using: :btree
+  add_index "trucks", ["width"], name: "index_trucks_on_width", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
