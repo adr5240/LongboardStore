@@ -8,7 +8,6 @@
 #  hole_pattern :string           not null
 #  description  :string           not null
 #  width        :float            not null
-#  height       :float            not null
 #  angle        :float            not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

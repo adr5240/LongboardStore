@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505043814) do
+ActiveRecord::Schema.define(version: 20170505201033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,5 +72,24 @@ ActiveRecord::Schema.define(version: 20170505043814) do
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "wheels", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.string   "brand",         null: false
+    t.string   "description",   null: false
+    t.string   "lip_profile",   null: false
+    t.string   "hub_placement", null: false
+    t.integer  "price",         null: false
+    t.integer  "diameter",      null: false
+    t.integer  "durometer",     null: false
+    t.integer  "width",         null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "wheels", ["brand"], name: "index_wheels_on_brand", using: :btree
+  add_index "wheels", ["hub_placement"], name: "index_wheels_on_hub_placement", using: :btree
+  add_index "wheels", ["lip_profile"], name: "index_wheels_on_lip_profile", using: :btree
+  add_index "wheels", ["price"], name: "index_wheels_on_price", using: :btree
 
 end
