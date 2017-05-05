@@ -8,6 +8,8 @@ import DeckContainer from './decks/deck_container';
 import DeckDetailContainer from './decks/deck_detail_container';
 import TruckContainer from './trucks/truck_container';
 import TruckDetailContainer from './trucks/truck_detail_container';
+import WheelContainer from './wheels/wheel_container';
+import WheelDetailContainer from './wheels/wheel_detail_container';
 
 const Root = ({ store }) => {
     const isLoggedIn = () => {
@@ -28,6 +30,8 @@ const Root = ({ store }) => {
                     <Route exact path="/longboard/decks/:deck_id" component={ DeckDetailContainer } />
                     <Route exact path="/longboard/trucks/" component={ TruckContainer } />
                     <Route exact path="/longboard/trucks/:truck_id" component={ TruckDetailContainer } />
+                    <Route exact path="/longboard/wheels/" component={ WheelContainer } />
+                    <Route exact path="/longboard/wheels/:wheel_id" component={ WheelDetailContainer } />
                 </App>
             </Router>
         </Provider>

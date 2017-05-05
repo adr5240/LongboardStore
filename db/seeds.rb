@@ -84,3 +84,39 @@ The trucks are heat treated in-house for a 40% increase in strength. The pressed
                   width: 254, angle: 44, price: 5400)
 
 # t1 = Truck.create(name: , brand: , hole_pattern: , description: , width: , angle: , price: )
+
+
+# ---------------------------------------------------------------------------------------------------------
+# WHEELS
+# ---------------------------------------------------------------------------------------------------------
+
+Wheel.destroy_all
+
+w1 = Wheel.create(name: 'Arbor Sucrose Bogart 61mm 78a Wheels', brand: 'Arbor',
+                  description: "The Arbor 61mm 78a Bogart Blue wheels are designed for freeriding, carving, and cruising. The firm durometer maintains speed over smooth surfaces. The rounded lips and stoneground surface produce natural slides.",
+                  lip_profile: 'Rounded', hub_placement: 'Slight Offset', price: 3600, diameter: 61, durometer: 78, width: 45)
+
+w2 = Wheel.create(name: 'Arbor Sucrose Vice 69mm 80a Wheels', brand: 'Arbor',
+                  description: "The Arbor Vice 69mm 80a Blue wheels are designed for freeriding. With rounded lips and stoneground surface for sliding, the firm durometer maintains a quick roll speed.",
+                  lip_profile: 'Rounded', hub_placement: 'Offset', price: 4600, diameter: 69, durometer: 80, width: 45)
+
+w3 = Wheel.create(name: 'Santa Cruz Slime Balls 66mm 78a Wheels', brand: 'Santa Cruz',
+                  description: "The Santa Cruz Slime Balls 66mm 78a Wheels are designed for cruising. With rounded lips for grip, the soft durometer reduces shock over rough terrain.",
+                  lip_profile: 'Rounded', hub_placement: 'Centerset', price: 3700, diameter: 66, durometer: 78, width: 47)
+
+w4 = Wheel.create(name: 'Blank 70mm 78a Wheels', brand: 'Blank', description: "Description coming soon!",
+                  lip_profile: 'Squared', hub_placement: 'Offset', price: 4000, diameter: 70, durometer: 78, width: 55)
+
+w5 = Wheel.create(name: 'Kryptonics Star Trac 65mm 82a Pink Wheels', brand: 'Kryptonics',
+                  description: "The Star Trac 65mm 82a wheels are designed for park, pool, cruising and carving. With sideset hubs for sliding, the firm durometer maintains speed over smooth surfaces.",
+                  lip_profile: 'Squared', hub_placement: 'Sideset', price: 3200, diameter: 65, durometer: 82, width: 44)
+
+w6 = Wheel.create(name: 'Kryptonics Star Trac 65mm 86a Green Wheels', brand: 'Kryptonics',
+                  description: "The Kryptonics Star Trac 65mm 86a Green wheels are designed for park, pool, carving and cruising. With a sideset hub for sliding, the hard durometer maintains a quick roll speed over smooth terrain.",
+                  lip_profile: 'Squared', hub_placement: 'Sideset', price: 3200, diameter: 65, durometer: 86, width: 44)
+
+w7 = Wheel.create(name: 'Kryptonics Star Trac 75mm 86a Green Wheels', brand: 'Kryptonics',
+                  description: "The Kryptonics Star Trac 75mm 86a Green wheels are designed for downhill, carving, cruising. With a firm durometer for speed over smooth terrain, the squared lips provide grip.",
+                  lip_profile: 'Squared', hub_placement: 'Offset', price: 4000, diameter: 75, durometer: 78, width: 50)
+
+# w1 = Wheel.create(name: '', brand: '', description: "", lip_profile: '', hub_placement: '', price: , diameter: , durometer: , width: )
