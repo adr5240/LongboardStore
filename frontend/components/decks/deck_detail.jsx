@@ -5,6 +5,7 @@ function Deck(props) {
     return (
         <ul>
             <li key={1}>{deck.name}</li>
+            <img src={ deck.image_url } />
             <ul>
                 <li key={2}>Price ${deck.price / 100}</li>
                 <li key={3}>Length {deck.length}</li>

@@ -5,6 +5,7 @@ function Truck(props) {
     return (
         <ul>
             <li key={1}>{truck.name}</li>
+            <img src={ truck.image_url } />
             <ul>
                 <li key={2}>Price ${truck.price / 100}</li>
                 <li key={3}>Width {truck.width}</li>

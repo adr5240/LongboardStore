@@ -45,6 +45,6 @@ class Api::DecksController < ApplicationController
 
     def deck_params
         params.require(:deck).permit(:name, :brand, :description, :concave, :flex, :mount,
-                                     :traction, :shape, :price, :length, :width, :wheelbase)
+                                     :traction, :shape, :price, :length, :width, :wheelbase, :image)
     end
 end

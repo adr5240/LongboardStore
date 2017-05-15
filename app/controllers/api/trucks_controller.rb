@@ -44,6 +44,6 @@ class Api::TrucksController < ApplicationController
     end
 
     def truck_params
-        params.require(:truck).permit(:name, :brand, :description, :width, :angle, :hole_pattern, :price)
+        params.require(:truck).permit(:name, :brand, :description, :width, :angle, :hole_pattern, :price, :image)
     end
 end

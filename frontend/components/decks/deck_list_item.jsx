@@ -19,6 +19,7 @@ class DeckListItem extends React.Component {
             <div>
                 <ul>
                     <li key={1} onClick={ this._handleClick }>{deck.name}</li>
+                    <img src={ deck.image_url } onClick={ this._handleClick }/>
                     <ul>
                         <li key={2}>Price ${deck.price / 100}</li>
                         <li key={3}>Length {deck.length}"</li>

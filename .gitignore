@@ -22,3 +22,8 @@ npm-debug.log
 test
 
 app/assets/images/*
+
+# Ignore application configuration
+/config/application.yml
+
+*config/secrets.yml

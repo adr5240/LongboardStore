@@ -19,6 +19,7 @@ class TruckListItem extends React.Component {
             <div>
                 <ul>
                     <li key={1} onClick={ this._handleClick }>{truck.name}</li>
+                    <img src={ truck.image_url } onClick={ this._handleClick }/>
                     <ul>
                         <li key={2}>Price ${truck.price / 100}</li>
                         <li key={3}>Width {truck.width}"</li>

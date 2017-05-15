@@ -19,6 +19,7 @@ class WheelListItem extends React.Component {
             <div>
                 <ul>
                     <li key={1} onClick={ this._handleClick }>{wheel.name}</li>
+                    <img src={ wheel.image_url } onClick={ this._handleClick }/>
                     <ul>
                         <li key={2}>Price ${wheel.price / 100}</li>
                         <li key={3}>Width {wheel.width}"</li>

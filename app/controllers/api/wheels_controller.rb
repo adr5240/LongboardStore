@@ -44,7 +44,7 @@ class Api::WheelsController < ApplicationController
     end
 
     def wheel_params
-        params.require(:wheel).permit(:name, :brand, :description, :lip_profile, :hub_placement, 
-                                      :price, :diameter, :durometer, :width)
+        params.require(:wheel).permit(:name, :brand, :description, :lip_profile, :hub_placement,
+                                      :price, :diameter, :durometer, :width, :image)
     end
 end

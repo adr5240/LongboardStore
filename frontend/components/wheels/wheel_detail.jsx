@@ -5,6 +5,7 @@ function Wheel(props) {
     return (
         <ul>
             <li key={1}>{wheel.name}</li>
+            <img src={ wheel.image_url } />
             <ul>
                 <li key={2}>Price ${wheel.price / 100}</li>
                 <li key={3}>Width {wheel.width}</li>
