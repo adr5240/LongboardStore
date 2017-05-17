@@ -1,11 +1,22 @@
 import React from 'react';
 
+function ThumbNails(props) {
+    const deck = props.deck;
+    return(
+        <div>
+            {deck.images.map((picture, el) => (
+                <img key={`thumbnail-${el}`} src={deck.images[el].image_url} />
+            ))}
+        </div>
+    );
+}
+
 function Deck(props) {
     const deck = props.deck;
     return (
         <ul>
             <li key={1}>{deck.name}</li>
-            <img src={ deck.image_url } />
+            <ThumbNails deck={deck} />
             <ul>
                 <li key={2}>Price ${deck.price / 100}</li>
                 <li key={3}>Length {deck.length}</li>

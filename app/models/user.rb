@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
     validates :username, :session_token, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
-    has_attached_file :profile_pic, default_url: "missing.png"
-    validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+    has_one :picture, as: :picturable
 
     after_initialize :ensure_session_token
 

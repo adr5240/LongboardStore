@@ -11,30 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515213838) do
+ActiveRecord::Schema.define(version: 20170517184100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "decks", force: :cascade do |t|
-    t.string   "name",               null: false
-    t.string   "brand",              null: false
-    t.string   "description",        null: false
-    t.string   "concave",            null: false
-    t.string   "flex",               null: false
-    t.string   "mount",              null: false
-    t.string   "traction",           null: false
-    t.string   "shape",              null: false
-    t.integer  "price",              null: false
-    t.float    "length",             null: false
-    t.float    "width",              null: false
-    t.float    "wheelbase",          null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "name",        null: false
+    t.string   "brand",       null: false
+    t.string   "description", null: false
+    t.string   "concave",     null: false
+    t.string   "flex",        null: false
+    t.string   "mount",       null: false
+    t.string   "traction",    null: false
+    t.string   "shape",       null: false
+    t.integer  "price",       null: false
+    t.float    "length",      null: false
+    t.float    "width",       null: false
+    t.float    "wheelbase",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "decks", ["brand"], name: "index_decks_on_brand", using: :btree
@@ -49,20 +45,27 @@ ActiveRecord::Schema.define(version: 20170515213838) do
   add_index "decks", ["wheelbase"], name: "index_decks_on_wheelbase", using: :btree
   add_index "decks", ["width"], name: "index_decks_on_width", using: :btree
 
-  create_table "trucks", force: :cascade do |t|
-    t.string   "name",               null: false
-    t.string   "brand",              null: false
-    t.string   "hole_pattern",       null: false
-    t.string   "description",        null: false
-    t.float    "width",              null: false
-    t.float    "angle",              null: false
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "picturable_id"
+    t.string   "picturable_type"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "price"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "brand",        null: false
+    t.string   "hole_pattern", null: false
+    t.string   "description",  null: false
+    t.float    "width",        null: false
+    t.float    "angle",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "price"
   end
 
   add_index "trucks", ["brand"], name: "index_trucks_on_brand", using: :btree
@@ -71,36 +74,28 @@ ActiveRecord::Schema.define(version: 20170515213838) do
   add_index "trucks", ["width"], name: "index_trucks_on_width", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                 null: false
-    t.string   "password_digest",          null: false
-    t.string   "session_token",            null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "profile_pic_file_name"
-    t.string   "profile_pic_content_type"
-    t.integer  "profile_pic_file_size"
-    t.datetime "profile_pic_updated_at"
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "wheels", force: :cascade do |t|
-    t.string   "name",               null: false
-    t.string   "brand",              null: false
-    t.string   "description",        null: false
-    t.string   "lip_profile",        null: false
-    t.string   "hub_placement",      null: false
-    t.integer  "price",              null: false
-    t.integer  "diameter",           null: false
-    t.integer  "durometer",          null: false
-    t.integer  "width",              null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "name",          null: false
+    t.string   "brand",         null: false
+    t.string   "description",   null: false
+    t.string   "lip_profile",   null: false
+    t.string   "hub_placement", null: false
+    t.integer  "price",         null: false
+    t.integer  "diameter",      null: false
+    t.integer  "durometer",     null: false
+    t.integer  "width",         null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "wheels", ["brand"], name: "index_wheels_on_brand", using: :btree

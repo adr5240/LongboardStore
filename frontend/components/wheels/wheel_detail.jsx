@@ -1,11 +1,22 @@
 import React from 'react';
 
+function ThumbNails(props) {
+    const wheel = props.wheel;
+    return(
+        <div>
+            {wheel.images.map((picture, el) => (
+                <img key={`thumbnail-${el}`} src={wheel.images[el].image_url} />
+            ))}
+        </div>
+    );
+}
+
 function Wheel(props) {
     const wheel = props.wheel;
     return (
         <ul>
             <li key={1}>{wheel.name}</li>
-            <img src={ wheel.image_url } />
+            <ThumbNails wheel={wheel} />
             <ul>
                 <li key={2}>Price ${wheel.price / 100}</li>
                 <li key={3}>Width {wheel.width}</li>
