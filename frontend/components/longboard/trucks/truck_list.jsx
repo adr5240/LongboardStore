@@ -14,7 +14,7 @@ class TruckList extends React.Component {
 	}
 
     _handleClick(truck_id) {
-        this.props.history.push(`/longboard/trucks/${truck_id}`);
+        this.props.history.push(`/longboards/trucks/${truck_id}`);
     }
 
     render() {
@@ -26,9 +26,11 @@ class TruckList extends React.Component {
         }
 
         return (
-            <ul>
-                { trucks }
-            </ul>
+            <div className="appBody">
+                <ul>
+                    { trucks }
+                </ul>
+            </div>
         );
     }
 }

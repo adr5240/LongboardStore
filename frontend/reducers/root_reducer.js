@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
 import SessionReducer from './session_reducer';
-import DeckReducer from './deck_reducer';
-import TruckReducer from './truck_reducer';
-import WheelReducer from './wheel_reducer';
+import DeckReducer from './longboard/deck_reducer';
+import TruckReducer from './longboard/truck_reducer';
+import WheelReducer from './longboard/wheel_reducer';
 
 const rootReducer = combineReducers({
     session: SessionReducer,

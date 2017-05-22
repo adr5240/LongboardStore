@@ -16,12 +16,13 @@ class TruckListItem extends React.Component {
     render() {
         const { truck } = this.props;
         return (
-            <div>
+            <div className="tile">
                 <ul>
-                    <li key={1} onClick={ this._handleClick }>{truck.name}</li>
+                    <li className="nameTitle" key={1} onClick={ this._handleClick }>{truck.name}</li>
+                    <img key={`thumbnail`} onClick={ this._handleClick } src={truck.images[0].image_url} />
                     <ul>
-                        <li key={2}>Price ${truck.price / 100}</li>
-                        <li key={3}>Width {truck.width}"</li>
+                        <li key={2}><strong>Price:</strong> ${truck.price / 100}</li>
+                        <li key={3}><strong>Width:</strong> {truck.width}mm</li>
                     </ul>
                 </ul>
             </div>

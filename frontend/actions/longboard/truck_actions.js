@@ -1,4 +1,4 @@
-import * as TruckApiUtil from '../util/truck_api_util';
+import * as TruckApiUtil from '../../util/longboard/truck_api_util';
 
 export const RECEIVE_TRUCKS = 'RECEIVE_TRUCKS';
 export const RECEIVE_TRUCK = 'RECEIVE_TRUCK';

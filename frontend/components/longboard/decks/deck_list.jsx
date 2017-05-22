@@ -14,7 +14,7 @@ class DeckList extends React.Component {
 	}
 
     _handleClick(deck_id) {
-        this.props.history.push(`/longboard/decks/${deck_id}`);
+        this.props.history.push(`/longboards/decks/${deck_id}`);
     }
 
     render() {
@@ -26,9 +26,11 @@ class DeckList extends React.Component {
         }
 
         return (
-            <ul>
-                { decks }
-            </ul>
+            <div className="appBody">
+                <ul>
+                    { decks }
+                </ul>
+            </div>
         );
     }
 }

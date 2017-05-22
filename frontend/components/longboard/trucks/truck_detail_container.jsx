@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchTrucks, fetchTruck } from '../../actions/truck_actions';
-import TruckList from './truck_list.jsx';
+import { fetchTruck } from '../../../actions/longboard/truck_actions';
+import TruckDetail from './truck_detail.jsx';
 
 const mapStateToProps = ({ trucks }) => ({
-    trucks: Object.keys(trucks.trucks).map(key => trucks.trucks[key]),
     currentTruck: trucks.currentTruck,
-    state: trucks
+    errors: trucks.errors
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchTrucks: () => dispatch(fetchTrucks()),
     fetchTruck: id => dispatch(fetchTruck(id))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(TruckList);
+)(TruckDetail);

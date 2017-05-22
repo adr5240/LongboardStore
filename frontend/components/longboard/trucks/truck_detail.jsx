@@ -3,27 +3,34 @@ import React from 'react';
 function ThumbNails(props) {
     const truck = props.truck;
     return(
-        <div>
+        <div className="detailsThumbnail">
+            <img className="activeThumbnail" src={truck.images[0].image_url} />
             {truck.images.map((picture, el) => (
-                <img key={`thumbnail-${el}`} src={truck.images[el].image_url} />
+                <img key={`thumbnail thumbnail-${el}`} onClick={ updateThumbnail } src={truck.images[el].image_url} />
             ))}
         </div>
     );
 }
 
+function updateThumbnail(e) {
+    e.preventDefault();
+    let src = e.target.src;
+    $(".activeThumbnail").attr('src', src);
+}
+
 function Truck(props) {
     const truck = props.truck;
     return (
-        <ul>
-            <li key={1}>{truck.name}</li>
+        <ul className="productDetails">
+            <li className="nameTitle detailTitle" key={1}>{truck.name}</li>
             <ThumbNails truck={truck} />
-            <ul>
-                <li key={2}>Price ${truck.price / 100}</li>
-                <li key={3}>Width {truck.width}</li>
-                <li key={4}>{truck.brand}</li>
-                <li key={5}>{truck.description}</li>
-                <li key={6}>{truck.angle}</li>
-                <li key={7}>{truck.hole_pattern}</li>
+            <ul className="detailsInfo">
+                <li key={2}><strong>Price:</strong> ${truck.price / 100}</li>
+                <li key={3}><strong>Width:</strong> {truck.width}mm</li>
+                <li key={4}><strong>Brand:</strong> {truck.brand}</li>
+                <li key={5}><strong>Angle:</strong> {truck.angle} degrees</li>
+                <li key={6}><strong>Hole Pattern:</strong> {truck.hole_pattern}</li>
+                <li key={7}><strong>Description:</strong> {truck.description}</li>
             </ul>
         </ul>
     );
@@ -33,8 +40,7 @@ class TruckDetail extends React.Component {
     constructor(props) {
 		super(props);
         this.state = { currentTruck: [], errors: [] };
-
-        let truck_id = this.props.location.pathname.slice(17);
+        let truck_id = this.props.location.pathname.slice(19);
         this.props.fetchTruck(truck_id).then(
             data => this.setState({ currentTruck: data.currentTruck, errors: data.errors })
         );
@@ -43,7 +49,7 @@ class TruckDetail extends React.Component {
 	}
 
     backToTrucks() {
-        this.props.history.push(`/longboard/trucks/`);
+        this.props.history.push(`/longboards/trucks/`);
     }
 
     renderErrors() {
@@ -63,7 +69,7 @@ class TruckDetail extends React.Component {
     render() {
         let results = this.state.currentTruck.length === 0 ? <div></div> : <Truck truck={ this.state.currentTruck }></Truck>;
         return (
-            <div>
+            <div className="appBody">
                 { this.renderErrors() }
                 <button onClick={ this.backToTrucks }>Back to Trucks</button>
                 { results }

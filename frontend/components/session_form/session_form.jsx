@@ -14,7 +14,7 @@ class SessionForm extends React.Component {
 
 	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
-			this.props.history.push("/");
+			this.props.history.push("/longboards");
 		}
 	}
 
@@ -28,14 +28,6 @@ class SessionForm extends React.Component {
 		e.preventDefault();
 		const user = this.state;
 		this.props.processForm({user});
-	}
-
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
-		} else {
-			return <Link to="/login">log in instead</Link>;
-		}
 	}
 
 	renderErrors() {
@@ -56,10 +48,8 @@ class SessionForm extends React.Component {
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to BenchBnB!
 					<br/>
-					Please {this.props.formType} or {this.navLink()}
-					{this.renderErrors()}
+					Please {this.props.formType}
 					<div className="login-form">
 						<br/>
 						<label> Username:
@@ -77,6 +67,7 @@ class SessionForm extends React.Component {
 						</label>
 						<br/>
 						<input type="submit" value="Submit" />
+						{this.renderErrors()}
 					</div>
 				</form>
 			</div>

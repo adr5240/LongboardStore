@@ -1,4 +1,4 @@
-import { RECEIVE_DECKS, RECEIVE_DECK, RECEIVE_ERRORS } from '../actions/deck_actions';
+import { RECEIVE_DECKS, RECEIVE_DECK, RECEIVE_ERRORS } from '../../actions/longboard/deck_actions';
 
 const initialState = {
     decks: {},

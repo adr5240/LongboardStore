@@ -3,41 +3,47 @@ import React from 'react';
 function ThumbNails(props) {
     const wheel = props.wheel;
     return(
-        <div>
+        <div className="detailsThumbnail">
+            <img className="activeThumbnail" src={wheel.images[0].image_url} />
             {wheel.images.map((picture, el) => (
-                <img key={`thumbnail-${el}`} src={wheel.images[el].image_url} />
+                <img key={`thumbnail thumbnail-${el}`} onClick={ updateThumbnail } src={wheel.images[el].image_url} />
             ))}
         </div>
     );
 }
 
+function updateThumbnail(e) {
+    e.preventDefault();
+    let src = e.target.src;
+    $(".activeThumbnail").attr('src', src);
+}
+
 function Wheel(props) {
     const wheel = props.wheel;
     return (
-        <ul>
-            <li key={1}>{wheel.name}</li>
+        <ul className="productDetails">
+            <li className="nameTitle detailTitle" key={1}>{wheel.name}</li>
             <ThumbNails wheel={wheel} />
-            <ul>
-                <li key={2}>Price ${wheel.price / 100}</li>
-                <li key={3}>Width {wheel.width}</li>
-                <li key={4}>{wheel.brand}</li>
-                <li key={5}>{wheel.description}</li>
-                <li key={6}>{wheel.lip_profile}</li>
-                <li key={7}>{wheel.hub_placement}</li>
-                <li key={8}>{wheel.diameter}</li>
-                <li key={9}>{wheel.durometer}</li>
+            <ul className="detailsInfo">
+                <li key={2}><strong>Price:</strong> ${wheel.price / 100}</li>
+                <li key={3}><strong>Width:</strong> {wheel.width}</li>
+                <li key={4}><strong>Brand:</strong> {wheel.brand}</li>
+                <li key={5}><strong>Lip Profile:</strong> {wheel.lip_profile}</li>
+                <li key={6}><strong>Hub Placement:</strong> {wheel.hub_placement}</li>
+                <li key={7}><strong>Diameter:</strong> {wheel.diameter}mm</li>
+                <li key={8}><strong>Durometer:</strong> {wheel.durometer}a</li>
+                <li key={9}><strong>Description:</strong> {wheel.description}</li>
             </ul>
         </ul>
     );
 }
-
 
 class WheelDetail extends React.Component {
     constructor(props) {
 		super(props);
         this.state = { currentWheel: [], errors: [] };
 
-        let wheel_id = this.props.location.pathname.slice(17);
+        let wheel_id = this.props.location.pathname.slice(19);
         this.props.fetchWheel(wheel_id).then(
             data => this.setState({ currentWheel: data.currentWheel, errors: data.errors })
         );
@@ -46,7 +52,7 @@ class WheelDetail extends React.Component {
 	}
 
     backToWheels() {
-        this.props.history.push(`/longboard/wheels/`);
+        this.props.history.push(`/longboards/wheels/`);
     }
 
     renderErrors() {
@@ -66,7 +72,7 @@ class WheelDetail extends React.Component {
     render() {
         let results = this.state.currentWheel.length === 0 ? <div></div> : <Wheel wheel={ this.state.currentWheel }></Wheel>;
         return (
-            <div>
+            <div className="appBody">
                 { this.renderErrors() }
                 <button onClick={ this.backToWheels }>Back to Wheels</button>
                 { results }

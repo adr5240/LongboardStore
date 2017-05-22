@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
-import { fetchDeck } from '../../actions/deck_actions';
-import DeckDetail from './deck_detail.jsx';
+import { fetchDecks, fetchDeck } from '../../../actions/longboard/deck_actions';
+import DeckList from './deck_list.jsx';
 
 const mapStateToProps = ({ decks }) => ({
+    decks: Object.keys(decks.decks).map(key => decks.decks[key]),
     currentDeck: decks.currentDeck,
-    errors: decks.errors
+    state: decks
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchDecks: () => dispatch(fetchDecks()),
     fetchDeck: id => dispatch(fetchDeck(id))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(DeckDetail);
+)(DeckList);

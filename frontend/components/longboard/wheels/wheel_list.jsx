@@ -14,7 +14,7 @@ class WheelList extends React.Component {
 	}
 
     _handleClick(wheel_id) {
-        this.props.history.push(`/longboard/wheels/${wheel_id}`);
+        this.props.history.push(`/longboards/wheels/${wheel_id}`);
     }
 
     render() {
@@ -26,9 +26,11 @@ class WheelList extends React.Component {
         }
 
         return (
-            <ul>
-                { wheels }
-            </ul>
+            <div className="appBody">
+                <ul>
+                    { wheels }
+                </ul>
+            </div>
         );
     }
 }

@@ -1,4 +1,4 @@
-import { RECEIVE_TRUCKS, RECEIVE_TRUCK, RECEIVE_ERRORS } from '../actions/truck_actions';
+import { RECEIVE_TRUCKS, RECEIVE_TRUCK, RECEIVE_ERRORS } from '../../actions/longboard/truck_actions';
 
 const initialState = {
     trucks: {},

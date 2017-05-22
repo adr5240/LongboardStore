@@ -1,4 +1,4 @@
-import { RECEIVE_WHEELS, RECEIVE_WHEEL, RECEIVE_ERRORS } from '../actions/wheel_actions';
+import { RECEIVE_WHEELS, RECEIVE_WHEEL, RECEIVE_ERRORS } from '../../actions/longboard/wheel_actions';
 
 const initialState = {
     wheels: {},

@@ -1,4 +1,4 @@
-import * as DeckApiUtil from '../util/deck_api_util';
+import * as DeckApiUtil from '../../util/longboard/deck_api_util';
 
 export const RECEIVE_DECKS = 'RECEIVE_DECKS';
 export const RECEIVE_DECK = 'RECEIVE_DECK';

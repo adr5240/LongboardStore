@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchWheels, fetchWheel } from '../../actions/wheel_actions';
-import WheelList from './wheel_list.jsx';
+import { fetchWheel } from '../../../actions/longboard/wheel_actions';
+import WheelDetail from './wheel_detail.jsx';
 
 const mapStateToProps = ({ wheels }) => ({
-    wheels: Object.keys(wheels.wheels).map(key => wheels.wheels[key]),
     currentWheel: wheels.currentWheel,
-    state: wheels
+    errors: wheels.errors
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchWheels: () => dispatch(fetchWheels()),
     fetchWheel: id => dispatch(fetchWheel(id))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(WheelList);
+)(WheelDetail);

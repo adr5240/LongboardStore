@@ -1,4 +1,4 @@
-import * as WheelApiUtil from '../util/wheel_api_util';
+import * as WheelApiUtil from '../../util/longboard/wheel_api_util';
 
 export const RECEIVE_WHEELS = 'RECEIVE_WHEELS';
 export const RECEIVE_WHEEL = 'RECEIVE_WHEEL';

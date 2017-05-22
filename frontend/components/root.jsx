@@ -4,12 +4,13 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
-import DeckContainer from './decks/deck_container';
-import DeckDetailContainer from './decks/deck_detail_container';
-import TruckContainer from './trucks/truck_container';
-import TruckDetailContainer from './trucks/truck_detail_container';
-import WheelContainer from './wheels/wheel_container';
-import WheelDetailContainer from './wheels/wheel_detail_container';
+import LongboardContainer from './longboard/longboard_container';
+import DeckContainer from './longboard/decks/deck_container';
+import DeckDetailContainer from './longboard/decks/deck_detail_container';
+import TruckContainer from './longboard/trucks/truck_container';
+import TruckDetailContainer from './longboard/trucks/truck_detail_container';
+import WheelContainer from './longboard/wheels/wheel_container';
+import WheelDetailContainer from './longboard/wheels/wheel_detail_container';
 
 const Root = ({ store }) => {
     const isLoggedIn = () => {
@@ -26,12 +27,13 @@ const Root = ({ store }) => {
                     <Route exact path="/signup" render={() => (
                         isLoggedIn() ? ( <Redirect to="/"/> ) : ( <SessionFormContainer /> )
                     )}/>
-                    <Route exact path="/longboard/decks/" component={ DeckContainer } />
-                    <Route exact path="/longboard/decks/:deck_id" component={ DeckDetailContainer } />
-                    <Route exact path="/longboard/trucks/" component={ TruckContainer } />
-                    <Route exact path="/longboard/trucks/:truck_id" component={ TruckDetailContainer } />
-                    <Route exact path="/longboard/wheels/" component={ WheelContainer } />
-                    <Route exact path="/longboard/wheels/:wheel_id" component={ WheelDetailContainer } />
+                    <Route exact path="/longboards/decks/:deck_id" component={ DeckDetailContainer } />
+                    <Route exact path="/longboards/decks/" component={ DeckContainer }/>
+                    <Route exact path="/longboards/trucks/:truck_id" component={ TruckDetailContainer }/>
+                    <Route exact path="/longboards/trucks/" component={ TruckContainer }/>
+                    <Route exact path="/longboards/wheels/:wheel_id" component={ WheelDetailContainer }/>
+                    <Route exact path="/longboards/wheels/" component={ WheelContainer }/>
+                    <Route exact path="/longboards" component={ LongboardContainer }/>
                 </App>
             </Router>
         </Provider>
