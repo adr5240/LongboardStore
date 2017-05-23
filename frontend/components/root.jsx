@@ -11,6 +11,8 @@ import TruckContainer from './longboard/trucks/truck_container';
 import TruckDetailContainer from './longboard/trucks/truck_detail_container';
 import WheelContainer from './longboard/wheels/wheel_container';
 import WheelDetailContainer from './longboard/wheels/wheel_detail_container';
+import BearingContainer from './longboard/bearings/bearing_container';
+import BearingDetailContainer from './longboard/bearings/bearing_detail_container';
 
 const Root = ({ store }) => {
     const isLoggedIn = () => {
@@ -33,6 +35,8 @@ const Root = ({ store }) => {
                     <Route exact path="/longboards/trucks/" component={ TruckContainer }/>
                     <Route exact path="/longboards/wheels/:wheel_id" component={ WheelDetailContainer }/>
                     <Route exact path="/longboards/wheels/" component={ WheelContainer }/>
+                    <Route exact path="/longboards/bearings/:bearing_id" component={ BearingDetailContainer }/>
+                    <Route exact path="/longboards/bearings/" component={ BearingContainer }/>
                     <Route exact path="/longboards" component={ LongboardContainer }/>
                 </App>
             </Router>

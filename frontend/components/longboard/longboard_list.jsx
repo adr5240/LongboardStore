@@ -13,6 +13,9 @@ class LongboardList extends React.Component {
         this.props.fetchWheels().then(
             data => this.setState({ wheels: data.wheels })
         );
+        this.props.fetchBearings().then(
+            data => this.setState({ bearings: data.bearings })
+        );
 
         this._handleClick = this._handleClick.bind(this);
 
@@ -27,12 +30,14 @@ class LongboardList extends React.Component {
     render() {
         let decks = <div>wait for it....</div>,
             trucks = <div></div>,
-            wheels = <div></div>;
+            wheels = <div></div>,
+            bearings = <div></div>;
 
-        if(this.props.decks.length > 0 && this.props.trucks.length > 0 && this.props.wheels.length > 0) {
+        if(this.props.decks.length > 0 && this.props.trucks.length > 0 && this.props.wheels.length > 0 && this.props.bearings.length > 0) {
             let currentDeck = this.props.decks[0],
                 currentTruck = this.props.trucks[0],
-                currentWheel = this.props.wheels[0];
+                currentWheel = this.props.wheels[0],
+                currentBearing = this.props.bearings[0];
 
             decks = (
                 <div className="decks tile" onClick={ this._handleClick }>
@@ -52,6 +57,12 @@ class LongboardList extends React.Component {
                     <h3>Wheels</h3>
                 </div>
             );
+            bearings = (
+                <div className="bearings tile" onClick={ this._handleClick }>
+                    <img src={ currentBearing.images[0].image_url } />
+                    <h3>Bearings</h3>
+                </div>
+            );
         }
 
         return (
@@ -59,6 +70,7 @@ class LongboardList extends React.Component {
                 { decks }
                 { trucks }
                 { wheels }
+                { bearings }
             </div>
         );
     }
