@@ -95,6 +95,7 @@ strong {
     max-width: 260px;
     list-style: none;
     text-align: center;
+    display: grid;
 }
 
 .detailTitle {
@@ -136,4 +137,12 @@ div.galleryImages {
 
 button.back {
     margin-left: 15px;
+}
+
+img.deckList {
+    width: 250px;
+}
+
+.deckTile {
+    height: 600px;
 }
