@@ -33,7 +33,7 @@ li {
 }
 
 img {
-    width: 300px;
+    width: 225px;
     height: auto;
 }
 
@@ -91,7 +91,8 @@ strong {
 
 .tile {
     float: left;
-    margin: 10px;
+    margin: 25px;
+    max-width: 260px;
     list-style: none;
     text-align: center;
 }
@@ -115,13 +116,24 @@ strong {
 }
 
 .detailsThumbnail img {
-    width: 70px;
+    width: 76px;
     height: auto;
     margin-right: 10px;
 }
 
 img.activeThumbnail {
-    width: 200px;
+    width: 250px;
     height: auto;
-    clear:both;
+    float: left;
+    margin-bottom: 15px;
+}
+
+div.galleryImages {
+    clear: both;
+    float: left;
+    max-width: 260px;
+}
+
+button.back {
+    margin-left: 15px;
 }

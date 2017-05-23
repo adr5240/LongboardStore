@@ -5,9 +5,11 @@ function ThumbNails(props) {
     return(
         <div className="detailsThumbnail">
             <img className="activeThumbnail" src={wheel.images[0].image_url} />
-            {wheel.images.map((picture, el) => (
-                <img key={`thumbnail thumbnail-${el}`} onClick={ updateThumbnail } src={wheel.images[el].image_url} />
-            ))}
+            <div className="galleryImages">
+                {wheel.images.map((picture, el) => (
+                    <img key={`thumbnail thumbnail-${el}`} onClick={ updateThumbnail } src={wheel.images[el].image_url} />
+                ))}
+            </div>
         </div>
     );
 }
@@ -16,6 +18,8 @@ function updateThumbnail(e) {
     e.preventDefault();
     let src = e.target.src;
     $(".activeThumbnail").attr('src', src);
+    $(".zoomContainer").remove();
+    $(".activeThumbnail").elevateZoom({tint:true, tintColour:'#000', tintOpacity:0.5});
 }
 
 function Wheel(props) {
@@ -51,6 +55,14 @@ class WheelDetail extends React.Component {
         this.backToWheels = this.backToWheels.bind(this);
 	}
 
+    componentDidUpdate() {
+        $(".activeThumbnail").elevateZoom({tint:true, tintColour:'#000', tintOpacity:0.5});
+    }
+
+    componentWillUnmount() {
+        $(".zoomContainer").remove();
+    }
+
     backToWheels() {
         this.props.history.push(`/longboards/wheels/`);
     }
@@ -74,7 +86,7 @@ class WheelDetail extends React.Component {
         return (
             <div className="appBody">
                 { this.renderErrors() }
-                <button onClick={ this.backToWheels }>Back to Wheels</button>
+                <button className="back" onClick={ this.backToWheels }>Back to Wheels</button>
                 { results }
             </div>
         );

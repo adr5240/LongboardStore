@@ -5,9 +5,11 @@ function ThumbNails(props) {
     return(
         <div className="detailsThumbnail">
             <img className="activeThumbnail" src={truck.images[0].image_url} />
-            {truck.images.map((picture, el) => (
-                <img key={`thumbnail thumbnail-${el}`} onClick={ updateThumbnail } src={truck.images[el].image_url} />
-            ))}
+            <div className="galleryImages">
+                {truck.images.map((picture, el) => (
+                    <img key={`thumbnail thumbnail-${el}`} onClick={ updateThumbnail } src={truck.images[el].image_url} />
+                ))}
+            </div>
         </div>
     );
 }
@@ -16,6 +18,8 @@ function updateThumbnail(e) {
     e.preventDefault();
     let src = e.target.src;
     $(".activeThumbnail").attr('src', src);
+    $(".zoomContainer").remove();
+    $(".activeThumbnail").elevateZoom();
 }
 
 function Truck(props) {
@@ -48,6 +52,14 @@ class TruckDetail extends React.Component {
         this.backToTrucks = this.backToTrucks.bind(this);
 	}
 
+    componentDidUpdate() {
+        $(".activeThumbnail").elevateZoom();
+    }
+
+    componentWillUnmount() {
+        $(".zoomContainer").remove();
+    }
+
     backToTrucks() {
         this.props.history.push(`/longboards/trucks/`);
     }
@@ -71,7 +83,7 @@ class TruckDetail extends React.Component {
         return (
             <div className="appBody">
                 { this.renderErrors() }
-                <button onClick={ this.backToTrucks }>Back to Trucks</button>
+                <button className="back" onClick={ this.backToTrucks }>Back to Trucks</button>
                 { results }
             </div>
         );
