@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517184100) do
+ActiveRecord::Schema.define(version: 20170523191230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bearings", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "brand",       null: false
+    t.string   "material",    null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "price",       null: false
+    t.string   "rating",      null: false
+  end
+
+  add_index "bearings", ["brand"], name: "index_bearings_on_brand", using: :btree
+  add_index "bearings", ["material"], name: "index_bearings_on_material", using: :btree
+  add_index "bearings", ["price"], name: "index_bearings_on_price", using: :btree
+  add_index "bearings", ["rating"], name: "index_bearings_on_rating", using: :btree
 
   create_table "decks", force: :cascade do |t|
     t.string   "name",        null: false

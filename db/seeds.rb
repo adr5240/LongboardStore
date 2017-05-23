@@ -63,7 +63,7 @@ Truck.destroy_all
 
 t1 = Truck.create(name: 'Arsenal 180mm 50 Degree Trucks', brand: 'Arsenal', hole_pattern: 'Old School',
                   description: "Arsenal 180mm 50 Degree Raw Longboard Trucks are the newest all-round cast trucks in the scene, raw and ready to take you anywhere. They have the best feedback. Designed to be as close to precision as the gravity casting process can provide.
-Arsenal Cast Trucks are designed to be as close to precision as the gravity casting process can provide. With extremely low tolerances and superior engineering, Cast Arsenals are the strongest and most comfortable cast truck on the market period. They feature tall bushings, a bushing seat that complements the aggressive geometry and allows for ample lean and stability. After hundreds of hours of testing the strength, durability, and overall feel: we believe that Cast Arsenals just may be the best cast truck you will ever ride.",
+                  Arsenal Cast Trucks are designed to be as close to precision as the gravity casting process can provide. With extremely low tolerances and superior engineering, Cast Arsenals are the strongest and most comfortable cast truck on the market period. They feature tall bushings, a bushing seat that complements the aggressive geometry and allows for ample lean and stability. After hundreds of hours of testing the strength, durability, and overall feel: we believe that Cast Arsenals just may be the best cast truck you will ever ride.",
                   width: 250, angle: 50, price: 6400)
 
 t2 = Truck.create(name: 'Bear Polar Bear 105mm Trucks', brand: 'Bear', hole_pattern: "New School",
@@ -76,11 +76,11 @@ t3 = Truck.create(name: 'Bear Polar Bear 155mm Raw Trucks', brand: 'Bear', hole_
 
 t4 = Truck.create(name: 'Caliber II 44 Degree Trucks', brand: "Caliber", hole_pattern: 'New School',
                   description: 'The Caliber II 44 Degree Black Out trucks are designed for downhill, freeriding, freestyle, carving, and cruising. Cast with aluminum, the hanger measures 7.25" long with a 10" axle length. The 44 degree baseplate has a broad turing radius and is stable at high speeds. The double barrel bushings provide additional stability.
-The inner-step bushing seat has a large contact area for high rebound from the bushing.
-The outer-step bushing seat is a perfect circle to provide a snug fit with oversized aftermarket bushings.
-The decreased chamfer in the pivot cup seat increases contact with the baseplate. This creates a tight fit for the pivot pin.
-The circular pivot hole matches the specs in Caliber precision trucks. This offers a consistent lean and avoides kingpin bite on the hanger.
-The trucks are heat treated in-house for a 40% increase in strength. The pressed in kingpin provides maximum response and control through corners. It can be hammered out and replaced for personalized kingpin lengths. The reinforced baseplate provides additional protection during high speed impacts. Unlike powder coats, these trucks have thinner paints to insure tightened tolerances.',
+                  The inner-step bushing seat has a large contact area for high rebound from the bushing.
+                  The outer-step bushing seat is a perfect circle to provide a snug fit with oversized aftermarket bushings.
+                  The decreased chamfer in the pivot cup seat increases contact with the baseplate. This creates a tight fit for the pivot pin.
+                  The circular pivot hole matches the specs in Caliber precision trucks. This offers a consistent lean and avoides kingpin bite on the hanger.
+                  The trucks are heat treated in-house for a 40% increase in strength. The pressed in kingpin provides maximum response and control through corners. It can be hammered out and replaced for personalized kingpin lengths. The reinforced baseplate provides additional protection during high speed impacts. Unlike powder coats, these trucks have thinner paints to insure tightened tolerances.',
                   width: 254, angle: 44, price: 5400)
 
 # t1 = Truck.create(name: , brand: , hole_pattern: , description: , width: , angle: , price: )
@@ -121,6 +121,39 @@ w7 = Wheel.create(name: 'Kryptonics Star Trac 75mm 86a Green Wheels', brand: 'Kr
 
 # w1 = Wheel.create(name: '', brand: '', description: "", lip_profile: '', hub_placement: '', price: , diameter: , durometer: , width: )
 
+
+# ---------------------------------------------------------------------------------------------------------
+# BEARINGS
+# ---------------------------------------------------------------------------------------------------------
+
+Bearing.destroy_all
+
+# ABEC 5
+b1 = Bearing.create(name: "Independent ABEC 5 8mm Bearings", brand: "Independent", material: "Stainless Steel", price: 1400, rating: "ABEC 5",
+                    description: "The Independent ABEC 5 8mm bearings have a dust proof outer shield and grit blocking cage to keep the stainless steel ball bearings clean. With an open back for easy maintenance, the stainless steel races provide durability.")
+b2 = Bearing.create(name: "Rush ABEC 5 Titanium Coated 8mm Bearings", brand: "Rush", material: "Stainless Steel", price: 1200, rating: "ABEC 5",
+                    description: "The Rush ABEC 5 Titanium Coated 8mm bearings are titanium coated for strength and speed. With a nylon retainer to keep the ball bearings secure, the rubber shields provide easy maintenance. Includes bearing spacers to maintain quality and increase maximum roll speed.")
+b3 = Bearing.create(name: "Sector 9 PDP ABEC 5 8mm Bearings", brand: "Sector 9", material: "Stainless Steel", price: 1000, rating: "ABEC 5",
+                    description: "These brand new, professional grade ABEC 5 bearings by Sector 9 are pre-lubricated for a smooth, fast ride. They come in the standard size (608 with an 8mm core, 22mm outer diameter, and 7mm width) and provide the best for performance and durability. Each set of Sector 9 8mm PDP ABEC 5 Bearings contains eight (8) bearings, which is enough for four (4) wheels.")
+b4 = Bearing.create(name: "System ABEC 5 8mm Bearings", brand: "System", material: "Stainless Steel", price: 1000, rating: "ABEC 5",
+                    description: "The System ABEC 5 8mm bearings have stainless steel ball bearings. The removable shields provide easy maintenance.")
+
+# ABEC 7
+b5 = Bearing.create(name: "Sector 9 Cosmic ABEC 7 8mm Bearings", brand: "Sector 9", material: "Stainless Steel", price: 2000, rating: "ABEC 7",
+                    description: "The Sector 9 Cosmic ABEC 7 8mm bearings have stainless steel ball bearings for speed and rubber coated steel shields for protection.")
+
+# Non-Rated
+b6 = Bearing.create(name: "Bronson Speed Co. G3 Next Generation Bearings", brand: "Bronson", material: "Stainless Steel", price: 3000, rating: "Non-Rated",
+                    description: "The Bronson Speed Co. Next Generation Bearings have 7 steel ball bearing with a steel casing. The deep groove raceways reduce impact damage and maintain speed. Non-contact rubber shields protect against grime, reduces oil leaks, and allows for easy cleaning. Microscopic groove raceways are self-smoothing for improved lubrication and spin. The max impact cage design is constructed with non-distorted glass filled nylon for strength and evenly spaced ball bearings. The ball cage sockets surfaces are engineered to hold oil for lubrication. Built with Bronson's \"Balls Out Technology\", the balls-out cage-in orientation reduces shield and cage contact for increased speed. A special blend high speed ceramic oil increases durability, reduces rust, and increases speed. Each set of Bronson bearings are hand inspected twice, micro polished, ultrasonic solvent washed 3 times prior to lubrication, and packaged in nitrogen filled shrink wrap to reduce oxidation during shipping.")
+b7 = Bearing.create(name: "Goldcoast Rolleroid Bearings", brand: "Goldcoast", material: "Stainless Steel", price: 2000, rating: "Non-Rated",
+                    description: "The GoldCoast Rolleroid Bearings are produced with 7 stainless steel ball bearings. The chemically developed process lubricates the ball bearings for increased speed. Removable shields provide easy maintenance.")
+b8 = Bearing.create(name: "Independent Black 8mm Bearings", brand: "Independent", material: "Stainless Steel", price: 2500, rating: "Non-Rated",
+                    description: "The Independent Black 8mm bearings have stainless steel ball bearings with double sided rubber shields for protection. They come pre-oiled and greased for immediate use.")
+b9 = Bearing.create(name: "Rush Downhill Bombers Titanium Coated Bearings", brand: "Rush", material: "Stainless Steel", price: 1000, rating: "Non-Rated",
+                    description: "The Rush Downhill Speed Bomber Ceramic Hybrid have 7 stainless steel waterproof ball bearings with a nylon retainer and steel casing, the rubber shields provide easy maintenance.")
+
+# b1 = Bearing.create(name: "", brand: "", material: "", price: , rating: "",
+#                     description: "")
 
 # ---------------------------------------------------------------------------------------------------------
 # PICTURES
@@ -175,4 +208,40 @@ wheel5 = Picture.create(picturable: w5, image: File.open('app/assets/images/whee
 wheel6 = Picture.create(picturable: w6, image: File.open('app/assets/images/wheels/w6.jpg'))
 wheel7 = Picture.create(picturable: w7, image: File.open('app/assets/images/wheels/w7.jpg'))
 
+bearing1 = Picture.create(picturable: b1, image: File.open('app/assets/images/bearings/b1.jpg'))
+bearing2 = Picture.create(picturable: b2, image: File.open('app/assets/images/bearings/b2.jpg'))
+bearing2_2 = Picture.create(picturable: b2, image: File.open('app/assets/images/bearings/b2-2.jpg'))
+bearing3 = Picture.create(picturable: b3, image: File.open('app/assets/images/bearings/b3.jpg'))
+bearing3_2 = Picture.create(picturable: b3, image: File.open('app/assets/images/bearings/b3-2.jpg'))
+bearing4 = Picture.create(picturable: b4, image: File.open('app/assets/images/bearings/b4.jpg'))
+bearing5 = Picture.create(picturable: b5, image: File.open('app/assets/images/bearings/b5.jpg'))
+bearing6 = Picture.create(picturable: b6, image: File.open('app/assets/images/bearings/b6.jpg'))
+bearing6_2 = Picture.create(picturable: b6, image: File.open('app/assets/images/bearings/b6-2.jpg'))
+bearing6_3 = Picture.create(picturable: b6, image: File.open('app/assets/images/bearings/b6-3.jpg'))
+bearing6_4 = Picture.create(picturable: b6, image: File.open('app/assets/images/bearings/b6-4.jpg'))
+bearing7 = Picture.create(picturable: b7, image: File.open('app/assets/images/bearings/b7.jpg'))
+bearing7_2 = Picture.create(picturable: b7, image: File.open('app/assets/images/bearings/b7-2.jpg'))
+bearing8 = Picture.create(picturable: b8, image: File.open('app/assets/images/bearings/b8.jpg'))
+bearing9 = Picture.create(picturable: b9, image: File.open('app/assets/images/bearings/b9.jpg'))
+bearing9_2 = Picture.create(picturable: b9, image: File.open('app/assets/images/bearings/b9-2.jpg'))
+
 # wheel7 = Picture.create(picturable: w7, image: File.open('app/assets/images/wheels/w7.jpg'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# dkd
