@@ -16,10 +16,10 @@ class BearingListItem extends React.Component {
     render() {
         const { bearing } = this.props;
         return (
-            <div className="tile">
+            <div className="tile bearingTile">
                 <ul>
-                    <li className="nameTitle" key={1} onClick={ this._handleClick }>{bearing.name}</li>
                     <img key={`thumbnail`} onClick={ this._handleClick } src={bearing.images[0].image_url} />
+                    <li className="nameTitle" key={1} onClick={ this._handleClick }>{bearing.name}</li>
                     <ul>
                         <li key={2}><strong>Price:</strong> ${bearing.price / 100}</li>
                         <li key={3}><strong>Rating:</strong> {bearing.rating}</li>

@@ -18,8 +18,8 @@ class DeckListItem extends React.Component {
         return (
             <div className="tile deckTile">
                 <ul>
-                    <li className="nameTitle" key={1} onClick={ this._handleClick }>{deck.name}</li>
                     <img className="deckList" key={`thumbnail`} onClick={ this._handleClick } src={deck.images[0].image_url} />
+                    <li className="nameTitle" key={1} onClick={ this._handleClick }>{deck.name}</li>
                     <ul>
                         <li key={2}><strong>Price:</strong> ${deck.price / 100}</li>
                         <li key={3}><strong>Length:</strong> {deck.length}"</li>

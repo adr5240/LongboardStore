@@ -16,10 +16,10 @@ class WheelListItem extends React.Component {
     render() {
         const { wheel } = this.props;
         return (
-            <div className="tile">
+            <div className="tile wheelTile">
                 <ul>
-                    <li className="nameTitle" key={1} onClick={ this._handleClick }>{wheel.name}</li>
                     <img key={`thumbnail`} onClick={ this._handleClick } src={wheel.images[0].image_url} />
+                    <li className="nameTitle" key={1} onClick={ this._handleClick }>{wheel.name}</li>
                     <ul>
                         <li key={2}><strong>Price:</strong> ${wheel.price / 100}</li>
                         <li key={3}><strong>Width:</strong> {wheel.width}"</li>
