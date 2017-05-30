@@ -4,6 +4,8 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
+
+
 import LongboardContainer from './longboard/longboard_container';
 import DeckContainer from './longboard/decks/deck_container';
 import DeckDetailContainer from './longboard/decks/deck_detail_container';
@@ -13,6 +15,9 @@ import WheelContainer from './longboard/wheels/wheel_container';
 import WheelDetailContainer from './longboard/wheels/wheel_detail_container';
 import BearingContainer from './longboard/bearings/bearing_container';
 import BearingDetailContainer from './longboard/bearings/bearing_detail_container';
+
+
+import CartContainer from './cart/cart_container';
 
 const Root = ({ store }) => {
     const isLoggedIn = () => {
@@ -38,6 +43,8 @@ const Root = ({ store }) => {
                     <Route exact path="/longboards/bearings/:bearing_id" component={ BearingDetailContainer }/>
                     <Route exact path="/longboards/bearings/" component={ BearingContainer }/>
                     <Route exact path="/longboards" component={ LongboardContainer }/>
+
+                    <Route exact path="/cart" component={ CartContainer }/>
                 </App>
             </Router>
         </Provider>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523191230) do
+ActiveRecord::Schema.define(version: 20170530164716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,36 @@ ActiveRecord::Schema.define(version: 20170523191230) do
   add_index "decks", ["traction"], name: "index_decks_on_traction", using: :btree
   add_index "decks", ["wheelbase"], name: "index_decks_on_wheelbase", using: :btree
   add_index "decks", ["width"], name: "index_decks_on_width", using: :btree
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "product_type"
+    t.integer  "order_id"
+    t.integer  "unit_price",   null: false
+    t.integer  "quantity",     null: false
+    t.integer  "total_price",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "subtotal",        null: false
+    t.integer  "tax",             null: false
+    t.integer  "shipping",        null: false
+    t.integer  "total",           null: false
+    t.integer  "order_status_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "pictures", force: :cascade do |t|
     t.integer  "picturable_id"
@@ -119,4 +149,5 @@ ActiveRecord::Schema.define(version: 20170523191230) do
   add_index "wheels", ["lip_profile"], name: "index_wheels_on_lip_profile", using: :btree
   add_index "wheels", ["price"], name: "index_wheels_on_price", using: :btree
 
+  add_foreign_key "order_items", "orders"
 end

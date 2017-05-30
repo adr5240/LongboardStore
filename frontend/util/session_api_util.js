@@ -52,3 +52,16 @@ export const updateUser = (user) => {
         }
     });
 };
+
+export const getCart = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/cart`,
+        success: function(data) {
+            return data;
+        },
+        error: function(xhr) {
+            return xhr.responseJSON.errors;
+        }
+    });
+};
