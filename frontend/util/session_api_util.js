@@ -65,3 +65,17 @@ export const getCart = () => {
         }
     });
 };
+
+export const addToCart = (product) => {
+    return $.ajax({
+        method: "POST",
+        url: "/order_items",
+        data: product,
+        success: function(data) {
+            return data;
+        },
+        error: function(xhr) {
+            return xhr.responseJSON.errors;
+        }
+    });
+};

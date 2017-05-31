@@ -17,7 +17,7 @@ class OrderItem < ActiveRecord::Base
     belongs_to :order
     belongs_to :product, polymorphic: true
 
-    validates :product_id, :product_type, :unit_price, :total_price, presence: true
+    validates :product_id, :product_type, presence: true
     validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
     validate :product_present
     validate :order_present
@@ -30,11 +30,6 @@ class OrderItem < ActiveRecord::Base
         else
             product.price
         end
-    end
-
-    # TODO Check if this is necessary
-    def total_price
-        unit_price * quantity
     end
 
     private

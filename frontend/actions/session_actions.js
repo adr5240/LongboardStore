@@ -58,3 +58,11 @@ export const getCart = () => dispatch => (
             errors => dispatch(receiveErrors(errors))
         )
 );
+
+export const addToCart = (product) => dispatch => (
+    SessionApiUtil.addToCart(product)
+        .then(
+            () => alert("Successfully added to cart!"),
+            errors => dispatch(receiveErrors(errors))
+        )
+);

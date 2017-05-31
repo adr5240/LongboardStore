@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToCartForm from '../../../util/misc_util';
 
 function ThumbNails(props) {
     const deck = props.deck;
@@ -49,7 +50,7 @@ class DeckDetail extends React.Component {
     constructor(props) {
 		super(props);
         this.state = { currentDeck: [], errors: [] };
-        let deck_id = this.props.location.pathname.slice(17);
+        let deck_id = this.props.location.pathname.replace(/[^0-9]/g, '');
         this.props.fetchDeck(deck_id).then(
             data => this.setState({ currentDeck: data.currentDeck, errors: data.errors })
         );
@@ -84,12 +85,14 @@ class DeckDetail extends React.Component {
     }
 
     render() {
+        const currentDeck = this.state.currentDeck;
         let results = this.state.currentDeck.length === 0 ? <div></div> : <Deck deck={ this.state.currentDeck }></Deck>;
         return (
             <div className="appBody">
                 { this.renderErrors() }
                 <button className="back" onClick={ this.backToDecks }>Back to Decks</button>
                 { results }
+                <AddToCartForm product_id={ currentDeck.id } product_type={ "Deck" } addToCart={ this.props.addToCart } />
             </div>
         );
     }

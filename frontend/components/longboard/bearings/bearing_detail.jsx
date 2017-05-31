@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToCartForm from '../../../util/misc_util';
 
 function ThumbNails(props) {
     const bearing = props.bearing;
@@ -43,7 +44,8 @@ class BearingDetail extends React.Component {
     constructor(props) {
 		super(props);
         this.state = { currentBearing: [], errors: [] };
-        let bearing_id = this.props.location.pathname.slice(21);
+
+        let bearing_id = this.props.location.pathname.replace(/[^0-9]/g, '');
         this.props.fetchBearing(bearing_id).then(
             data => this.setState({ currentBearing: data.currentBearing, errors: data.errors })
         );
@@ -78,12 +80,14 @@ class BearingDetail extends React.Component {
     }
 
     render() {
+        const currentBearing = this.state.currentBearing;
         let results = this.state.currentBearing.length === 0 ? <div></div> : <Bearing bearing={ this.state.currentBearing }></Bearing>;
         return (
             <div className="appBody">
                 { this.renderErrors() }
                 <button className="back" onClick={ this.backToBearings }>Back to Bearings</button>
                 { results }
+                <AddToCartForm product_id={ currentBearing.id } product_type={ "Bearing" } addToCart={ this.props.addToCart } />
             </div>
         );
     }

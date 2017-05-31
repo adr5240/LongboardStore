@@ -1,4 +1,4 @@
-json.extract! item, :quantity, :total_price
+json.extract! order_item, :quantity, :total_price, :unit_price
 
-json.product item.product
-json.image_url asset_path(item.product.pictures[0].image.url)
+json.product order_item.product
+json.image_url asset_path(order_item.product.pictures[0].image.url)

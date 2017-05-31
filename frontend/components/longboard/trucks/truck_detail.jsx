@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToCartForm from '../../../util/misc_util';
 
 function ThumbNails(props) {
     const truck = props.truck;
@@ -44,7 +45,7 @@ class TruckDetail extends React.Component {
     constructor(props) {
 		super(props);
         this.state = { currentTruck: [], errors: [] };
-        let truck_id = this.props.location.pathname.slice(19);
+        let truck_id = this.props.location.pathname.replace(/[^0-9]/g, '');
         this.props.fetchTruck(truck_id).then(
             data => this.setState({ currentTruck: data.currentTruck, errors: data.errors })
         );
@@ -79,12 +80,14 @@ class TruckDetail extends React.Component {
     }
 
     render() {
+        const currentTruck = this.state.currentTruck;
         let results = this.state.currentTruck.length === 0 ? <div></div> : <Truck truck={ this.state.currentTruck }></Truck>;
         return (
             <div className="appBody">
                 { this.renderErrors() }
                 <button className="back" onClick={ this.backToTrucks }>Back to Trucks</button>
                 { results }
+                <AddToCartForm product_id={ currentTruck.id } product_type={ "Truck" } addToCart={ this.props.addToCart } />
             </div>
         );
     }

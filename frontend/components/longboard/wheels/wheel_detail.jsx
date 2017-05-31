@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToCartForm from '../../../util/misc_util';
 
 function ThumbNails(props) {
     const wheel = props.wheel;
@@ -47,7 +48,7 @@ class WheelDetail extends React.Component {
 		super(props);
         this.state = { currentWheel: [], errors: [] };
 
-        let wheel_id = this.props.location.pathname.slice(19);
+        let wheel_id = this.props.location.pathname.replace(/[^0-9]/g, '');
         this.props.fetchWheel(wheel_id).then(
             data => this.setState({ currentWheel: data.currentWheel, errors: data.errors })
         );
@@ -82,12 +83,14 @@ class WheelDetail extends React.Component {
     }
 
     render() {
+        const currentWheel = this.state.currentWheel;
         let results = this.state.currentWheel.length === 0 ? <div></div> : <Wheel wheel={ this.state.currentWheel }></Wheel>;
         return (
             <div className="appBody">
                 { this.renderErrors() }
                 <button className="back" onClick={ this.backToWheels }>Back to Wheels</button>
                 { results }
+                <AddToCartForm product_id={ currentWheel.id } product_type={ "Wheel" } addToCart={ this.props.addToCart } />
             </div>
         );
     }
