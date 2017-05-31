@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getCart } from '../../actions/session_actions';
+import { getCart, updateCartItem } from '../../actions/session_actions';
 import Cart from './cart.jsx';
 
 const mapStateToProps = (state) => ({
@@ -7,7 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getCart: () => dispatch(getCart())
+    getCart: () => dispatch(getCart()),
+    updateCartItem: (order_item, id) => dispatch(updateCartItem(order_item, id))
 });
 
 export default connect(

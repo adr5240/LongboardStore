@@ -79,3 +79,17 @@ export const addToCart = (product) => {
         }
     });
 };
+
+export const updateCartItem = (order_item, id) => {
+    return $.ajax({
+        method: "PATCH",
+        url: `/order_items/${id}`,
+        data: order_item,
+        success: function(data) {
+            return data;
+        },
+        error: function(xhr) {
+            return xhr.responseJSON.errors;
+        }
+    });
+};

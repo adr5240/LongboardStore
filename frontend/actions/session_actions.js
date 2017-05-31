@@ -62,7 +62,15 @@ export const getCart = () => dispatch => (
 export const addToCart = (product) => dispatch => (
     SessionApiUtil.addToCart(product)
         .then(
-            () => alert("Successfully added to cart!"),
+            () => alert("Successfully added to cart!"), // TODO Find new callback
+            errors => dispatch(receiveErrors(errors))
+        )
+);
+
+export const updateCartItem = (order_item, id) => dispatch => (
+    SessionApiUtil.updateCartItem(order_item, id)
+        .then(
+            order => dispatch(receiveCurrentOrder(order)), 
             errors => dispatch(receiveErrors(errors))
         )
 );
