@@ -1,10 +1,17 @@
 class OrderItemsController < ApplicationController
     def create
         @order = current_order
-        @order_item = @order.order_items.new(order_item_params)
-        @order.save
-        session[:order_id] = @order.id
-        render :show
+        product_type = params[:order_item][:product_type];
+        product_id = params[:order_item][:product_id];
+        
+        if(@order.order_items.find_by(product_type: product_type, product_id: product_id))
+            render json: { :errors => ["That item is already in your cart!"] }, status: 422
+        else
+            @order_item = @order.order_items.new(order_item_params)
+            @order.save
+            session[:order_id] = @order.id
+            render :show
+        end
     end
 
     def update

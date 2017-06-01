@@ -6,15 +6,34 @@ class Cart extends React.Component {
 		super(props);
         this.state = { currentOrder: {}, total: 0, tax: 0, subtotal: 0 };
         this.props.getCart().then(
-            data => this.setState({ currentOrder: data.currentOrder, total: data.currentOrder.total, tax: data.currentOrder.tax, subtotal: data.currentOrder.subtotal })
+            data => this.setState({ currentOrder: data.currentOrder,
+									total: data.currentOrder.total,
+									tax: data.currentOrder.tax,
+									subtotal: data.currentOrder.subtotal
+								})
         );
 	}
 
 	handleChange(el, e) {
-		let newQuantity = parseInt(e.target.value);
-		let updatedItem = { order_item: { quantity: newQuantity } };
+		let newQuantity = parseInt(e.target.value),
+			updatedItem = { order_item: { quantity: newQuantity } },
+			$li = `#li-${el.id}`,
+			$input = `#input-${el.id}`;
+
+		if(newQuantity > 10) {
+			alert("You may only buy a maximum of 10 items. Sorry for any inconvenience.");
+			$($input)[0].value = el.quantity;
+			return;
+		} else if (!isNaN(newQuantity)) {
+			$($li)[0].innerText = `Total Price: $${(el.unit_price * newQuantity) / 100}`;
+		}
+		console.log(el.quantity);
+
 		this.props.updateCartItem(updatedItem, el.id).then(
-            data => this.setState({ total: data.currentOrder.total, tax: data.currentOrder.tax, subtotal: data.currentOrder.subtotal })
+            data => this.setState({ total: data.currentOrder.total,
+									tax: data.currentOrder.tax,
+									subtotal: data.currentOrder.subtotal
+								})
         );
 	}
 
@@ -23,13 +42,15 @@ class Cart extends React.Component {
 			let items = this.state.currentOrder.products;
 			return items.map((el, i) => {
 				return(
-					<div key={`${i}`}>
-						<li key={`name-${i}`}>{ el.product.name }</li>
-						<li key={`price-${i}`}>${ el.product.price / 100 }</li>
-						<label>Quantity:
-							<input type='number' defaultValue={ el.quantity } min="1" onChange={this.handleChange.bind(this, el)} key={`quantity-${i}`} />
-						</label>
-						<img key={`img-${i}`} src={ el.image_url }></img>
+					<div className="cartTile" key={`${i}`}>
+						<img key={`img-${i}`} src={ el.image_url } />
+						<div className="cartItemText">
+							<li className="cartItemName" key={`name-${i}`}>{ el.product.name }</li>
+							<li className="cartItemPrice" key={`total-price-${i}`} id={`li-${el.id}`}>Total Price: ${ (el.unit_price * el.quantity) / 100 }</li>
+							<label className="cartItemQuantity" >Quantity:
+								<input id={`input-${el.id}`} type='number' defaultValue={ el.quantity } min="1" max="10" onChange={this.handleChange.bind(this, el)} key={`quantity-${i}`} />
+							</label>
+						</div>
 					</div>
 				);
 			});
@@ -61,11 +82,16 @@ class Cart extends React.Component {
 		}
 		return (
 			<div className="cart">
-                { this.populateCart() }
-				{ this.renderErrors() }
-				{ subtotal }
-				{ tax }
-				{ total }
+				<h1>My Shopping Cart</h1>
+				<div className="cartItems">
+					{ this.renderErrors() }
+					{ this.populateCart() }
+				</div>
+				<div className="cart-totals">
+					{ subtotal }
+					{ tax }
+					{ total }
+				</div>
 			</div>
 		);
 	}

@@ -1,0 +1,59 @@
+.cart {
+    padding-top: 60px;
+}
+
+.cart h1 {
+    text-align: center;
+    font-size: 22pt;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.cartItems {
+    border: 1px solid #CCC;
+    width: 50%;
+    margin: auto;
+}
+
+.cartTile {
+    padding: 15px 0 15px 0;
+    list-style: none;
+    text-align: center;
+    clear: both;
+    height: 100px;
+    width: 100%;
+}
+
+.cartTile:nth-child(even) {
+    background-color: #CCC;
+}
+
+.cartTile:nth-child(odd) {
+    background-color: #FFF;
+}
+
+.cartTile img {
+    float: left;
+    height: 100px;
+    width: 100px;
+    margin-left: 8%;
+}
+
+.cartItemText {
+    float: left;
+    margin-left: 50px;
+    width: 50%;
+}
+
+.cartItemText * {
+    padding-top: 10px;
+}
+
+.cartItemText input {
+    padding: 0;
+    margin-top: 10px;
+}
+
+.cart-totals {
+    clear: both;
+}
