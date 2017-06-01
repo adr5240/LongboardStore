@@ -34,7 +34,7 @@ class Order < ActiveRecord::Base
     end
 
     def shipping
-        10
+        1000
     end
 
     def total

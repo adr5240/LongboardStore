@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function AddToCartForm(props) {
     let onSubmit = (values, dispatch) => {
+        values.preventDefault();
         onSubmitWithProps(values, dispatch, props);
     };
 

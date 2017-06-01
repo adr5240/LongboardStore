@@ -52,8 +52,16 @@
 .cartItemText input {
     padding: 0;
     margin-top: 10px;
+    text-align: center;
 }
 
 .cart-totals {
-    clear: both;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.cart-totals td {
+    text-align: right;
 }

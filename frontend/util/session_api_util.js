@@ -93,3 +93,16 @@ export const updateCartItem = (order_item, id) => {
         }
     });
 };
+
+export const deleteCartItem = (id) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/order_items/${id}`,
+        success: function(data) {
+            return data;
+        },
+        error: function(xhr) {
+            return xhr.responseJSON.errors;
+        }
+    });
+};
