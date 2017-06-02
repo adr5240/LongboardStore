@@ -18,7 +18,7 @@ class BearingListItem extends React.Component {
         return (
             <div className="tile bearingTile">
                 <ul>
-                    <img key={`thumbnail`} onClick={ this._handleClick } src={bearing.images[0].image_url} />
+                    <img key={`thumbnail`} onClick={ this._handleClick } src={bearing.image_url} />
                     <li className="nameTitle" key={1} onClick={ this._handleClick }>{bearing.name}</li>
                     <ul>
                         <li key={2}><strong>Price:</strong> ${bearing.price / 100}</li>

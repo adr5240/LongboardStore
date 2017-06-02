@@ -16,7 +16,7 @@ class Cart extends React.Component {
 	}
 
 	handleChange(el, e) {
-		let newQuantity = parseInt(e.target.value),
+		let newQuantity = parseInt(e.target.previousElementSibling.value),
 			updatedItem = { order_item: { quantity: newQuantity } },
 			$li = `#li-${el.id}`,
 			$input = `#input-${el.id}`;
@@ -45,6 +45,7 @@ class Cart extends React.Component {
 	deleteItem(id) {
 		let check = confirm("Are you sure you want to remove this item from your cart?");
 		if(check) {
+			this.setState({currentOrder: {}});
 			this.props.deleteCartItem(id).then(
 				data => this.setState({ currentOrder: data.currentOrder,
 										total: data.currentOrder.total,
@@ -67,7 +68,8 @@ class Cart extends React.Component {
 							<li className="cartItemName" key={`name-${i}`}>{ el.product.name }</li>
 							<li className="cartItemPrice" key={`total-price-${i}`} id={`li-${el.id}`}>Total Price: ${ (el.unit_price * el.quantity) / 100 }</li>
 							<label className="cartItemQuantity">Quantity:
-								<input id={`input-${el.id}`} type='number' defaultValue={ el.quantity } min="1" max="10" onChange={this.handleChange.bind(this, el)} key={`quantity-${i}`} />
+								<input id={`input-${el.id}`} type='number' defaultValue={ el.quantity } min="1" max="10" key={`quantity-${i}`} />
+								<button id={`button-${el.id}`} onClick={this.handleChange.bind(this, el)} key={`update-${i}`}>Update</button>
 							</label>
 						</div>
 						<h1 onClick={ this.deleteItem.bind(this, el.id) }>X</h1>

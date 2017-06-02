@@ -18,7 +18,6 @@ class LongboardList extends React.Component {
         );
 
         this._handleClick = this._handleClick.bind(this);
-
 	}
 
     _handleClick(e) {
@@ -41,25 +40,25 @@ class LongboardList extends React.Component {
 
             decks = (
                 <div className="decks tile" onClick={ this._handleClick }>
-                    <img src={ currentDeck.images[0].image_url } />
+                    <img src={ currentDeck.image_url } />
                     <h3>Decks</h3>
                 </div>
             );
             trucks = (
                 <div className="trucks tile" onClick={ this._handleClick }>
-                    <img src={ currentTruck.images[0].image_url } />
+                    <img src={ currentTruck.image_url } />
                     <h3>Trucks</h3>
                 </div>
             );
             wheels = (
                 <div className="wheels tile" onClick={ this._handleClick }>
-                    <img src={ currentWheel.images[0].image_url } />
+                    <img src={ currentWheel.image_url } />
                     <h3>Wheels</h3>
                 </div>
             );
             bearings = (
                 <div className="bearings tile" onClick={ this._handleClick }>
-                    <img src={ currentBearing.images[0].image_url } />
+                    <img src={ currentBearing.image_url } />
                     <h3>Bearings</h3>
                 </div>
             );

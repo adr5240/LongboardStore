@@ -55,6 +55,12 @@
     text-align: center;
 }
 
+.cartItemText button {
+    padding: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
 .cart-totals {
     text-align: center;
     margin: 10px auto;
