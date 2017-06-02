@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :current_order, :is_logged_in?, :logout, :redirect_if_not_logged_in
 
     def current_order
-        if !session[:order_id].nil?
-            Order.find(session[:order_id])
+        if !session[:order_id].nil? && Order.exists?(session[:order_id])
+            order = Order.find(session[:order_id])
         else
             order = Order.create(tax: 0, shipping: 0)
             session[:order_id] = order.id
