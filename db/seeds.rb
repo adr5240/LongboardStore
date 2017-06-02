@@ -408,23 +408,4 @@ bearing8 = Picture.create(picturable: b8, image: File.open('app/assets/images/be
 bearing9 = Picture.create(picturable: b9, image: File.open('app/assets/images/bearings/b9.jpg'))
 bearing9_2 = Picture.create(picturable: b9, image: File.open('app/assets/images/bearings/b9-2.jpg'))
 
-# wheel7 = Picture.create(picturable: w7, image: File.open('app/assets/images/wheels/w7.jpg'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# dkd
+profilePic = Picture.create(picturable: guest, image: File.open('app/assets/images/user.jpg'))

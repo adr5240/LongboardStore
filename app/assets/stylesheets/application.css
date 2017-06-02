@@ -143,6 +143,12 @@ img.deckList {
     width: 250px;
 }
 
+img.profile-pic {
+    height: 40px;
+    width: auto;
+    margin: 5px;
+}
+
 .deckTile {
     height: 600px;
 }

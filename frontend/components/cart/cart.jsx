@@ -65,7 +65,7 @@ class Cart extends React.Component {
 					<div className="cartTile" key={`${i}`}>
 						<img key={`img-${i}`} src={ el.image_url } />
 						<div className="cartItemText">
-							<li className="cartItemName" key={`name-${i}`}>{ el.product.name }</li>
+							<li className="cartItemName" key={`name-${i}`}>{ el.product_name }</li>
 							<li className="cartItemPrice" key={`total-price-${i}`} id={`li-${el.id}`}>Total Price: ${ (el.unit_price * el.quantity) / 100 }</li>
 							<label className="cartItemQuantity">Quantity:
 								<input id={`input-${el.id}`} type='number' defaultValue={ el.quantity } min="1" max="10" key={`quantity-${i}`} />

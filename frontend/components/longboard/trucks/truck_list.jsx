@@ -5,12 +5,13 @@ class TruckList extends React.Component {
     constructor(props) {
 		super(props);
 
-        this.state = { trucks: [] };
+        this.state = { trucks: [], pictures: {}, filter: { picturable_type: "Truck" } };
         this.props.fetchTrucks().then(
             data => this.setState({ trucks: data.trucks, currentTruck: data.currentTruck })
         );
-
-        this._handleClick = this._handleClick.bind(this);
+        this.props.fetchPictures(this.state.filter).then(
+            data => this.setState({ pictures: data.pictures })
+        );
 	}
 
     _handleClick(truck_id) {
@@ -19,9 +20,10 @@ class TruckList extends React.Component {
 
     render() {
         let trucks = <div></div>;
-        if(this.props.trucks.length > 0) {
+        if(this.props.trucks.length > 0 && Object.keys(this.state.pictures).length > 0) {
+            let pictures = this.state.pictures;
             trucks = this.props.trucks.map((truck) => {
-                return <TruckListItem truck={ truck } _handleClick={ this._handleClick } key={ truck.id }/>;
+                return <TruckListItem truck={ truck } img={ pictures.images[truck.id] || "" } _handleClick={ this._handleClick.bind(this) } key={ truck.id }/>;
             });
         }
 

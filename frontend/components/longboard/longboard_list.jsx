@@ -4,21 +4,63 @@ class LongboardList extends React.Component {
     constructor(props) {
 		super(props);
 
+        this.state = { currentDeckPicture: '', currentWheelPicture: '', currentBearingPicture: '', currentTruckPicture: '' };
+
         this.props.fetchDecks().then(
-            data => this.setState({ decks: data.decks })
+            data => this._handleDecks(data)
         );
         this.props.fetchTrucks().then(
-            data => this.setState({ trucks: data.trucks })
+            data => this._handleTrucks(data)
         );
         this.props.fetchWheels().then(
-            data => this.setState({ wheels: data.wheels })
+            data => this._handleWheels(data)
         );
         this.props.fetchBearings().then(
-            data => this.setState({ bearings: data.bearings })
+            data => this._handleBearings(data)
         );
 
         this._handleClick = this._handleClick.bind(this);
 	}
+
+    _handleDecks(data) {
+        let id = Object.keys(data.decks)[0];
+        this.props.fetchPicture({picturable_id: id, picturable_type: 'Deck'}).then(
+            data => this._handleImages('currentDeckPicture', data, id)
+        );
+
+        this.setState({ decks: data.decks });
+    }
+
+    _handleWheels(data) {
+        let id = Object.keys(data.wheels)[0];
+        this.props.fetchPicture({picturable_id: id, picturable_type: 'Wheel'}).then(
+            data => this._handleImages('currentWheelPicture', data, id)
+        );
+
+        this.setState({ wheels: data.wheels });
+    }
+
+    _handleBearings(data) {
+        let id = Object.keys(data.bearings)[0];
+        this.props.fetchPicture({picturable_id: id, picturable_type: 'Bearing'}).then(
+            data => this._handleImages('currentBearingPicture', data, id)
+        );
+
+        this.setState({ bearings: data.bearings });
+    }
+
+    _handleTrucks(data) {
+        let id = Object.keys(data.trucks)[0];
+        this.props.fetchPicture({picturable_id: id, picturable_type: 'Truck'}).then(
+            data => this._handleImages('currentTruckPicture', data, id)
+        );
+
+        this.setState({ trucks: data.trucks });
+    }
+
+    _handleImages(type, data, id) {
+        this.setState({ [type]: data.currentPicture.images[id][0] });
+    }
 
     _handleClick(e) {
         e.preventDefault();
@@ -40,25 +82,25 @@ class LongboardList extends React.Component {
 
             decks = (
                 <div className="decks tile" onClick={ this._handleClick }>
-                    <img src={ currentDeck.image_url } />
+                    <img src={ this.state.currentDeckPicture } />
                     <h3>Decks</h3>
                 </div>
             );
             trucks = (
                 <div className="trucks tile" onClick={ this._handleClick }>
-                    <img src={ currentTruck.image_url } />
+                    <img src={ this.state.currentTruckPicture } />
                     <h3>Trucks</h3>
                 </div>
             );
             wheels = (
                 <div className="wheels tile" onClick={ this._handleClick }>
-                    <img src={ currentWheel.image_url } />
+                    <img src={ this.state.currentWheelPicture } />
                     <h3>Wheels</h3>
                 </div>
             );
             bearings = (
                 <div className="bearings tile" onClick={ this._handleClick }>
-                    <img src={ currentBearing.image_url } />
+                    <img src={ this.state.currentBearingPicture } />
                     <h3>Bearings</h3>
                 </div>
             );

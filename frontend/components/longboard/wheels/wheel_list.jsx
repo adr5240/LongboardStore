@@ -5,12 +5,13 @@ class WheelList extends React.Component {
     constructor(props) {
 		super(props);
 
-        this.state = { wheels: [] };
+        this.state = { wheels: [], pictures: {}, filter: { picturable_type: "Wheel" } };
         this.props.fetchWheels().then(
             data => this.setState({ wheels: data.wheels, currentWheel: data.currentWheel })
         );
-
-        this._handleClick = this._handleClick.bind(this);
+        this.props.fetchPictures(this.state.filter).then(
+            data => this.setState({ pictures: data.pictures })
+        );
 	}
 
     _handleClick(wheel_id) {
@@ -19,9 +20,10 @@ class WheelList extends React.Component {
 
     render() {
         let wheels = <div></div>;
-        if(this.props.wheels.length > 0) {
+        if(this.props.wheels.length > 0 && Object.keys(this.state.pictures).length > 0) {
+            let pictures = this.state.pictures;
             wheels = this.props.wheels.map((wheel) => {
-                return <WheelListItem wheel={ wheel } _handleClick={ this._handleClick } key={ wheel.id }/>;
+                return <WheelListItem wheel={ wheel } img={ pictures.images[wheel.id] || "" } _handleClick={ this._handleClick.bind(this) } key={ wheel.id }/>;
             });
         }
 

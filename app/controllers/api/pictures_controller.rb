@@ -1,20 +1,19 @@
 class Api::PicturesController < ApplicationController
 
     def create
-        debugger
         @picturable = find_picturable
         @picture = @picturable.pictures.build(picture_params)
     end
 
     def index
-        @pictures = Picture.all
+        @pictures = Picture.where(picturable_type: params[:picturable_type])
         render :index
     end
 
     def show
-        @picture = Picture.find_by_id(params[:id])
-        if @picture
-            render :show
+        @pictures = Picture.where(picturable_type: params[:picturable_type], picturable_id: params[:picturable_id])
+        if @pictures
+            render :index
         else
             render json: { :errors => ["It doesn't look like this picture exists."] }, status: 404
         end
@@ -52,6 +51,6 @@ class Api::PicturesController < ApplicationController
     end
 
     def picture_params
-        params.require(:picture).permit(:image)
+        params.require(:picture).permit(:image, :picturable_type, :picturable_id)
     end
 end
