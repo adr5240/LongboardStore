@@ -57,22 +57,28 @@ class Cart extends React.Component {
 		}
 	}
 
+	redirectToItem(item, e) {
+		e.preventDefault();
+		let link = `/longboards/${item.product_type.toLowerCase() + 's'}/${item.product_id}`;
+		this.props.history.push(link);
+	}
+
     populateCart() {
         if(Object.keys(this.state.currentOrder).length > 0 && this.state.currentOrder.products.length > 0) {
 			let items = this.state.currentOrder.products;
 			return items.map((el, i) => {
 				return(
 					<div className="cartTile" key={`${i}`}>
-						<img key={`img-${i}`} src={ el.image_url } />
+						<img key={`img-${i}`} src={ el.image_url } onClick={this.redirectToItem.bind(this, el)}/>
 						<div className="cartItemText">
-							<li className="cartItemName" key={`name-${i}`}>{ el.product_name }</li>
+							<li className="cartItemName" key={`name-${i}`} onClick={this.redirectToItem.bind(this, el)}>{ el.product_name }</li>
 							<li className="cartItemPrice" key={`total-price-${i}`} id={`li-${el.id}`}>Total Price: ${ (el.unit_price * el.quantity) / 100 }</li>
 							<label className="cartItemQuantity">Quantity:
 								<input id={`input-${el.id}`} type='number' defaultValue={ el.quantity } min="1" max="10" key={`quantity-${i}`} />
 								<button id={`button-${el.id}`} onClick={this.handleChange.bind(this, el)} key={`update-${i}`}>Update</button>
 							</label>
 						</div>
-						<h1 onClick={ this.deleteItem.bind(this, el.id) }>X</h1>
+						<h1 className='deleteCartItem' onClick={ this.deleteItem.bind(this, el.id) }>X</h1>
 					</div>
 				);
 			});
@@ -91,7 +97,7 @@ class Cart extends React.Component {
 			return(
 				<ul>
 					{ this.props.errors.map((error, i) => (
-						<li key={`error-${i}`}>
+						<li className='error' key={`error-${i}`}>
 							{ error }
 						</li>
 					))}

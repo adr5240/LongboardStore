@@ -1,21 +1,21 @@
-.cart {
+div.cart {
     padding-top: 60px;
 }
 
-.cart h1 {
+div.cart h1 {
     text-align: center;
     font-size: 22pt;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.cartItems {
+div.cartItems {
     border: 1px solid #CCC;
     width: 50%;
     margin: auto;
 }
 
-.cartTile {
+div.cartTile {
     padding: 15px 0 15px 0;
     list-style: none;
     text-align: center;
@@ -24,19 +24,20 @@
     width: 100%;
 }
 
-.cartTile:nth-child(even) {
+div.cartTile:nth-child(even) {
     background-color: #CCC;
 }
 
-.cartTile:nth-child(odd) {
+div.cartTile:nth-child(odd) {
     background-color: #FFF;
 }
 
-.cartTile img {
+div.cartTile img {
     float: left;
     height: 100px;
     width: 100px;
     margin-left: 8%;
+    cursor: pointer;
 }
 
 .cartItemText {
@@ -70,4 +71,17 @@
 
 .cart-totals td {
     text-align: right;
+}
+
+h1.deleteCartItem {
+    cursor: pointer;
+}
+
+li.cartItemName {
+    cursor: pointer;
+}
+
+li.cartItemName:hover {
+    color: blue;
+    text-decoration: underline;
 }

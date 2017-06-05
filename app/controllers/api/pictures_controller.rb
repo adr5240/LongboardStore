@@ -6,12 +6,12 @@ class Api::PicturesController < ApplicationController
     end
 
     def index
-        @pictures = Picture.where(picturable_type: params[:picturable_type])
+        @pictures = Picture.where(picture_params)
         render :index
     end
 
     def show
-        @pictures = Picture.where(picturable_type: params[:picturable_type], picturable_id: params[:picturable_id])
+        @pictures = Picture.where(picture_params)
         if @pictures
             render :index
         else

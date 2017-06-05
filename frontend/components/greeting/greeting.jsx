@@ -1,30 +1,67 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-function SessionLinks() {
+const DropDownStyle = {
+    display: 'none',
+};
+
+function dropDown() {
+    $( ".drop-down-menu" ).toggle();
+    $( ".dropDown" ).toggleClass("dropDownClosed");
+}
+
+function SessionLinks({img}) {
     return (
-        <div className="login-signup">
-            <img src="http://s3.amazonaws.com/longboardstore-dev/pictures/images/000/000/542/original/user.jpg?1496375021" className='profile-pic'></img>
-            <Link to="/login" className="current">Login</Link>
-            &nbsp;or&nbsp;
-            <Link to="/signup" className="current">Sign up!</Link>
+        <div className='dropDown dropDownClosed' onMouseEnter={dropDown} onMouseLeave={dropDown}>
+            <img src={img}
+                className='profile-pic'>
+            </img>
+
+            <ul className="drop-down-menu" style={DropDownStyle}>
+                <li className="dropDownItem"><a href="#/login" className="current">Login or Sign Up!</a></li>
+                <li className="dropDownItem"><a href="#/cart" className="current">Cart</a></li>
+            </ul>
         </div>
     );
 }
 
-function PersonalGreeting({currentUser, logout}) {
+function PersonalGreeting({currentUser, logout, img}) {
     return (
         <hgroup className="header-group">
+            <div className='dropDown dropDownClosed' onMouseEnter={dropDown} onMouseLeave={dropDown}>
+                <img src={img}
+                    className='profile-pic'>
+                </img>
+
+                <ul className="drop-down-menu" style={DropDownStyle}>
+                    <li className="dropDownItem"><a className="current" onClick={logout}>Log Out</a></li>
+                    <li className="dropDownItem"><a href="#/cart" className="current">Cart</a></li>
+                </ul>
+            </div>
+
             <h2 className="header-name">Hi, {currentUser.username}!</h2>
-            <img src="http://s3.amazonaws.com/longboardstore-dev/pictures/images/000/000/542/original/user.jpg?1496375021" className='profile-pic'></img>
-            <button className="header-button" onClick={logout}>Log Out</button>
         </hgroup>
     );
 }
 
-export default function Greeting(obj) {
-    let result = obj.currentUser ? <PersonalGreeting currentUser={ obj.currentUser } logout={ obj.logout } /> : <SessionLinks />;
-    return(
-        result
-    );
+class Greeting extends React.Component {
+    constructor(props) {
+		super(props);
+
+        this.state = { profPicture: {} };
+        props.fetchPicture({picture: { picturable_type: 'User' }}).then(data => this.setState({ profPicture: data.currentPicture.images }));
+	}
+
+    render() {
+        const { currentUser, logout } = this.props;
+        const img = this.state.profPicture;
+        const profPicture = Object.keys(img).length > 0 ? img[Object.keys(img)[0]][0] : '';
+
+        let result = currentUser ? <PersonalGreeting currentUser={ currentUser } img={ profPicture } logout={ logout } /> : <SessionLinks img={ profPicture } />;
+
+        return(
+            result
+        );
+    }
 }
+
+export default Greeting;

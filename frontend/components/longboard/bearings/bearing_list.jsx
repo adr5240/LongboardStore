@@ -5,7 +5,7 @@ class BearingList extends React.Component {
     constructor(props) {
 		super(props);
 
-        this.state = { bearings: [], pictures: {}, filter: { picturable_type: "Bearing" } };
+        this.state = { bearings: [], pictures: {}, filter: { picture: { picturable_type: "Bearing" }} };
         this.props.fetchBearings().then(
             data => this.setState({ bearings: data.bearings, currentBearing: data.currentBearing })
         );

@@ -1,0 +1,33 @@
+div.tile {
+    float: left;
+    margin: 25px;
+    width: 20%;
+    height: 310px;
+    max-width: 260px;
+    min-width: 230px;
+    list-style: none;
+    text-align: center;
+    display: grid;
+    cursor: pointer;
+}
+
+div.tile > img {
+    width: 100%;
+    height: auto;
+}
+
+div.deckTile {
+    height: 600px;
+}
+
+div.bearingTile {
+    height: 305px;
+}
+
+div.wheelTile {
+    height: 305px;
+}
+
+div.decks {
+    padding-bottom: 165px;
+}

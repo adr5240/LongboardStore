@@ -62,7 +62,7 @@ export const getCart = () => dispatch => (
 export const addToCart = (product) => dispatch => (
     SessionApiUtil.addToCart(product)
         .then(
-            () => dispatch(receiveErrors({responseJSON: { errors: ["Successfully added to cart!"] }})),
+            () => dispatch(receiveErrors({responseJSON: { errors: ["Item was successfully added to your cart!"] }})),
             errors => dispatch(receiveErrors(errors))
         )
 );

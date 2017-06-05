@@ -5,7 +5,7 @@ class TruckList extends React.Component {
     constructor(props) {
 		super(props);
 
-        this.state = { trucks: [], pictures: {}, filter: { picturable_type: "Truck" } };
+        this.state = { trucks: [], pictures: {}, filter: { picture: { picturable_type: "Truck" }} };
         this.props.fetchTrucks().then(
             data => this.setState({ trucks: data.trucks, currentTruck: data.currentTruck })
         );

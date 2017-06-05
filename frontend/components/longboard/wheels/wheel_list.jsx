@@ -5,7 +5,7 @@ class WheelList extends React.Component {
     constructor(props) {
 		super(props);
 
-        this.state = { wheels: [], pictures: {}, filter: { picturable_type: "Wheel" } };
+        this.state = { wheels: [], pictures: {}, filter: { picture: { picturable_type: "Wheel" }} };
         this.props.fetchWheels().then(
             data => this.setState({ wheels: data.wheels, currentWheel: data.currentWheel })
         );

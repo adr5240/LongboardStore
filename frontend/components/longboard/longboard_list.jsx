@@ -24,7 +24,7 @@ class LongboardList extends React.Component {
 
     _handleDecks(data) {
         let id = Object.keys(data.decks)[0];
-        this.props.fetchPicture({picturable_id: id, picturable_type: 'Deck'}).then(
+        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Deck'}}).then(
             data => this._handleImages('currentDeckPicture', data, id)
         );
 
@@ -33,7 +33,7 @@ class LongboardList extends React.Component {
 
     _handleWheels(data) {
         let id = Object.keys(data.wheels)[0];
-        this.props.fetchPicture({picturable_id: id, picturable_type: 'Wheel'}).then(
+        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Wheel'}}).then(
             data => this._handleImages('currentWheelPicture', data, id)
         );
 
@@ -42,7 +42,7 @@ class LongboardList extends React.Component {
 
     _handleBearings(data) {
         let id = Object.keys(data.bearings)[0];
-        this.props.fetchPicture({picturable_id: id, picturable_type: 'Bearing'}).then(
+        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Bearing'}}).then(
             data => this._handleImages('currentBearingPicture', data, id)
         );
 
@@ -51,7 +51,7 @@ class LongboardList extends React.Component {
 
     _handleTrucks(data) {
         let id = Object.keys(data.trucks)[0];
-        this.props.fetchPicture({picturable_id: id, picturable_type: 'Truck'}).then(
+        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Truck'}}).then(
             data => this._handleImages('currentTruckPicture', data, id)
         );
 

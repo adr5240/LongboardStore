@@ -5,7 +5,7 @@ class DeckList extends React.Component {
     constructor(props) {
 		super(props);
 
-        this.state = { decks: [], pictures: {}, filter: { picturable_type: "Deck" } };
+        this.state = { decks: [], pictures: {}, filter: { picture: { picturable_type: "Deck" }} };
         this.props.fetchDecks().then(
             data => this.setState({ decks: data.decks, currentDeck: data.currentDeck })
         );

@@ -1,0 +1,71 @@
+.navBar {
+    background-color: #dad9d9;
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+}
+
+.appTitle {
+    font-weight: 600;
+    font-size: 22pt;
+    float: left;
+    line-height: 50px;
+    height: 50px;
+    padding-left: 30px;
+}
+
+.login-signup, .header-name {
+    float: right;
+    line-height: 50px;
+    max-height: 50px;
+    padding-right: 30px;
+}
+
+.login-signup > a {
+    text-decoration: underline;
+}
+
+.appBody {
+    padding-top: 60px;
+}
+
+div.dropDown {
+    display: inline-block;
+    width: 180px;
+    margin-right: 20px;
+    float: right;
+}
+
+div.dropDownClosed {
+    width: 40px;
+    margin-right: 160px;
+}
+
+ul.drop-down-menu {
+    width: 100%;
+    margin-left: 4px;
+    margin-top: -3px;
+    z-index: 10;
+    background: #fff;
+}
+
+li.dropDownItem {
+    border: 1px solid black;
+    border-top: none;
+    width: 100%;
+    height: 40px;
+}
+
+li.dropDownItem:hover {
+    background: #eee;
+}
+
+a.current {
+    margin:0 auto;
+    width: 75%;
+    display: block;
+    line-height: 40px;
+}
