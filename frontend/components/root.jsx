@@ -15,11 +15,12 @@ import WheelContainer from './longboard/wheels/wheel_container';
 import WheelDetailContainer from './longboard/wheels/wheel_detail_container';
 import BearingContainer from './longboard/bearings/bearing_container';
 import BearingDetailContainer from './longboard/bearings/bearing_detail_container';
+import NavBarDropsContainer from './nav_bar_drops/nav_bar_drops_container';
 
 
 import CartContainer from './cart/cart_container';
 
-const Root = ({ store }) => {
+const Root = ({ store, context }) => {
     const isLoggedIn = () => {
         return store.getState().session.currentUser;
     }
@@ -28,6 +29,7 @@ const Root = ({ store }) => {
         <Provider store={ store }>
             <Router>
                 <App path="/">
+                    <Route path="/" component={ NavBarDropsContainer } />
                     <Route exact path="/login" render={() => (
                         isLoggedIn() ? ( <Redirect to="/"/> ) : ( <SessionFormContainer /> )
                     )}/>

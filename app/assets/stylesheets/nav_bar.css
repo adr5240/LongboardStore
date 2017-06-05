@@ -1,4 +1,4 @@
-.navBar {
+div.navBar {
     background-color: #dad9d9;
     display: block;
     position: fixed;
@@ -8,9 +8,9 @@
     border-bottom: 1px solid black;
 }
 
-.appTitle {
+a.appTitle {
     font-weight: 600;
-    font-size: 22pt;
+    font-size: 17pt;
     float: left;
     line-height: 50px;
     height: 50px;
@@ -28,11 +28,19 @@
     text-decoration: underline;
 }
 
-.appBody {
-    padding-top: 60px;
+div.appBody {
+    padding-top: 50px;
 }
 
-div.dropDown {
+div.appShop {
+    font-size: 14pt;
+    float: left;
+    line-height: 50px;
+    height: 50px;
+    padding-left: 40px;
+}
+
+div.userDropDown {
     display: inline-block;
     width: 180px;
     margin-right: 20px;
@@ -44,7 +52,7 @@ div.dropDownClosed {
     margin-right: 160px;
 }
 
-ul.drop-down-menu {
+ul.user-drop-down-menu {
     width: 100%;
     margin-left: 4px;
     margin-top: -3px;
@@ -55,8 +63,9 @@ ul.drop-down-menu {
 li.dropDownItem {
     border: 1px solid black;
     border-top: none;
-    width: 100%;
+    width: 99%;
     height: 40px;
+    text-align: center;
 }
 
 li.dropDownItem:hover {
@@ -68,4 +77,46 @@ a.current {
     width: 75%;
     display: block;
     line-height: 40px;
+}
+
+div.main-shop {
+    font-size: 14pt;
+    position: fixed;
+    float: left;
+    line-height: 50px;
+    left: 275px;
+}
+
+ul.shop-list {
+    display: none;
+    width: 150px;
+    margin-top: 1px;
+    z-index: 10;
+    background: #fff;
+}
+
+ul.shop-second-list {
+    position: absolute;
+    margin-top: 0;
+    left: 150px;
+    top: 51px;
+}
+
+div.shop-drop-down-main {
+    height: auto;
+}
+
+div.shop-drop-down {
+    height: auto;
+    width: auto;
+}
+
+ul.snowboard {
+    top: 91px;
+    border-top: 1px solid black;
+}
+
+ul.surfboard {
+    top: 132px;
+    border-top: 1px solid black;
 }

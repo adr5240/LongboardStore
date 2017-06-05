@@ -4,19 +4,19 @@ const DropDownStyle = {
     display: 'none',
 };
 
-function dropDown() {
-    $( ".drop-down-menu" ).toggle();
-    $( ".dropDown" ).toggleClass("dropDownClosed");
+function userDropDown() {
+    $( ".user-drop-down-menu" ).toggle();
+    $( ".userDropDown" ).toggleClass("dropDownClosed");
 }
 
 function SessionLinks({img}) {
     return (
-        <div className='dropDown dropDownClosed' onMouseEnter={dropDown} onMouseLeave={dropDown}>
+        <div className='userDropDown dropDownClosed' onMouseEnter={userDropDown} onMouseLeave={userDropDown}>
             <img src={img}
                 className='profile-pic'>
             </img>
 
-            <ul className="drop-down-menu" style={DropDownStyle}>
+            <ul className="user-drop-down-menu" style={DropDownStyle}>
                 <li className="dropDownItem"><a href="#/login" className="current">Login or Sign Up!</a></li>
                 <li className="dropDownItem"><a href="#/cart" className="current">Cart</a></li>
             </ul>
@@ -27,12 +27,12 @@ function SessionLinks({img}) {
 function PersonalGreeting({currentUser, logout, img}) {
     return (
         <hgroup className="header-group">
-            <div className='dropDown dropDownClosed' onMouseEnter={dropDown} onMouseLeave={dropDown}>
+            <div className='userDropDown dropDownClosed' onMouseEnter={userDropDown} onMouseLeave={userDropDown}>
                 <img src={img}
                     className='profile-pic'>
                 </img>
 
-                <ul className="drop-down-menu" style={DropDownStyle}>
+                <ul className="user-drop-down-menu" style={DropDownStyle}>
                     <li className="dropDownItem"><a className="current" onClick={logout}>Log Out</a></li>
                     <li className="dropDownItem"><a href="#/cart" className="current">Cart</a></li>
                 </ul>
