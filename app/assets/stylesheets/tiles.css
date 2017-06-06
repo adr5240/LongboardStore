@@ -16,15 +16,15 @@ div.tile > img {
     height: auto;
 }
 
-div.deckTile {
+div.decksTile {
     height: 600px;
 }
 
-div.bearingTile {
+div.bearingsTile {
     height: 305px;
 }
 
-div.wheelTile {
+div.wheelsTile {
     height: 305px;
 }
 

@@ -65,7 +65,7 @@ class WheelDetail extends React.Component {
     }
 
     backToWheels() {
-        this.props.history.push(`/longboards/wheels/`);
+        this.props.history.push(`/longboards/wheels`);
     }
 
     renderErrors() {

@@ -62,7 +62,7 @@ class TruckDetail extends React.Component {
     }
 
     backToTrucks() {
-        this.props.history.push(`/longboards/trucks/`);
+        this.props.history.push(`/longboards/trucks`);
     }
 
     renderErrors() {

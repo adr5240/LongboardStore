@@ -67,7 +67,7 @@ class DeckDetail extends React.Component {
     }
 
     backToDecks() {
-        this.props.history.push(`/longboards/decks/`);
+        this.props.history.push(`/longboards/decks`);
     }
 
     renderErrors() {

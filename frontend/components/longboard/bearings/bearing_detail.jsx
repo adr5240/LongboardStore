@@ -62,7 +62,7 @@ class BearingDetail extends React.Component {
     }
 
     backToBearings() {
-        this.props.history.push(`/longboards/bearings/`);
+        this.props.history.push(`/longboards/bearings`);
     }
 
     renderErrors() {
