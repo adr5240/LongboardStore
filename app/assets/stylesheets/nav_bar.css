@@ -65,6 +65,7 @@ li.dropDownItem {
     border-top: none;
     width: 99%;
     height: 40px;
+    line-height: 40px;
     text-align: center;
 }
 
@@ -85,6 +86,12 @@ div.main-shop {
     float: left;
     line-height: 50px;
     left: 275px;
+    width: 75px;
+    text-align: center;
+}
+
+div.main-shop:hover {
+    background: #adadad;
 }
 
 ul.shop-list {
@@ -102,8 +109,8 @@ ul.shop-second-list {
     top: 51px;
 }
 
-div.shop-drop-down-main {
-    height: auto;
+ul.shop-second-list > li {
+    cursor: pointer;
 }
 
 div.shop-drop-down {

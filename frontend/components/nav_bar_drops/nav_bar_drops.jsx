@@ -12,7 +12,8 @@ class ShopDropDown extends React.Component {
     openDropDown(type, e) {
         e.preventDefault();
         let height = $(`ul.shop-second-list`).css('height');
-        $(`.shop-drop-down-main`).css({'width': '50px', 'height': `${height}`});
+        height = parseInt(height) - 42;
+        $(`.shop-drop-down-main`).css({'width': '50px', 'height': `${height}px`});
         $(`ul.shop-second-list`).hide();
         $(`ul.shop-second-list.${type}`).show();
     }

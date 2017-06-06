@@ -1,5 +1,10 @@
 import React from 'react';
 
+import { RECEIVE_WHEELS } from '../../actions/longboard/wheel_actions';
+import { RECEIVE_TRUCKS } from '../../actions/longboard/truck_actions';
+import { RECEIVE_DECKS } from '../../actions/longboard/deck_actions';
+import { RECEIVE_BEARINGS } from '../../actions/longboard/bearing_actions';
+
 class LongboardList extends React.Component {
     constructor(props) {
 		super(props);
@@ -7,59 +12,32 @@ class LongboardList extends React.Component {
         this.state = { currentDeckPicture: '', currentWheelPicture: '', currentBearingPicture: '', currentTruckPicture: '' };
 
         this.props.fetchDecks().then(
-            data => this._handleDecks(data)
+            data => this._handleProducts(data, "Deck")
         );
         this.props.fetchTrucks().then(
-            data => this._handleTrucks(data)
+            data => this._handleProducts(data, "Truck")
         );
         this.props.fetchWheels().then(
-            data => this._handleWheels(data)
+            data => this._handleProducts(data, "Wheel")
         );
         this.props.fetchBearings().then(
-            data => this._handleBearings(data)
+            data => this._handleProducts(data, "Bearing")
         );
 
         this._handleClick = this._handleClick.bind(this);
 	}
 
-    _handleDecks(data) {
-        let id = Object.keys(data.decks)[0];
-        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Deck'}}).then(
-            data => this._handleImages('currentDeckPicture', data, id)
-        );
+    _handleProducts(data, itemType) {
+        let id = Object.keys(data[itemType.toLowerCase() + 's'])[0],
+            pictureType = 'current' + itemType + 'Picture';
 
-        this.setState({ decks: data.decks });
+        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: itemType}}).then(
+            data => this._handleImages(pictureType, data, id)
+        );
     }
 
-    _handleWheels(data) {
-        let id = Object.keys(data.wheels)[0];
-        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Wheel'}}).then(
-            data => this._handleImages('currentWheelPicture', data, id)
-        );
-
-        this.setState({ wheels: data.wheels });
-    }
-
-    _handleBearings(data) {
-        let id = Object.keys(data.bearings)[0];
-        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Bearing'}}).then(
-            data => this._handleImages('currentBearingPicture', data, id)
-        );
-
-        this.setState({ bearings: data.bearings });
-    }
-
-    _handleTrucks(data) {
-        let id = Object.keys(data.trucks)[0];
-        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: 'Truck'}}).then(
-            data => this._handleImages('currentTruckPicture', data, id)
-        );
-
-        this.setState({ trucks: data.trucks });
-    }
-
-    _handleImages(type, data, id) {
-        this.setState({ [type]: data.currentPicture.images[id][0] });
+    _handleImages(pictureType, data, id) {
+        this.setState({ [pictureType]: data.currentPicture.images[id][0] });
     }
 
     _handleClick(e) {
@@ -68,50 +46,23 @@ class LongboardList extends React.Component {
         this.props.history.push(`/longboards/${name}`);
     }
 
+    drawTile(type) {
+        let src = "current" + type + "Picture";
+        return(
+            <div className={`${type.toLowerCase()}s tile`} onClick={ this._handleClick }>
+                <img src={ this.state[src] }></img>
+                <h3>{type + 's'}</h3>
+            </div>
+        );
+    }
+
     render() {
-        let decks = <div>wait for it....</div>,
-            trucks = <div></div>,
-            wheels = <div></div>,
-            bearings = <div></div>;
-
-        if(this.props.decks.length > 0 && this.props.trucks.length > 0 && this.props.wheels.length > 0 && this.props.bearings.length > 0) {
-            let currentDeck = this.props.decks[0],
-                currentTruck = this.props.trucks[0],
-                currentWheel = this.props.wheels[0],
-                currentBearing = this.props.bearings[0];
-
-            decks = (
-                <div className="decks tile" onClick={ this._handleClick }>
-                    <img src={ this.state.currentDeckPicture } />
-                    <h3>Decks</h3>
-                </div>
-            );
-            trucks = (
-                <div className="trucks tile" onClick={ this._handleClick }>
-                    <img src={ this.state.currentTruckPicture } />
-                    <h3>Trucks</h3>
-                </div>
-            );
-            wheels = (
-                <div className="wheels tile" onClick={ this._handleClick }>
-                    <img src={ this.state.currentWheelPicture } />
-                    <h3>Wheels</h3>
-                </div>
-            );
-            bearings = (
-                <div className="bearings tile" onClick={ this._handleClick }>
-                    <img src={ this.state.currentBearingPicture } />
-                    <h3>Bearings</h3>
-                </div>
-            );
-        }
-
         return (
             <div className="appBody">
-                { decks }
-                { trucks }
-                { wheels }
-                { bearings }
+                { this.drawTile('Deck') }
+                { this.drawTile('Truck') }
+                { this.drawTile('Wheel') }
+                { this.drawTile('Bearing') }
             </div>
         );
     }
