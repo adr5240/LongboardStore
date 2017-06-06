@@ -8,10 +8,6 @@ import { fetchPictures } from '../../../actions/longboard/picture_actions';
 
 import ProductList from './product_list.jsx';
 
-const mapStateToProps = (state) => ({
-        state: state
-});
-
 const mapDispatchToProps = dispatch => ({
     fetchDecks: () => dispatch(fetchDecks()),
     fetchBearings: () => dispatch(fetchBearings()),
@@ -21,6 +17,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(ProductList);

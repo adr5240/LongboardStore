@@ -1,10 +1,5 @@
 import React from 'react';
 
-import { RECEIVE_WHEELS } from '../../actions/longboard/wheel_actions';
-import { RECEIVE_TRUCKS } from '../../actions/longboard/truck_actions';
-import { RECEIVE_DECKS } from '../../actions/longboard/deck_actions';
-import { RECEIVE_BEARINGS } from '../../actions/longboard/bearing_actions';
-
 class LongboardList extends React.Component {
     constructor(props) {
 		super(props);
@@ -23,8 +18,6 @@ class LongboardList extends React.Component {
         this.props.fetchBearings().then(
             data => this._handleProducts(data, "Bearing")
         );
-
-        this._handleClick = this._handleClick.bind(this);
 	}
 
     _handleProducts(data, itemType) {
@@ -49,7 +42,7 @@ class LongboardList extends React.Component {
     drawTile(type) {
         let src = "current" + type + "Picture";
         return(
-            <div className={`${type.toLowerCase()}s tile`} onClick={ this._handleClick }>
+            <div className={`${type.toLowerCase()}s tile`} onClick={ this._handleClick.bind(this) }>
                 <img src={ this.state[src] }></img>
                 <h3>{type + 's'}</h3>
             </div>

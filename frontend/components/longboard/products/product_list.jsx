@@ -1,10 +1,7 @@
 import React from 'react';
 
 import ProductListItem from './product_list_item';
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import { capitalizeFirstLetter } from '../../../util/misc_util';
 
 class ProductList extends React.Component {
     constructor(props) {
@@ -14,7 +11,7 @@ class ProductList extends React.Component {
         this.picType = capitalizeFirstLetter(this.listType).slice(0, -1);
 
         this.state = { products: [], pictures: {}, filter: { picture: { picturable_type: this.picType }} };
-        
+
         let callback = `fetch${this.picType}s`;
 
         this.props[callback]().then(
