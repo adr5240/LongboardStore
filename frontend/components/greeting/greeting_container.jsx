@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, clearErrors } from '../../actions/session_actions';
 import { fetchPicture } from '../../actions/longboard/picture_actions';
 import Greeting from './greeting.jsx';
 
@@ -10,7 +10,8 @@ const mapStateToProps = ({ session, pictures }) => ({
 
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
-    fetchPicture: filter => dispatch(fetchPicture(filter))
+    fetchPicture: filter => dispatch(fetchPicture(filter)),
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

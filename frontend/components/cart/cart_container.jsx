@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { getCart, updateCartItem, deleteCartItem } from '../../actions/session_actions';
-import { fetchPicture } from '../../actions/longboard/picture_actions';
 import Cart from './cart.jsx';
 
-const mapStateToProps = (state) => ({
-    currentOrder: state.session.currentOrder
+const mapStateToProps = ({session, errors}) => ({
+    currentOrder: session.currentOrder,
+    errors: errors.errors
 });
 
 const mapDispatchToProps = dispatch => ({

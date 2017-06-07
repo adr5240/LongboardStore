@@ -45,11 +45,12 @@ class SessionForm extends React.Component {
 	switchForm(e) {
 		let location = this.props.formType;
 		let str = location == 'login' ? '/signup' : '/login';
+		this.props.clearErrors();
 		this.props.history.push(str);
 	}
 
 	renderErrors() {
-		if(this.props.errors) {
+		if(this.props.errors.length > 0) {
 			return(
 				<ul>
 					{this.props.errors.map((error, i) => (

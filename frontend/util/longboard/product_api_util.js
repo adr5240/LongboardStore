@@ -1,7 +1,8 @@
-export const fetchBearings = () => {
+export const fetchItems = (item_type, filter) => {
     return $.ajax({
         method: 'GET',
-        url: "/api/bearings",
+        url: `/api/${item_type}`,
+        data: filter,
         success: function(data) {
             return data;
         },
@@ -11,10 +12,11 @@ export const fetchBearings = () => {
     });
 };
 
-export const fetchBearing = (bearing_id) => {
+export const fetchItem = (item_type, item_id, filter) => {
     return $.ajax({
         method: 'GET',
-        url: `/api/bearings/${bearing_id}`,
+        url: `/api/${item_type}/${item_id}`,
+        data: filter,
         success: function(data) {
             return data;
         },

@@ -1,4 +1,4 @@
-import * as BearingApiUtil from '../../util/longboard/bearing_api_util';
+import * as ProductApiUtil from '../../util/longboard/product_api_util';
 
 export const RECEIVE_BEARINGS = 'RECEIVE_BEARINGS';
 export const RECEIVE_BEARING = 'RECEIVE_BEARING';
@@ -19,16 +19,16 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const fetchBearings = () => dispatch => (
-    BearingApiUtil.fetchBearings()
+export const fetchBearings = (filter) => dispatch => (
+    ProductApiUtil.fetchItems("bearings", filter)
         .then(
             bearings => dispatch(receiveBearings(bearings)),
             errors => dispatch(receiveErrors(errors))
         )
 );
 
-export const fetchBearing = bearing_id => dispatch => (
-    BearingApiUtil.fetchBearing(bearing_id)
+export const fetchBearing = (bearing_id) => dispatch => (
+    ProductApiUtil.fetchItem("bearings", bearing_id)
         .then(
             currentBearing => dispatch(receiveBearing(currentBearing)),
             errors => dispatch(receiveErrors(errors))

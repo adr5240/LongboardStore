@@ -1,4 +1,4 @@
-import * as TruckApiUtil from '../../util/longboard/truck_api_util';
+import * as ProductApiUtil from '../../util/longboard/product_api_util';
 
 export const RECEIVE_TRUCKS = 'RECEIVE_TRUCKS';
 export const RECEIVE_TRUCK = 'RECEIVE_TRUCK';
@@ -19,8 +19,8 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const fetchTrucks = () => dispatch => (
-    TruckApiUtil.fetchTrucks()
+export const fetchTrucks = (filter) => dispatch => (
+    ProductApiUtil.fetchItems("trucks", filter)
         .then(
             trucks => dispatch(receiveTrucks(trucks)),
             errors => dispatch(receiveErrors(errors))
@@ -28,7 +28,7 @@ export const fetchTrucks = () => dispatch => (
 );
 
 export const fetchTruck = truck_id => dispatch => (
-    TruckApiUtil.fetchTruck(truck_id)
+    ProductApiUtil.fetchItem("trucks", truck_id)
         .then(
             currentTruck => dispatch(receiveTruck(currentTruck)),
             errors => dispatch(receiveErrors(errors))

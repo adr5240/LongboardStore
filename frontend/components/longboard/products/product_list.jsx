@@ -14,7 +14,9 @@ class ProductList extends React.Component {
 
         let callback = `fetch${this.picType}s`;
 
-        this.props[callback]().then(
+        let filter = { filter: {}};
+
+        this.props[callback](filter).then(
             data => this.setState({ products: data[this.listType], currentProduct: data["current" + this.picType] })
         );
         this.props.fetchPictures(this.state.filter).then(

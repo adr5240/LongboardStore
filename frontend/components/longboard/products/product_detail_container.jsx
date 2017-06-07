@@ -8,6 +8,10 @@ import { addToCart } from '../../../actions/session_actions';
 
 import ProductDetail from './product_detail.jsx';
 
+const mapStateToProps = ({errors}) => ({
+        errors: errors.errors
+});
+
 const mapDispatchToProps = dispatch => ({
     fetchDeck: id => dispatch(fetchDeck(id)),
     fetchBearing: id => dispatch(fetchBearing(id)),
@@ -17,6 +21,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(ProductDetail);

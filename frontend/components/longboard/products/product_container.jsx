@@ -8,11 +8,12 @@ import { fetchPictures } from '../../../actions/longboard/picture_actions';
 
 import ProductList from './product_list.jsx';
 
+
 const mapDispatchToProps = dispatch => ({
-    fetchDecks: () => dispatch(fetchDecks()),
-    fetchBearings: () => dispatch(fetchBearings()),
-    fetchTrucks: () => dispatch(fetchTrucks()),
-    fetchWheels: () => dispatch(fetchWheels()),
+    fetchDecks: (filter) => dispatch(fetchDecks(filter)),
+    fetchBearings: (filter) => dispatch(fetchBearings(filter)),
+    fetchTrucks: (filter) => dispatch(fetchTrucks(filter)),
+    fetchWheels: (filter) => dispatch(fetchWheels(filter)),
     fetchPictures: filter => dispatch(fetchPictures(filter))
 });
 

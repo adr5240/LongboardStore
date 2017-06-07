@@ -1,4 +1,4 @@
-import * as WheelApiUtil from '../../util/longboard/wheel_api_util';
+import * as ProductApiUtil from '../../util/longboard/product_api_util';
 
 export const RECEIVE_WHEELS = 'RECEIVE_WHEELS';
 export const RECEIVE_WHEEL = 'RECEIVE_WHEEL';
@@ -19,8 +19,8 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const fetchWheels = () => dispatch => (
-    WheelApiUtil.fetchWheels()
+export const fetchWheels = (filter) => dispatch => (
+    ProductApiUtil.fetchItems("wheels", filter)
         .then(
             wheels => dispatch(receiveWheels(wheels)),
             errors => dispatch(receiveErrors(errors))
@@ -28,7 +28,7 @@ export const fetchWheels = () => dispatch => (
 );
 
 export const fetchWheel = wheel_id => dispatch => (
-    WheelApiUtil.fetchWheel(wheel_id)
+    ProductApiUtil.fetchItem("wheels", wheel_id)
         .then(
             currentWheel => dispatch(receiveWheel(currentWheel)),
             errors => dispatch(receiveErrors(errors))

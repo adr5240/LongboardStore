@@ -1,9 +1,8 @@
-import { RECEIVE_WHEELS, RECEIVE_WHEEL, RECEIVE_ERRORS } from '../../actions/longboard/wheel_actions';
+import { RECEIVE_WHEELS, RECEIVE_WHEEL } from '../../actions/longboard/wheel_actions';
 
 const initialState = {
     wheels: {},
-    currentWheel: null,
-    errors: []
+    currentWheel: null
 };
 
 const wheelsReducer = (state = initialState, action) => {
@@ -12,15 +11,11 @@ const wheelsReducer = (state = initialState, action) => {
     switch(action.type) {
         case RECEIVE_WHEELS:
             const wheels = action.wheels;
-            newState = Object.assign({}, state, { wheels }, { errors: [], currentWheel: null });
+            newState = Object.assign({}, state, { wheels }, { currentWheel: null });
             return newState;
         case RECEIVE_WHEEL:
             const currentWheel = action.currentWheel;
-            newState = Object.assign({}, state, { currentWheel }, { errors: [] });
-            return newState;
-        case RECEIVE_ERRORS:
-            const errors = action.errors.responseJSON.errors;
-            newState = Object.assign({}, state, { errors });
+            newState = Object.assign({}, state, { currentWheel });
             return newState;
         default:
             return state;

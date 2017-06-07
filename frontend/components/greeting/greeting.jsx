@@ -9,7 +9,7 @@ function userDropDown() {
     $( ".userDropDown" ).toggleClass("dropDownClosed");
 }
 
-function SessionLinks({img}) {
+function SessionLinks({img, clearErrors}) {
     return (
         <div className='userDropDown dropDownClosed' onMouseEnter={userDropDown} onMouseLeave={userDropDown}>
             <img src={img}
@@ -17,7 +17,7 @@ function SessionLinks({img}) {
             </img>
 
             <ul className="user-drop-down-menu" style={DropDownStyle}>
-                <li className="dropDownItem"><a href="#/login" className="current">Login or Sign Up!</a></li>
+                <li className="dropDownItem"><a href="#/login" className="current" onClick={clearErrors}>Login or Sign Up!</a></li>
                 <li className="dropDownItem"><a href="#/cart" className="current">Cart</a></li>
             </ul>
         </div>
@@ -52,11 +52,11 @@ class Greeting extends React.Component {
 	}
 
     render() {
-        const { currentUser, logout } = this.props;
+        const { currentUser, logout, clearErrors } = this.props;
         const img = this.state.profPicture;
         const profPicture = Object.keys(img).length > 0 ? img[Object.keys(img)[0]][0] : '';
 
-        let result = currentUser ? <PersonalGreeting currentUser={ currentUser } img={ profPicture } logout={ logout } /> : <SessionLinks img={ profPicture } />;
+        let result = currentUser ? <PersonalGreeting currentUser={ currentUser } img={ profPicture } logout={ logout } /> : <SessionLinks img={ profPicture } clearErrors={ clearErrors } />;
 
         return(
             result

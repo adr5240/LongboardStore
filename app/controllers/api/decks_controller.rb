@@ -10,7 +10,8 @@ class Api::DecksController < ApplicationController
     end
 
     def index
-        @decks = Deck.all
+        debugger
+        @decks = params[:filter] ? filter() : Deck.all
         render :index
     end
 
@@ -43,8 +44,38 @@ class Api::DecksController < ApplicationController
         end
     end
 
+    private
+
     def deck_params
         params.require(:deck).permit(:name, :brand, :description, :concave, :flex, :mount,
                                      :traction, :shape, :price, :length, :width, :wheelbase)
+    end
+
+    def filter_params
+        params.require(:filter).permit(brand: [], mount: [], shape: [], concave: [], flex: [], traction: [])
+    end
+
+    def filter
+        price = params[:filter] ? params[:filter][:price] : -1
+        length = params[:filter] ? params[:filter][:length] : -1
+        decks = Deck.where(filter_params)
+
+        # Deck.all.select(:brand).group_by(&:brand).keys() TODO fix search
+
+        decks = case price
+                when "1" then decks.select{ |x| x.price < 10000 }
+                when "2" then decks.select{ |x| x.price > 10000 && x.price < 20000 }
+                when "3" then decks.select{ |x| x.price > 20000 }
+                else decks
+        end
+
+        decks = case length
+                when "1" then decks.select{ |x| x.length < 32 }
+                when "2" then decks.select{ |x| x.length > 32 && x.length < 37 }
+                when "3" then decks.select{ |x| x.length > 37 }
+                else decks
+        end
+
+        return decks
     end
 end

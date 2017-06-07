@@ -1,9 +1,8 @@
-import { RECEIVE_PICTURES, RECEIVE_PICTURE, RECEIVE_ERRORS } from '../../actions/longboard/picture_actions';
+import { RECEIVE_PICTURES, RECEIVE_PICTURE } from '../../actions/longboard/picture_actions';
 
 const initialState = {
     pictures: {},
-    currentPicture: {},
-    errors: []
+    currentPicture: {}
 };
 
 const picturesReducer = (state = initialState, action) => {
@@ -12,15 +11,11 @@ const picturesReducer = (state = initialState, action) => {
     switch(action.type) {
         case RECEIVE_PICTURES:
             const pictures = action.pictures;
-            newState = Object.assign({}, state, { pictures }, { errors: [] });
+            newState = Object.assign({}, state, { pictures });
             return newState;
         case RECEIVE_PICTURE:
             const currentPicture = action.currentPicture;
-            newState = Object.assign({}, state, { currentPicture }, { errors: [] });
-            return newState;
-        case RECEIVE_ERRORS:
-            const errors = action.errors.responseJSON.errors;
-            newState = Object.assign({}, state, { errors });
+            newState = Object.assign({}, state, { currentPicture });
             return newState;
         default:
             return state;

@@ -1,9 +1,8 @@
-import { RECEIVE_BEARINGS, RECEIVE_BEARING, RECEIVE_ERRORS } from '../../actions/longboard/bearing_actions';
+import { RECEIVE_BEARINGS, RECEIVE_BEARING } from '../../actions/longboard/bearing_actions';
 
 const initialState = {
     bearings: {},
-    currentBearing: null,
-    errors: []
+    currentBearing: null
 };
 
 const bearingsReducer = (state = initialState, action) => {
@@ -12,15 +11,11 @@ const bearingsReducer = (state = initialState, action) => {
     switch(action.type) {
         case RECEIVE_BEARINGS:
             const bearings = action.bearings;
-            newState = Object.assign({}, state, { bearings }, { errors: [], currentBearing: null });
+            newState = Object.assign({}, state, { bearings }, { currentBearing: null });
             return newState;
         case RECEIVE_BEARING:
             const currentBearing = action.currentBearing;
-            newState = Object.assign({}, state, { currentBearing }, { errors: [] });
-            return newState;
-        case RECEIVE_ERRORS:
-            const errors = action.errors.responseJSON.errors;
-            newState = Object.assign({}, state, { errors });
+            newState = Object.assign({}, state, { currentBearing });
             return newState;
         default:
             return state;

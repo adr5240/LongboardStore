@@ -1,9 +1,8 @@
-import { RECEIVE_TRUCKS, RECEIVE_TRUCK, RECEIVE_ERRORS } from '../../actions/longboard/truck_actions';
+import { RECEIVE_TRUCKS, RECEIVE_TRUCK } from '../../actions/longboard/truck_actions';
 
 const initialState = {
     trucks: {},
-    currentTruck: null,
-    errors: []
+    currentTruck: null
 };
 
 const trucksReducer = (state = initialState, action) => {
@@ -12,15 +11,11 @@ const trucksReducer = (state = initialState, action) => {
     switch(action.type) {
         case RECEIVE_TRUCKS:
             const trucks = action.trucks;
-            newState = Object.assign({}, state, { trucks }, { errors: [], currentTruck: null });
+            newState = Object.assign({}, state, { trucks }, { currentTruck: null });
             return newState;
         case RECEIVE_TRUCK:
             const currentTruck = action.currentTruck;
-            newState = Object.assign({}, state, { currentTruck }, { errors: [] });
-            return newState;
-        case RECEIVE_ERRORS:
-            const errors = action.errors.responseJSON.errors;
-            newState = Object.assign({}, state, { errors });
+            newState = Object.assign({}, state, { currentTruck });
             return newState;
         default:
             return state;
