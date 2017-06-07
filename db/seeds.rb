@@ -1,19 +1,25 @@
 BRANDS = {
+    abec11: "ABEC 11",
     arbor: "Arbor",
     arsenal: "Arsenal",
     atlas: "Atlas",
     bear: "Bear",
     blank: "Blank",
+    bloodOrange: "Blood Orange",
+    bones: "Bones",
     bronson: "Bronson",
     bustin: "Bustin",
+    cadillac: "Cadillac",
     caliber: "Caliber",
     goldcoast: "Goldcoast",
     gullwing: "Gullwing",
+    holesom: "Holesom",
     independent: "Independent",
     kryptonics: "Kryptonics",
     landyachtz: "Landyachtz",
     loaded: "Loaded",
     neverSummer: "Never Summer",
+    oust: "Oust",
     randal: "Randal",
     restless: "Restless",
     rush: "Rush",
@@ -22,6 +28,7 @@ BRANDS = {
     system: "System",
     slant: "Slant",
     tracker: "Tracker",
+    zealous: "Zealous"
 }
 
 
@@ -345,35 +352,91 @@ HUB = {
 
 w = {
     w1: Wheel.create(name: 'Arbor Sucrose Bogart 61mm 78a Wheels', brand: BRANDS[:arbor],
-        description: "The Arbor 61mm 78a Bogart wheels are designed for freeriding, carving, and cruising. The firm durometer maintains speed over smooth surfaces. The rounded lips and stoneground surface produce natural slides.",
-        lip_profile: LIP[:rounded], hub_placement: HUB[:slight], price: 3600, diameter: 61, durometer: 78, width: 45),
+                     description: "The Arbor 61mm 78a Bogart wheels are designed for freeriding, carving, and cruising. The firm durometer maintains speed over smooth surfaces. The rounded lips and stoneground surface produce natural slides.",
+                     lip_profile: LIP[:rounded], hub_placement: HUB[:slight], price: 3600, diameter: 61, durometer: 78, width: 45),
 
     w2: Wheel.create(name: 'Arbor Sucrose Vice 69mm 80a Wheels', brand: BRANDS[:arbor],
-        description: "The Arbor Vice 69mm 80a wheels are designed for freeriding. With rounded lips and stoneground surface for sliding, the firm durometer maintains a quick roll speed.",
-        lip_profile: LIP[:rounded], hub_placement: HUB[:off], price: 4600, diameter: 69, durometer: 80, width: 45),
+                     description: "The Arbor Vice 69mm 80a wheels are designed for freeriding. With rounded lips and stoneground surface for sliding, the firm durometer maintains a quick roll speed.",
+                     lip_profile: LIP[:rounded], hub_placement: HUB[:off], price: 4600, diameter: 69, durometer: 80, width: 45),
 
     w3: Wheel.create(name: 'Santa Cruz Slime Balls 66mm 78a Wheels', brand: BRANDS[:santaCruz],
-        description: "The Santa Cruz Slime Balls 66mm 78a Wheels are designed for cruising. With rounded lips for grip, the soft durometer reduces shock over rough terrain.",
-        lip_profile: LIP[:rounded], hub_placement: HUB[:center], price: 3700, diameter: 66, durometer: 78, width: 47),
+                     description: "The Santa Cruz Slime Balls 66mm 78a Wheels are designed for cruising. With rounded lips for grip, the soft durometer reduces shock over rough terrain.",
+                     lip_profile: LIP[:rounded], hub_placement: HUB[:center], price: 3700, diameter: 66, durometer: 78, width: 47),
 
     w4: Wheel.create(name: 'Blank 70mm 78a Wheels', brand: BRANDS[:blank], description: "Description coming soon!",
-        lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 4000, diameter: 70, durometer: 78, width: 55),
+                     lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 4000, diameter: 70, durometer: 78, width: 55),
 
     w5: Wheel.create(name: 'Kryptonics Star Trac 65mm 82a Pink Wheels', brand: BRANDS[:kryptonics],
-        description: "The Star Trac 65mm 82a wheels are designed for park, pool, cruising and carving. With sideset hubs for sliding, the firm durometer maintains speed over smooth surfaces.",
-        lip_profile: LIP[:squared], hub_placement: HUB[:side], price: 3200, diameter: 65, durometer: 82, width: 44),
+                     description: "The Star Trac 65mm 82a wheels are designed for park, pool, cruising and carving. With sideset hubs for sliding, the firm durometer maintains speed over smooth surfaces.",
+                     lip_profile: LIP[:squared], hub_placement: HUB[:side], price: 3200, diameter: 65, durometer: 82, width: 44),
 
     w6: Wheel.create(name: 'Kryptonics Star Trac 65mm 86a Green Wheels', brand: BRANDS[:kryptonics],
-        description: "The Kryptonics Star Trac 65mm 86a Green wheels are designed for park, pool, carving and cruising. With a sideset hub for sliding, the hard durometer maintains a quick roll speed over smooth terrain.",
-        lip_profile: LIP[:squared], hub_placement: HUB[:side], price: 3200, diameter: 65, durometer: 86, width: 44),
+                     description: "The Kryptonics Star Trac 65mm 86a Green wheels are designed for park, pool, carving and cruising. With a sideset hub for sliding, the hard durometer maintains a quick roll speed over smooth terrain.",
+                     lip_profile: LIP[:squared], hub_placement: HUB[:side], price: 3200, diameter: 65, durometer: 86, width: 44),
 
     w7: Wheel.create(name: 'Kryptonics Star Trac 75mm 86a Green Wheels', brand: BRANDS[:kryptonics],
-        description: "The Kryptonics Star Trac 75mm 86a Green wheels are designed for downhill, carving, cruising. With a firm durometer for speed over smooth terrain, the squared lips provide grip.",
-        lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 4000, diameter: 75, durometer: 78, width: 50),
+                     description: "The Kryptonics Star Trac 75mm 86a Green wheels are designed for downhill, carving, cruising. With a firm durometer for speed over smooth terrain, the squared lips provide grip.",
+                     lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 4000, diameter: 75, durometer: 78, width: 50),
 
-    # w1: Wheel.create(name: '', brand: BRANDS[:(FILL),
-    #                  description: "",
-    #                  lip_profile: LIP.(FILL), hub_placement: HUB.(FILL), price: , diameter: , durometer: , width: ),
+    w8: Wheel.create(name: 'ABEC 11 Retro Skwertz 62mm 96a Wheels', brand: BRANDS[:abec11],
+                     description: "The Abec 11 Noskoolz 65mm 96a wheels are designed for freeriding, park, and cruising. With a hard durometer to maintain a fast roll speed, the rounded lips are preferred for sliding.",
+                     lip_profile: LIP[:rounded], hub_placement: HUB[:center], price: 2800, diameter: 62, durometer: 96, width: 39),
+
+    w9: Wheel.create(name: 'ABEC 11 Noskoolz 65mm 96a Wheels', brand: BRANDS[:abec11],
+                     description: "The Abec 11 Retro Skwertz 62mm 96a wheels are designed for park skating. With a compact size for agility, the hard durometer maintains a fast roll speed.",
+                     lip_profile: LIP[:rounded], hub_placement: HUB[:center], price: 4000, diameter: 65, durometer: 96, width: 52),
+
+    w10: Wheel.create(name: 'ABEC 11 Retro Erniez 65mm 81a Wheels', brand: BRANDS[:abec11],
+                      description: "The Abec 11 Retro Erniez 65mm 81a wheels are designed for park skating and cruising. With a firm durometer to maintain speed, the compact size is maneuverable for tricks.",
+                      lip_profile: LIP[:rounded], hub_placement: HUB[:side], price: 3900, diameter: 65, durometer: 81, width: 42),
+
+    w11: Wheel.create(name: 'ABEC 11 ZigZags 66mm 83a Wheels', brand: BRANDS[:abec11],
+                      description: "The Abec 11 ZigZags 66mm 83a wheels are designed for carving and cruising. With squared lips for grip, the firm durometer maintains speed over smooth terrain.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 3800, diameter: 66, durometer: 83, width: 51),
+
+    w12: Wheel.create(name: 'ABEC 11 ZigZags 66mm 86a Wheels', brand: BRANDS[:abec11],
+                      description: "The ZigZags 66mm 86a wheels are designed for carving and cruising. With a hard durometer to maintain speed over smooth terrain, the squared lips provide grip.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 4200, diameter: 66, durometer: 86, width: 51),
+
+    w13: Wheel.create(name: 'ABEC 11 ZigZags 66mm 89a Wheels', brand: BRANDS[:abec11],
+                      description: "The Abec 11 ZigZags 66mm 89a wheels are designed for carving and cruising. With squared lips for gip, the hard durometer maintains speed over smooth terrain.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 4500, diameter: 66, durometer: 89, width: 51),
+
+    w14: Wheel.create(name: 'ABEC 11 Retro Freeride 72mm 80a Wheels', brand: BRANDS[:abec11],
+                      description: "The Abec 11 Retro Freeride 72mm 80a wheels are designed for freeriding, downhill, and cruising. With rounded lips for sliding, the firm durometer make maintains a quick roll speed.",
+                      lip_profile: LIP[:rounded], hub_placement: HUB[:off], price: 3700, diameter: 72, durometer: 80, width: 45),
+
+    w15: Wheel.create(name: 'Blood Orange Alpine MPF 73mm 78a Wheels', brand: BRANDS[:bloodOrange],
+                      description: "The Blood Orange Alpine MPF 73mm 78a wheels are designed for downhill and cruising. With squared lips for grip, the soft durometer reduces vibration.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 5000, diameter: 73, durometer: 78, width: 45),
+
+    w16: Wheel.create(name: 'Blood Orange Alpine MPF 70mm 82a Wheels', brand: BRANDS[:bloodOrange],
+                      description: "The Blood Orange Alpine MPF 73mm 82a wheels are designed for downhill and cruising. With squared lips for grip, the firm durometer maintains a quick roll speed.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 5000, diameter: 70, durometer: 82, width: 45),
+
+    w17: Wheel.create(name: 'Bustin Five-O Royce Pro 64mm 80a Wheels', brand: BRANDS[:bustin],
+                      description: "The Bustin Five-O Royce Pro 64mm 80a wheels are designed for freeriding and cruising. Known for leaving behind huge thane lines, the stoneground surface and rounded lips break into slides with ease. The hard durometer maintains a fast roll speed over smooth terrain.",
+                      lip_profile: LIP[:rounded], hub_placement: HUB[:center], price: 3500, diameter: 64, durometer: 80, width: 42),
+
+    w18: Wheel.create(name: 'Bustin Premier Formula 66mm 78a Wheels', brand: BRANDS[:bustin],
+                      description: "The Bustin Premier Formula 66mm 78a wheels are designed for carving, and cruising. With squared lips for grip, the soft durometer absorbs shock from rough terrain.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 3800, diameter: 66, durometer: 78, width: 57),
+
+    w19: Wheel.create(name: 'Cadillac Classic Two 70mm 80a Wheels', brand: BRANDS[:cadillac],
+                      description: "The Cadillac Classic Two 70mm 80a wheels are designed for carving and cruising. With a firm durometer to maintain speed, the squared lips provide grip.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:slight], price: 4300, diameter: 70, durometer: 80, width: 50),
+
+    w20: Wheel.create(name: 'Cadillac Crushers 69mm 78a Wheels', brand: BRANDS[:cadillac],
+                      description: "The Cadillac Crushers 69mm 78a wheels are designed for carving and cruising. With square lips for grip, the firm durometer maintains a quick roll speed over smooth terrain.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:slight], price: 4800, diameter: 69, durometer: 78, width: 55),
+
+    w21: Wheel.create(name: 'Cadillac White Walls 59mm 78a Wheels', brand: BRANDS[:cadillac],
+                      description: "The Cadillac White Walls 59mm 78a wheels are designed for caving and cruising. With a square lip for grip, the soft durometer absorbs vibration over rough terrain.",
+                      lip_profile: LIP[:squared], hub_placement: HUB[:off], price: 3200, diameter: 59, durometer: 78, width: 43),
+
+    # w11: Wheel.create(name: '', brand: BRANDS[:FILL],
+    #                   description: "",
+    #                   lip_profile: LIP[:FILL], hub_placement: HUB[:FILL], price: , diameter: , durometer: , width: ),
 }
 
 
@@ -385,6 +448,7 @@ w = {
 Bearing.destroy_all
 
 MATERIAL = {
+    ceramic: "Ceramic",
     steel: "Stainless Steel"
 }
 
@@ -436,7 +500,79 @@ b = {
                         price: 1600, rating: RATING[:non],
                         description: "The Atlas Blackout Built-In 8mm Bearings have built in bearing spacers for continuous alignment. These come pre-lubricated for continuous use."),
 
-    # b1: Bearing.create(name: "", brand: "", material: "", price: , rating: "",
+    b11: Bearing.create(name: "Bustin 6-Ball Bearings w/ Built-In Spacers", brand: BRANDS[:bustin], material: MATERIAL[:steel],
+                        price: 4995, rating: RATING[:non],
+                        description: "Bustin 6-Balls are for the racer or the long distance pusher. Larger radius ball bearings mean a higher roll speed and momentum. They come pre-lubricated with Skate Designed grease - developed in the lab to keep dirt out
+                                      Removable inner and outer Shields - cleans easy, stays that way. Stockage Shields - specifically designed to keep more grit out. High-grade P5 Stainless Steel - only the best materials make the best bearings. Full-Pipe Races - extended inner races meet in the middle of the wheel to perfect wheel alignment"),
+
+    b12: Bearing.create(name: "Bones Reds Race Bearings w/ Built-In Spacers", brand: BRANDS[:bones], material: MATERIAL[:steel],
+                        price: 2795, rating: RATING[:non],
+                        description: "Bones Reds have been the staple in bearings for many years now. They're fast, durable, and more importantly, won't break the bank. Bones decided to step it up for the downhill scene and took the ever popular Bones Reds and added extended inner races. Less parts for a faster setup. Spend less time changing wheels, and more time skating. Never worry about speed rings or bearing spacers ever again!"),
+
+    b13: Bearing.create(name: "Bronson \"G3\" Next Generation Bearings", brand: BRANDS[:bronson], material: MATERIAL[:steel],
+                        price: 2995, rating: RATING[:non],
+                        description: "•	Deep Groove Raceways- balls roll deep in raceway channels - reduces side impact damage & breakage
+                        •	Straight Edge Frictionless Shields- pop off resistant - holds oil in, dirt and moisture out- easy to clean
+                        •	Micro Groove Raceway Surfaces- linear micro-groove surfaces improve bearing lubrication, speed and spin
+                        •	Max Impact Cage Design- non- distortion custom cage keeps the balls precision spaced & oil circulating
+                        •	Balls Out Technology- eliminates shield and cage contact on impact for a go fast, stay fast bearing
+                        •	High Speed Ceramic Oil- nano-ceramic compounds for wear protection - moisture, rust, corrosion resistant
+                        •	Factory Fresh Quality- nitrogen filled shrink wrap, reduces metal & oil oxidation until ready to be ridden"),
+
+    b14: Bearing.create(name: "Atlas Blackout Bearings w/ Built-In Spacers", brand: BRANDS[:atlas], material: MATERIAL[:steel],
+                        price: 1595, rating: RATING[:non],
+                        description: "Atlas has just released the Blackout Built-In Bearings, and we must say they're quite unique due to the flared bearing spacer. The spacers extend slightly on the outside of the bearing so that you do not need speed rings either. There is an extremely tight feel between the bearings and the wheel. The energy between turns is absorbed by the wheel and not the bearing itself reducing impact and side load. Ultimately, you will have a bearing that will endure the demands of a downhill racer or any skateboard discipline."),
+
+    b15: Bearing.create(name: "Zealous Ceramic Bearings w/ Built-In Spacers", brand: BRANDS[:zealous], material: MATERIAL[:ceramic],
+                        price: 2795, rating: RATING[:non],
+                        description: "Zealous Bearings have been some of the most popular bearing in the last few years. High quality bearings with built-in spacers and double rubber seals; what more could you ask for? Well, what about ceramics? Zealous now offers ceramic bearings for your speed and racing needs! Lighter, stronger, and smoother than metal ball bearings, they're are also very corrosive resistant. We love zealous bearings because they are high quality bearing that won't break the bank, and will keep you riding longer and faster. Throw on a set of Zealous Ceramic bearings on your setup and you'll see what we're talking about!"),
+
+    b16: Bearing.create(name: "Oust Moc-5 Street Bearings", brand: BRANDS[:oust], material: MATERIAL[:steel],
+                        price: 2895, rating: RATING[:non],
+                        description: "The Oust Moc-5 Street bearings are designed for speed and durability, these bearings were developed and tested for the rigors of performance skateboarding. Also Oust add an amazing feature to the Moc-5 Street bearings. A small oil hole ( Pat.Pend ) in each shield was put in so the bearing could be cleaned and oiled. Tolerances were changed to accommodate the new environment and the Oust MOC 5 Street was complete. It's the fastest and toughest bearing in the industry for street. This is why we are stoked on Oust, because they know whats up when it comes to performance!!"),
+
+    b17: Bearing.create(name: "Oust Moc-5 Tech Bearings", brand: BRANDS[:oust], material: MATERIAL[:steel],
+                        price: 2895, rating: RATING[:non],
+                        description: "The Oust Moc-5 Tech bearings are designed for speed and durability, these bearings were developed and tested for the rigors of performance skateboarding. Also Oust add an amazing feature to the Moc-5 Tech bearings have a high strength carbon steel ball cage. This cage would ensure ball placement in the harshest environments and extend bearing life for thousands of skating hours. Also the MOC-5 Tech bearing are designed with the same high precision specification as the MOC 7 Speed. This is why we are stoked on Oust, because they know whats up when it comes to performance!!"),
+
+    b18: Bearing.create(name: "Oust Moc-7 Speed Bearings", brand: BRANDS[:oust], material: MATERIAL[:steel],
+                        price: 3995, rating: RATING[:non],
+                        description: "The Oust Moc-7 Speed bearings are specifically designed for going as fast as you possibly can. Also Oust add an amazing feature to the Moc-7 Speed bearings. Interior step ring to maintain constant lubrication. Super finish for extra smooth precision."),
+
+    b19: Bearing.create(name: "Bear Ceramic Space Balls Bearings w/ Built-In Spacers", brand: BRANDS[:bear], material: MATERIAL[:ceramic],
+                        price: 4895, rating: RATING[:abec7],
+                        description: "These bearings are out of this world! The Bear Space Ball skateboard bearings feature built in spacers and speed rings in order to keep the number of parts on your skateboard to a minimum. That's 12 fewer parts to keep track of! The bearings also feature ceramic ball bearings to keep your bearings from overheating so they can roll faster and longer, as well as labyrinth seals that keep the dirt out of your bearings so they last noticeably longer. Fewer parts = fewer problems, good seals = long lasting bearings"),
+
+    b20: Bearing.create(name: "Holesom California Bearings", brand: BRANDS[:holesom], material: MATERIAL[:steel],
+                        price: 1395, rating: RATING[:abec7],
+                        description: "Holesom's California longboard skateboard bearings are Abec 7 Rated and each bearing has a bearing spacer built right into them. The spacers extend slightly on the outside of the bearing so that you do not need speed rings either. There is an extremely tight feel between the bearings and the wheel. The energy between turns is absorbed by the wheel and not the bearing itself reducing impact and side load. Ultimately, you will have a bearing that will endure the demands of a downhill racer or any skateboard discipline."),
+
+    b21: Bearing.create(name: "Arbor Componentry Stainless Steel Bearings", brand: BRANDS[:arbor], material: MATERIAL[:steel],
+                        price: 2995, rating: RATING[:abec7],
+                        description: "The Arbor Componentry Stainless Steel Abec 7 bearings were designed to help you win! These bearings come with dual-sided rubber shields protecting the bearings from dirt and other debris. We've given them the Muir field test and can confirm these are some sick bearings for what you're paying! One pack comes complete with everything you need to get your wheels spinning smoothly: 8 bearings, 4 8x10mm bearing spacers. Complete your Arbor wheels with a new set of these luscious bearings!"),
+
+    b22: Bearing.create(name: "Holesom Holy Roller Built-in Bearings", brand: BRANDS[:holesom], material: MATERIAL[:steel],
+                        price: 1595, rating: RATING[:abec9],
+                        description: "Holesom's Holy Roller precision longboard skateboard bearings were definitely brought to us by a high power. They are Abec 9 Rated and each bearing has a bearing spacer built right into them. The spacers extend slightly on the outside of the bearing so that you do not need speed rings either. There is an extremely tight feel between the bearings and the wheel. The energy between turns is absorbed by the wheel and not the bearing itself reducing impact and side load. Ultimately, you will have a bearing that will endure the demands of a downhill racer or any skateboard discipline."),
+
+    b23: Bearing.create(name: "Independent Sevens Bearings", brand: BRANDS[:independent], material: MATERIAL[:steel],
+                        price: 1795, rating: RATING[:non],
+                        description: "Independent knows what's up when it comes to skate gear, and their Sevens bearings are no exception. Extremely fast bearings with stainless steel races and balls mean you don't have to worry about rust or corrosion, and with a dirt blocking cage and shields, you won't have to worry about maintaining them every week. All this with an amazing price point, you literally can't go wrong."),
+
+    b24: Bearing.create(name: "Bear Space Balls Bearings", brand: BRANDS[:bear], material: MATERIAL[:steel],
+                        price: 2495, rating: RATING[:abec7],
+                        description: "These bearings are out of this world! The Bear Space Ball skateboard bearings feature built in spacers and speed rings in order to keep the number of parts on your skateboard to a minimum. That's 12 fewer parts to keep track of! The bearings also feature labyrinth seals that keep the dirt out of your bearings so they last longer. Fewer parts means fewer problems and good seals lead to long lasting bearings"),
+
+    b25: Bearing.create(name: "Sector 9 Push Don't Pollute Bearings", brand: BRANDS[:sector9], material: MATERIAL[:steel],
+                        price: 1195, rating: RATING[:abec5],
+                        description: "These Sector 9 skateboard PDP Bearings are designed for all types of wheels! They come with two shields per bearing, thus allowing them to stay that much cleaner. These currently feature a nice gray shield. Not much else is to be said about bearings. Just shred them and keep them out of water! Make sure to throw a set of Khiro Bearing Spacers in order to get maximum life out of your longboard bearings!"),
+
+    b26: Bearing.create(name: "Blood Orange ABEC 7 Bearings", brand: BRANDS[:bloodOrange], material: MATERIAL[:steel],
+                        price: 1995, rating: RATING[:abec7],
+                        description: "Blood Orange have bolstered their already-extensive line of products with these new ABEC 7 steel bearings. We've given them the Muir field test and can confirm these are some sick bearings for what you're paying! One pack comes complete with everything you need to get your wheels spinning smoothly: 8 bearings, 4 8x10mm beaing spacers, and 8 speed rings. Complete your set of Caliber trucks with a new set of these luscious bearings!"),
+
+    # b11: Bearing.create(name: "", brand: BRANDS[:FILL], material: MATERIAL[:FILL],
+    #                     price: , rating: RATING[:FILL],
     #                     description: ""),
 }
 
@@ -605,6 +741,41 @@ wheelPics = {
     p6_2: Picture.create(picturable: w[:w6], image: File.open('app/assets/images/wheels/w6-2.jpg')),
     p7: Picture.create(picturable: w[:w7], image: File.open('app/assets/images/wheels/w7.jpg')),
     p7_2: Picture.create(picturable: w[:w7], image: File.open('app/assets/images/wheels/w7-2.jpg')),
+    p8: Picture.create(picturable: w[:w8], image: File.open('app/assets/images/wheels/w8.jpg')),
+    p8_2: Picture.create(picturable: w[:w8], image: File.open('app/assets/images/wheels/w8-2.jpg')),
+    p9: Picture.create(picturable: w[:w9], image: File.open('app/assets/images/wheels/w9.jpg')),
+    p10: Picture.create(picturable: w[:w10], image: File.open('app/assets/images/wheels/w10.jpg')),
+    p10_2: Picture.create(picturable: w[:w10], image: File.open('app/assets/images/wheels/w10-2.jpg')),
+    p11: Picture.create(picturable: w[:w11], image: File.open('app/assets/images/wheels/w11.jpg')),
+    p11_2: Picture.create(picturable: w[:w11], image: File.open('app/assets/images/wheels/w11-2.jpg')),
+    p12: Picture.create(picturable: w[:w12], image: File.open('app/assets/images/wheels/w12.jpg')),
+    p12_2: Picture.create(picturable: w[:w12], image: File.open('app/assets/images/wheels/w12-2.jpg')),
+    p13: Picture.create(picturable: w[:w13], image: File.open('app/assets/images/wheels/w13.jpg')),
+    p13_2: Picture.create(picturable: w[:w13], image: File.open('app/assets/images/wheels/w13-2.jpg')),
+    p14: Picture.create(picturable: w[:w14], image: File.open('app/assets/images/wheels/w14.jpg')),
+    p14_2: Picture.create(picturable: w[:w14], image: File.open('app/assets/images/wheels/w14-2.jpg')),
+    p15: Picture.create(picturable: w[:w15], image: File.open('app/assets/images/wheels/w15.jpg')),
+    p15_2: Picture.create(picturable: w[:w15], image: File.open('app/assets/images/wheels/w15-2.jpg')),
+    p16: Picture.create(picturable: w[:w16], image: File.open('app/assets/images/wheels/w16.jpg')),
+    p16_2: Picture.create(picturable: w[:w16], image: File.open('app/assets/images/wheels/w16-2.jpg')),
+    p17: Picture.create(picturable: w[:w17], image: File.open('app/assets/images/wheels/w17.jpg')),
+    p17_2: Picture.create(picturable: w[:w17], image: File.open('app/assets/images/wheels/w17-2.jpg')),
+    p18: Picture.create(picturable: w[:w18], image: File.open('app/assets/images/wheels/w18.jpg')),
+    p18_2: Picture.create(picturable: w[:w18], image: File.open('app/assets/images/wheels/w18-2.jpg')),
+    p19: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19.jpg')),
+    p19_2: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-2.jpg')),
+    p19_3: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-3.jpg')),
+    p19_4: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-4.jpg')),
+    p19_5: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-5.jpg')),
+    p19_6: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-6.jpg')),
+    p19_7: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-7.jpg')),
+    p19_8: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-8.jpg')),
+    p19_9: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-9.jpg')),
+    p19_10: Picture.create(picturable: w[:w19], image: File.open('app/assets/images/wheels/w19-10.jpg')),
+    p20: Picture.create(picturable: w[:w20], image: File.open('app/assets/images/wheels/w20.jpg')),
+    p20_2: Picture.create(picturable: w[:w20], image: File.open('app/assets/images/wheels/w20-2.jpg')),
+    p21: Picture.create(picturable: w[:w21], image: File.open('app/assets/images/wheels/w21.jpg')),
+    p21_2: Picture.create(picturable: w[:w21], image: File.open('app/assets/images/wheels/w21-2.jpg')),
 }
 
 bearingPics = {
@@ -626,6 +797,23 @@ bearingPics = {
     p9_2: Picture.create(picturable: b[:b9], image: File.open('app/assets/images/bearings/b9-2.jpg')),
     p10: Picture.create(picturable: b[:b10], image: File.open('app/assets/images/bearings/b10.jpg')),
     p10_2: Picture.create(picturable: b[:b10], image: File.open('app/assets/images/bearings/b10-2.jpg')),
+    p11: Picture.create(picturable: b[:b11], image: File.open('app/assets/images/bearings/b11.jpg')),
+    p12: Picture.create(picturable: b[:b12], image: File.open('app/assets/images/bearings/b12.jpg')),
+    p13: Picture.create(picturable: b[:b13], image: File.open('app/assets/images/bearings/b13.jpg')),
+    p14: Picture.create(picturable: b[:b14], image: File.open('app/assets/images/bearings/b14.jpg')),
+    p14_2: Picture.create(picturable: b[:b14], image: File.open('app/assets/images/bearings/b14-2.jpg')),
+    p15: Picture.create(picturable: b[:b15], image: File.open('app/assets/images/bearings/b15.jpg')),
+    p16: Picture.create(picturable: b[:b16], image: File.open('app/assets/images/bearings/b16.jpg')),
+    p17: Picture.create(picturable: b[:b17], image: File.open('app/assets/images/bearings/b17.jpg')),
+    p18: Picture.create(picturable: b[:b18], image: File.open('app/assets/images/bearings/b18.jpg')),
+    p19: Picture.create(picturable: b[:b19], image: File.open('app/assets/images/bearings/b19.jpg')),
+    p20: Picture.create(picturable: b[:b20], image: File.open('app/assets/images/bearings/b20.jpg')),
+    p21: Picture.create(picturable: b[:b21], image: File.open('app/assets/images/bearings/b21.jpg')),
+    p22: Picture.create(picturable: b[:b22], image: File.open('app/assets/images/bearings/b22.jpg')),
+    p23: Picture.create(picturable: b[:b23], image: File.open('app/assets/images/bearings/b23.jpg')),
+    p24: Picture.create(picturable: b[:b24], image: File.open('app/assets/images/bearings/b24.jpg')),
+    p25: Picture.create(picturable: b[:b25], image: File.open('app/assets/images/bearings/b25.jpg')),
+    p26: Picture.create(picturable: b[:b26], image: File.open('app/assets/images/bearings/b26.jpg')),
 }
 
 

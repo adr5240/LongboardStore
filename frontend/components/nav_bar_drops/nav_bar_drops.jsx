@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Longboard from './longboard';
-import Snowboard from './snowboard';
-import Surfboard from './surfboard';
+import { Longboard, Skateboard, Snowboard, Surfboard } from './second_drop_down';
 
 class ShopDropDown extends React.Component {
     constructor(props) {
@@ -20,7 +18,7 @@ class ShopDropDown extends React.Component {
 
     closeDropDown(e) {
         if(e) e.preventDefault();
-        $(`.shop-drop-down-main`).css({'width': '50px', 'height': '50px'});
+        $(`.shop-drop-down-main`).css({'width': '50px', 'height': '0px'});
         $(`ul.shop-second-list`).css('display','none');
     }
 
@@ -37,6 +35,10 @@ class ShopDropDown extends React.Component {
                     <Longboard redirectTo={this.redirectTo.bind(this)}
                                history={this.props.history}
                                openDropDown={this.openDropDown.bind(this)}/>
+
+                    <Skateboard redirectTo={this.redirectTo.bind(this)}
+                                history={this.props.history}
+                                openDropDown={this.openDropDown.bind(this)}/>
 
                     <Snowboard redirectTo={this.redirectTo.bind(this)}
                                history={this.props.history}

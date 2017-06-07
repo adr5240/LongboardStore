@@ -118,12 +118,17 @@ div.shop-drop-down {
     width: auto;
 }
 
-ul.snowboard {
+ul.skateboard {
     top: 91px;
     border-top: 1px solid black;
 }
 
-ul.surfboard {
+ul.snowboard {
     top: 132px;
+    border-top: 1px solid black;
+}
+
+ul.surfboard {
+    top: 173px;
     border-top: 1px solid black;
 }
