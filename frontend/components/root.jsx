@@ -5,7 +5,6 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 
-
 import LongboardContainer from './longboard/longboard_container';
 import ProductContainer from './longboard/products/product_container';
 import ProductDetailContainer from './longboard/products/product_detail_container';
@@ -24,7 +23,7 @@ const Root = ({ store, context }) => {
             <Router>
                 <App path="/">
                     <Route path="/" component={ NavBarDropsContainer } />
-                    
+
                     <Route exact path="/login" render={() => (
                         isLoggedIn() ? ( <Redirect to="/"/> ) : ( <SessionFormContainer /> )
                     )}/>

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
         if !session[:order_id].nil? && Order.exists?(session[:order_id])
             order = Order.find(session[:order_id])
         else
-            order = Order.create(tax: 0, shipping: 0)
+            order = order || Order.create(tax: 0, shipping: 0)
             session[:order_id] = order.id
         end
     end
@@ -20,12 +20,25 @@ class ApplicationController < ActionController::Base
 
     def login!(user)
         session[:session_token] = user.reset_session_token!
+
+        if Order.find_by(user_id: user.id)
+            OrderItem.where(order_id: session[:order_id]).delete_all
+            Order.delete(session[:order_id])
+            session[:order_id] = Order.find_by(user_id: user.id).id
+        else
+            order = current_order
+            order.user_id = user.id
+            order.save!
+        end
+
         @current_user = user
     end
 
     def logout
         current_user.try(:reset_session_token!)
         session[:session_token] = nil
+        session[:order_id] = Order.create(tax: 0, shipping: 0).id
+        @current_user = nil
     end
 
     def is_logged_in?

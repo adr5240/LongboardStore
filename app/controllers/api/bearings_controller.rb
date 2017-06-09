@@ -10,12 +10,12 @@ class Api::BearingsController < ApplicationController
     end
 
     def index
-        @bearings = Bearing.all
+        @bearings = params[:filter] ? filter() : Bearing.all
         render :index
     end
 
     def show
-        @bearing = Bearing.find_by_id(params[:id])
+        @bearing = params[:id] == "-1" ? Bearing.first : Bearing.find_by_id(params[:id])
         if @bearing
             render :show
         else
@@ -43,7 +43,29 @@ class Api::BearingsController < ApplicationController
         end
     end
 
+    private
+
     def bearing_params
         params.require(:bearing).permit(:name, :brand, :description, :material, :price, :rating)
+    end
+
+    def filter_params
+        params.require(:filter).permit(brand: [], material: [], rating: [])
+    end
+
+    def filter
+        price = params[:filter] ? params[:filter][:price] : -1
+        bearings = Bearing.where(filter_params)
+
+        # Bearing.all.select(:brand).group_by(&:brand).keys() TODO fix search
+
+        bearings = case price
+                    when "1" then bearings.select{ |x| x.price < 10000 }
+                    when "2" then bearings.select{ |x| x.price > 10000 && x.price < 20000 }
+                    when "3" then bearings.select{ |x| x.price > 20000 }
+                    else bearings
+        end
+
+        return bearings
     end
 end

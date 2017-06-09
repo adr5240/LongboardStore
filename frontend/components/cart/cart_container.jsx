@@ -4,6 +4,7 @@ import Cart from './cart.jsx';
 
 const mapStateToProps = ({session, errors}) => ({
     currentOrder: session.currentOrder,
+    currentUser: session.currentUser,
     errors: errors.errors
 });
 

@@ -10,12 +10,12 @@ class Api::TrucksController < ApplicationController
     end
 
     def index
-        @trucks = Truck.all
+        @trucks = params[:filter] ? filter() : Truck.all
         render :index
     end
 
     def show
-        @truck = Truck.find_by_id(params[:id])
+        @truck = params[:id] == "-1" ? Truck.first : Truck.find_by_id(params[:id])
         if @truck
             render :show
         else
@@ -43,7 +43,29 @@ class Api::TrucksController < ApplicationController
         end
     end
 
+    private
+
     def truck_params
         params.require(:truck).permit(:name, :brand, :description, :width, :angle, :hole_pattern, :price, :image)
+    end
+
+    def filter_params
+        params.require(:filter).permit(brand: [], angle: [], hole_pattern: [])
+    end
+
+    def filter
+        price = params[:filter] ? params[:filter][:price] : -1
+        trucks = Truck.where(filter_params)
+
+        # Truck.all.select(:brand).group_by(&:brand).keys() TODO fix search
+
+        trucks = case price
+                    when "1" then trucks.select{ |x| x.price < 10000 }
+                    when "2" then trucks.select{ |x| x.price > 10000 && x.price < 20000 }
+                    when "3" then trucks.select{ |x| x.price > 20000 }
+                    else trucks
+        end
+
+        return trucks
     end
 end

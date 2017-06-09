@@ -61,6 +61,7 @@ class NavBarDrops extends React.Component {
     toggleDropDown(e) {
         e.preventDefault();
         $("ul.shop-list").toggle();
+        $(`ul.shop-second-list`).hide();
     }
 
     render() {

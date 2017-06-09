@@ -36,7 +36,7 @@ export const login = (user) => dispatch => {
 export const logout = () => dispatch => {
     SessionApiUtil.logout()
         .then(
-            user => dispatch(receiveCurrentUser(null)),
+            user => {dispatch(receiveCurrentUser(null)); window.location.hash = "#/login";},
             errors => dispatch(receiveErrors(errors))
         );
 };

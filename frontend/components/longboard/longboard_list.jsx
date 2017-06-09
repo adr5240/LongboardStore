@@ -6,31 +6,30 @@ class LongboardList extends React.Component {
 
         this.state = { currentDeckPicture: '', currentWheelPicture: '', currentBearingPicture: '', currentTruckPicture: '' };
 
-        this.props.fetchDecks().then(
+        this.props.fetchDeck(-1).then(
             data => this._handleProducts(data, "Deck")
         );
-        this.props.fetchTrucks().then(
+        this.props.fetchTruck(-1).then(
             data => this._handleProducts(data, "Truck")
         );
-        this.props.fetchWheels().then(
+        this.props.fetchWheel(-1).then(
             data => this._handleProducts(data, "Wheel")
         );
-        this.props.fetchBearings().then(
+        this.props.fetchBearing(-1).then(
             data => this._handleProducts(data, "Bearing")
         );
 	}
 
     _handleProducts(data, itemType) {
-        let id = Object.keys(data[itemType.toLowerCase() + 's'])[0],
+        let product = 'current' + itemType,
+            id = data[product].id,
             pictureType = 'current' + itemType + 'Picture';
 
-        this.props.fetchPicture({picture: { picturable_id: id, picturable_type: itemType}}).then(
-            data => this._handleImages(pictureType, data, id)
-        );
+        this._handleImages(pictureType, data[product].images, id);
     }
 
-    _handleImages(pictureType, data, id) {
-        this.setState({ [pictureType]: data.currentPicture.images[id][0] });
+    _handleImages(pictureType, images, id) {
+        this.setState({ [pictureType]: images[0].image_url });
     }
 
     _handleClick(e) {

@@ -74,10 +74,10 @@ li.dropDownItem:hover {
 }
 
 a.current {
-    margin:0 auto;
-    width: 75%;
+    width: 100%;
     display: block;
     line-height: 40px;
+    text-align: center;
 }
 
 div.main-shop {

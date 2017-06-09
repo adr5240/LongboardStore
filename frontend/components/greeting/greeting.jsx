@@ -33,7 +33,7 @@ function PersonalGreeting({currentUser, logout, img}) {
                 </img>
 
                 <ul className="user-drop-down-menu" style={DropDownStyle}>
-                    <li className="dropDownItem"><a className="current" onClick={logout}>Log Out</a></li>
+                    <li className="dropDownItem"><a href="#/login" className="current" onClick={logout}>Log Out</a></li>
                     <li className="dropDownItem"><a href="#/cart" className="current">Cart</a></li>
                 </ul>
             </div>
@@ -56,7 +56,9 @@ class Greeting extends React.Component {
         const img = this.state.profPicture;
         const profPicture = Object.keys(img).length > 0 ? img[Object.keys(img)[0]][0] : '';
 
-        let result = currentUser ? <PersonalGreeting currentUser={ currentUser } img={ profPicture } logout={ logout } /> : <SessionLinks img={ profPicture } clearErrors={ clearErrors } />;
+        let result = currentUser ? <PersonalGreeting currentUser={ currentUser }
+                                                     img={ profPicture }
+                                                     logout={ logout } /> : <SessionLinks img={ profPicture } clearErrors={ clearErrors } />;
 
         return(
             result

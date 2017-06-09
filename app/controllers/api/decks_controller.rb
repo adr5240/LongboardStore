@@ -16,7 +16,7 @@ class Api::DecksController < ApplicationController
     end
 
     def show
-        @deck = Deck.find_by_id(params[:id])
+        @deck = params[:id] == "-1" ? Deck.first : Deck.find_by_id(params[:id])
         if @deck
             render :show
         else
@@ -63,17 +63,17 @@ class Api::DecksController < ApplicationController
         # Deck.all.select(:brand).group_by(&:brand).keys() TODO fix search
 
         decks = case price
-                when "1" then decks.select{ |x| x.price < 10000 }
-                when "2" then decks.select{ |x| x.price > 10000 && x.price < 20000 }
-                when "3" then decks.select{ |x| x.price > 20000 }
-                else decks
+                    when "1" then decks.select{ |x| x.price < 10000 }
+                    when "2" then decks.select{ |x| x.price > 10000 && x.price < 20000 }
+                    when "3" then decks.select{ |x| x.price > 20000 }
+                    else decks
         end
 
         decks = case length
-                when "1" then decks.select{ |x| x.length < 32 }
-                when "2" then decks.select{ |x| x.length > 32 && x.length < 37 }
-                when "3" then decks.select{ |x| x.length > 37 }
-                else decks
+                    when "1" then decks.select{ |x| x.length < 32 }
+                    when "2" then decks.select{ |x| x.length > 32 && x.length < 37 }
+                    when "3" then decks.select{ |x| x.length > 37 }
+                    else decks
         end
 
         return decks

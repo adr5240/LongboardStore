@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchDecks } from '../../actions/longboard/deck_actions';
-import { fetchTrucks } from '../../actions/longboard/truck_actions';
-import { fetchWheels } from '../../actions/longboard/wheel_actions';
-import { fetchBearings } from '../../actions/longboard/bearing_actions';
-import { fetchPicture } from '../../actions/longboard/picture_actions';
+import { fetchDeck } from '../../actions/longboard/deck_actions';
+import { fetchTruck } from '../../actions/longboard/truck_actions';
+import { fetchWheel } from '../../actions/longboard/wheel_actions';
+import { fetchBearing } from '../../actions/longboard/bearing_actions';
 
 import LongboardList from './longboard_list.jsx';
 
 
 const mapDispatchToProps = dispatch => ({
-    fetchDecks: (filter) => dispatch(fetchDecks(filter)),
-    fetchTrucks: (filter) => dispatch(fetchTrucks(filter)),
-    fetchWheels: (filter) => dispatch(fetchWheels(filter)),
-    fetchBearings: (filter) => dispatch(fetchBearings(filter)),
-    fetchPicture: filter => dispatch(fetchPicture(filter))
+    fetchDeck: (id, filter) => dispatch(fetchDeck(id, filter)),
+    fetchTruck: (id, filter) => dispatch(fetchTruck(id, filter)),
+    fetchWheel: (id, filter) => dispatch(fetchWheel(id, filter)),
+    fetchBearing: (id, filter) => dispatch(fetchBearing(id, filter)),
 });
 
 export default connect(
