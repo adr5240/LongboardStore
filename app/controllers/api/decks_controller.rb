@@ -10,13 +10,13 @@ class Api::DecksController < ApplicationController
     end
 
     def index
-        debugger
         @decks = params[:filter] ? filter() : Deck.all
         render :index
     end
 
     def show
         @deck = params[:id] == "-1" ? Deck.first : Deck.find_by_id(params[:id])
+
         if @deck
             render :show
         else
@@ -52,15 +52,14 @@ class Api::DecksController < ApplicationController
     end
 
     def filter_params
-        params.require(:filter).permit(brand: [], mount: [], shape: [], concave: [], flex: [], traction: [])
+        params.require(:filter).permit(brand: [], mount: [], shape: [], traction: [])
     end
 
+    # TODO Refactor #filter
     def filter
         price = params[:filter] ? params[:filter][:price] : -1
         length = params[:filter] ? params[:filter][:length] : -1
         decks = Deck.where(filter_params)
-
-        # Deck.all.select(:brand).group_by(&:brand).keys() TODO fix search
 
         decks = case price
                     when "1" then decks.select{ |x| x.price < 10000 }

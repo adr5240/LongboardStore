@@ -53,11 +53,10 @@ class Api::BearingsController < ApplicationController
         params.require(:filter).permit(brand: [], material: [], rating: [])
     end
 
+    # TODO Refactor #filter
     def filter
         price = params[:filter] ? params[:filter][:price] : -1
         bearings = Bearing.where(filter_params)
-
-        # Bearing.all.select(:brand).group_by(&:brand).keys() TODO fix search
 
         bearings = case price
                     when "1" then bearings.select{ |x| x.price < 10000 }

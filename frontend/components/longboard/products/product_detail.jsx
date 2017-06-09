@@ -1,6 +1,6 @@
 import React from 'react';
 import { capitalizeFirstLetter, AddToCartForm } from '../../../util/misc_util';
-import { Deck, Truck, Wheel, Bearing } from './product_types';
+import { Deck, Truck, Wheel, Bearing } from './details/product_types';
 
 class ProductDetail extends React.Component {
     constructor(props) {

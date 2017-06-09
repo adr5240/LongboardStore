@@ -25,3 +25,17 @@ export const fetchItem = (item_type, item_id, filter) => {
         }
     });
 };
+
+export const fetchCategories = (filter) => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/information`,
+        data: filter,
+        success: function(data) {
+            return data;
+        },
+        error: function(xhr) {
+            return xhr.responseJSON.errors;
+        }
+    });
+};

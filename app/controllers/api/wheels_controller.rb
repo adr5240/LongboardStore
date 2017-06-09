@@ -54,17 +54,23 @@ class Api::WheelsController < ApplicationController
         params.require(:filter).permit(brand: [], lip_profile: [], hub_placement: [])
     end
 
+    # TODO Refactor #filter
     def filter
         price = params[:filter] ? params[:filter][:price] : -1
-        durometer = params[:filter] ? durometer[:filter][:price] : -1
+        durometer = params[:filter] ? params[:filter][:durometer] : -1
         wheels = Wheel.where(filter_params)
-
-        # Wheel.all.select(:brand).group_by(&:brand).keys() TODO fix search
 
         wheels = case price
                     when "1" then wheels.select{ |x| x.price < 10000 }
-                    when "2" then wheels.select{ |x| x.price > 10000 && x.price < 20000 }
+                    when "2" then wheels.select{ |x| x.price >= 10000 && x.price <= 20000 }
                     when "3" then wheels.select{ |x| x.price > 20000 }
+                    else wheels
+        end
+
+        wheels = case durometer
+                    when "1" then wheels.select{ |x| x.durometer < 78 }
+                    when "2" then wheels.select{ |x| x.durometer >= 78 && x.durometer <= 82 }
+                    when "3" then wheels.select{ |x| x.durometer > 82 }
                     else wheels
         end
 

@@ -50,14 +50,13 @@ class Api::TrucksController < ApplicationController
     end
 
     def filter_params
-        params.require(:filter).permit(brand: [], angle: [], hole_pattern: [])
+        params.require(:filter).permit(brand: [], hole_pattern: [])
     end
 
+    # TODO Refactor #filter
     def filter
         price = params[:filter] ? params[:filter][:price] : -1
         trucks = Truck.where(filter_params)
-
-        # Truck.all.select(:brand).group_by(&:brand).keys() TODO fix search
 
         trucks = case price
                     when "1" then trucks.select{ |x| x.price < 10000 }

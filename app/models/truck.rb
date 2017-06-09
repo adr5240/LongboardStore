@@ -18,4 +18,8 @@ class Truck < ActiveRecord::Base
     validates :name, :brand, :description, :hole_pattern, :width, :angle, :price, presence: true
 
     has_many :pictures, as: :picturable
+
+    def self.get_filters
+        ["brand", "hole_pattern"]
+    end
 end

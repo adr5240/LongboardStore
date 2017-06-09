@@ -17,4 +17,8 @@ class Bearing < ActiveRecord::Base
     validates :name, :brand, :description, :material, :price, :rating, presence: true
 
     has_many :pictures, as: :picturable
+
+    def self.get_filters
+        ["brand", "material", "rating"]
+    end
 end

@@ -21,4 +21,8 @@ class Wheel < ActiveRecord::Base
               :price, :diameter, :durometer, :width, presence: true
 
     has_many :pictures, as: :picturable
+
+    def self.get_filters
+        ["brand", "lip_profile", "hub_placement"]
+    end
 end

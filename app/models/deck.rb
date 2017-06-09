@@ -24,4 +24,8 @@ class Deck < ActiveRecord::Base
     validates :traction, :shape, :price, :length, :width, :wheelbase, presence: true
 
     has_many :pictures, as: :picturable
+
+    def self.get_filters
+        ["brand", "mount", "shape", "traction"]
+    end
 end

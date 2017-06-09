@@ -1,6 +1,8 @@
 import React from 'react';
 
+import SearchBar from '../../search/search_container';
 import ProductListItem from './product_list_item';
+
 import { capitalizeFirstLetter } from '../../../util/misc_util';
 
 class ProductList extends React.Component {
@@ -12,11 +14,9 @@ class ProductList extends React.Component {
 
         this.state = { products: [], pictures: {}, filter: { picture: { picturable_type: this.picType }} };
 
-        let callback = `fetch${this.picType}s`;
+        this.callback = `fetch${this.picType}s`;
 
-        let filter = { filter: {}};
-
-        this.props[callback](filter).then(
+        this.props[this.callback]({}).then(
             data => this.setState({ products: data[this.listType], currentProduct: data["current" + this.picType] })
         );
         this.props.fetchPictures(this.state.filter).then(
@@ -26,6 +26,14 @@ class ProductList extends React.Component {
 
     _handleClick(product_type, id) {
         this.props.history.push(`/longboards/${product_type}/${id}`);
+    }
+
+    _handleSearch(filter_params) {
+        if(Object.keys(filter_params).length > 0) {
+            this.props[this.callback]({ filter: filter_params }).then(
+                data => this.setState({ products: data[this.listType], currentProduct: data["current" + this.picType] })
+            );
+        }
     }
 
     render() {
@@ -45,6 +53,7 @@ class ProductList extends React.Component {
 
         return (
             <div className="appBody">
+                <SearchBar product_type={this.picType} _handleSearch={this._handleSearch.bind(this)} />
                 <ul>
                     { results }
                 </ul>

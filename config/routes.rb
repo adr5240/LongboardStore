@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
         # Products
         resources :pictures, only: [:index, :show]
+        resources :information, only: [:index]
         resources :decks, only: [:create, :index, :show, :update, :destroy]
         resources :trucks, only: [:create, :index, :show, :update, :destroy]
         resources :wheels, only: [:create, :index, :show, :update, :destroy]
