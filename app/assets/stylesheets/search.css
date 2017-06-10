@@ -1,5 +1,18 @@
-table {
+table.search-table {
     width: 80%;
     text-align: center;
     margin: 0 auto;
+}
+
+table.search-table td {
+    border: 1px solid black;
+}
+
+div.search-bar {
+    max-height: 175px;
+}
+
+td.search-table-options-cell > div {
+    overflow-y: auto;
+    height: 150px;
 }

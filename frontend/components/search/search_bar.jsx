@@ -41,45 +41,62 @@ class SearchBar extends React.Component {
         this.update();
     }
 
+    createOptionsList() {
+        let obj = this.state.options,
+            options;
+        return Object.keys(obj).map((el, i) => {
+            obj[el].sort();
+
+            options = obj[el].map((el) => {
+                return <li key={el} ><input type="checkbox" value={ `${i},${el}` } onClick={ this._handleFilter.bind(this)} />{el}</li>;
+            });
+
+            return (
+                <td key={el}  className="search-table-options-cell">
+                    <div>
+                        <ul>
+                            { options }
+                        </ul>
+                    </div>
+                </td>
+            );
+        }, this);
+    }
+
+    createLabelsList() {
+        return this.state.categories.map((el) => {
+            let hold = [];
+            el.split('_').forEach((word) => {
+                hold.push(capitalizeFirstLetter(word));
+            });
+            return <th key={el}>{hold.join(' ')}</th>;
+        }, this);
+    }
+
     render() {
         let labels = <td></td>,
             filterOptions = <td></td>;
 
+
+        // TODO refactor this nested loop?
         if (this.state.categories.length > 0) {
-            labels = this.state.categories.map((el) => {
-                return <td key={el}>{capitalizeFirstLetter(el)}</td>;
-            }, this);
-        }
-
-        if (Object.keys(this.state.options).length > 0) {
-            let obj = this.state.options,
-                options;
-            filterOptions = Object.keys(obj).map((el, i) => {
-                options = obj[el].map((el) => {
-                    return <li key={el} ><input type="checkbox" value={ `${i},${el}` } onClick={ this._handleFilter.bind(this)} />{el}</li>;
-                });
-
-                return (
-                    <td key={el}>
-                        <ul>
-                            { options }
-                        </ul>
-                    </td>
-                );
-            }, this);
+            filterOptions = this.createOptionsList();
+            labels = this.createLabelsList();
         }
 
         return(
             <div className="search-bar">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
+                <table className="search-table">
+                    <thead className="search-table-head">
+                        <tr className="search-table-labels">
+                            <th>
                                 <label>Sort By</label>
-                            </td>
+                            </th>
                             { labels }
                         </tr>
-                        <tr>
+                    </thead>
+                    <tbody className="search-table-body">
+                        <tr className="search-table-options-row">
                             <td>
                                 <ul>
                                     <li><a>Best Sellers</a></li>
