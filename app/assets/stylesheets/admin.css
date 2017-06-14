@@ -1,0 +1,29 @@
+div.admin-panel {
+    padding-top: 60px;
+}
+
+div.admin-list-item {
+    float: left;
+    margin: 15px;
+    text-align: center;
+}
+
+li.order-details {
+    clear: both;
+}
+
+table.order-details-table {
+    text-align: center;
+}
+
+table.order-details-table > td, th {
+    width: 150px;
+}
+
+tr.order-details:nth-child(even) {
+    background-color: #CCC;
+}
+
+tr.order-details:nth-child(odd) {
+    background-color: #FFF;
+}

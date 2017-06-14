@@ -1,0 +1,67 @@
+/*div.longboard-products > h1 {
+    font-size: 22pt;
+    font-weight: 500;
+    margin-left: 10%;
+}
+
+div.longboard-blogs > h1 {
+    font-size: 22pt;
+    font-weight: 500;
+    margin-left: 10%;
+}*/
+
+div.longboard-divider {
+    clear: both;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background: #fff;
+    height: 40px;
+}
+
+div.longboard-divider > h1 {
+    font-size: 22pt;
+    line-height: 40px;
+    font-weight: 500;
+    margin-left: 10%;
+}
+
+.trucks, .decks, .wheels, .bearings {
+    padding: 0 5px;
+}
+
+div.videoBox {
+    width: 80%;
+    margin: 0 auto;
+    height: 330px;
+}
+
+iframe {
+    float: left;
+}
+
+ul.video-tabs {
+    float: left;
+}
+
+li.video-tab-items {
+    padding: 1px 30px;
+    line-height: 40px;
+    font-size: 15pt;
+    background: lightgrey;
+    border: 1px solid darkgrey;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 5px;
+    box-shadow: 2px 2px grey;
+}
+
+li.video-tab-items:hover {
+    background: #a5a5a5;
+}
+
+li.active {
+    background: #00bfff;
+}
+
+li.active:hover {
+    background: #00bfff;
+}

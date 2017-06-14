@@ -9,6 +9,16 @@ div.tile {
     text-align: center;
     display: grid;
     cursor: pointer;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+div.tile:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 3px 1px rgba(0, 188, 212, 0.52);
+    z-index: 1;
 }
 
 div.tile > img {
@@ -17,17 +27,21 @@ div.tile > img {
 }
 
 div.decksTile {
-    height: 600px;
+    height: 550px;
 }
 
 div.bearingsTile {
-    height: 305px;
+    height: 310px;
 }
 
 div.wheelsTile {
-    height: 305px;
+    height: 310px;
 }
 
 div.decks {
-    padding-bottom: 165px;
+    padding-bottom: 225px;
+}
+
+div.decks > h3 {
+    line-height: 56px;
 }

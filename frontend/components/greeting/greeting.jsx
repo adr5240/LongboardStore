@@ -25,6 +25,8 @@ function SessionLinks({img, clearErrors}) {
 }
 
 function PersonalGreeting({currentUser, logout, img}) {
+    let adminTab;
+    if (currentUser.admin) adminTab = <li className="dropDownItem"><a href="#/admin" className="current">Admin Panel</a></li>;
     return (
         <hgroup className="header-group">
             <div className='userDropDown dropDownClosed' onMouseEnter={userDropDown} onMouseLeave={userDropDown}>
@@ -35,6 +37,7 @@ function PersonalGreeting({currentUser, logout, img}) {
                 <ul className="user-drop-down-menu" style={DropDownStyle}>
                     <li className="dropDownItem"><a href="#/login" className="current" onClick={logout}>Log Out</a></li>
                     <li className="dropDownItem"><a href="#/cart" className="current">Cart</a></li>
+                    { adminTab }
                 </ul>
             </div>
 

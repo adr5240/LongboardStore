@@ -35,6 +35,7 @@ BRANDS = {
 User.destroy_all
 
 guest = User.create(username: "Guest", password: "password")
+admin = User.create(username: "Admin", password: "password", admin: true)
 u1 = User.create(username: "Billy", password: "password")
 u2 = User.create(username: "Sally", password: "password")
 u3 = User.create(username: "abc123", password: "password")

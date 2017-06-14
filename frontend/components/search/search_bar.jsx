@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
         let option, options, str, key, results, state;
         str = e.target.value.split(",");
         option = str[1];                                // filter value
-        key = this.state.categories[str[0]];            //filter key
+        key = this.state.categories[str[0]];            // filter key
 
         if (this.filter[key] && this.filter[key].includes(option)) {      // Remove option from filter
             state = this.filter[key];
@@ -48,7 +48,7 @@ class SearchBar extends React.Component {
             obj[el].sort();
 
             options = obj[el].map((el) => {
-                return <li key={el} ><input type="checkbox" value={ `${i},${el}` } onClick={ this._handleFilter.bind(this)} />{el}</li>;
+                return <label key={el}><li><input type="checkbox" value={ `${i},${el}` } onClick={ this._handleFilter.bind(this)} />{el}</li></label>;
             });
 
             return (
@@ -64,11 +64,13 @@ class SearchBar extends React.Component {
     }
 
     createLabelsList() {
+        // TODO refactor this nested loop?
         return this.state.categories.map((el) => {
             let hold = [];
             el.split('_').forEach((word) => {
                 hold.push(capitalizeFirstLetter(word));
             });
+
             return <th key={el}>{hold.join(' ')}</th>;
         }, this);
     }
@@ -77,8 +79,6 @@ class SearchBar extends React.Component {
         let labels = <td></td>,
             filterOptions = <td></td>;
 
-
-        // TODO refactor this nested loop?
         if (this.state.categories.length > 0) {
             filterOptions = this.createOptionsList();
             labels = this.createLabelsList();

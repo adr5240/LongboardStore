@@ -62,14 +62,15 @@ div.cartTile img {
     text-align: center;
 }
 
-.cart-totals {
+table.cart-totals {
     text-align: center;
     margin: 10px auto;
     padding: 10px;
     border: 1px solid #000;
+    background: #fff;
 }
 
-.cart-totals td {
+table.cart-totals td {
     text-align: right;
 }
 

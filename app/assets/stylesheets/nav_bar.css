@@ -6,6 +6,7 @@ div.navBar {
     height: 50px;
     margin-bottom: 15px;
     border-bottom: 1px solid black;
+    z-index: 500;
 }
 
 a.appTitle {
@@ -26,10 +27,6 @@ a.appTitle {
 
 .login-signup > a {
     text-decoration: underline;
-}
-
-div.appBody {
-    padding-top: 50px;
 }
 
 div.appShop {
@@ -88,6 +85,7 @@ div.main-shop {
     left: 275px;
     width: 75px;
     text-align: center;
+    z-index: 501;
 }
 
 div.main-shop:hover {

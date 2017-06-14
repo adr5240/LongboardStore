@@ -56,7 +56,20 @@ export const updateUser = (user) => {
 export const getCart = () => {
     return $.ajax({
         method: "GET",
-        url: `/cart`,
+        url: `/carts/1`,
+        success: function(data) {
+            return data;
+        },
+        error: function(xhr) {
+            return xhr.responseJSON.errors;
+        }
+    });
+};
+
+export const getAllCarts = () => {
+    return $.ajax({
+        method: "GET",
+        url: `/carts`,
         success: function(data) {
             return data;
         },

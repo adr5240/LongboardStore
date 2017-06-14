@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
     # Cart
-    resource :cart, only: [:show], defaults: { format: :json }
+    resources :carts, only: [:show, :index], defaults: { format: :json }
     resources :order_items, only: [:create, :update, :destroy], defaults: { format: :json }
 
     namespace :api, defaults: { format: :json } do

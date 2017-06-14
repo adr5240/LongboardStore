@@ -41,6 +41,14 @@ class ApplicationController < ActionController::Base
         @current_user = nil
     end
 
+    def is_admin?
+        current_user.try(:admin)
+    end
+
+    def check_privileges!
+        redirect_to root_url, notice: 'You dont have enough permissions to be here' unless is_admin? 
+    end
+
     def is_logged_in?
         !!current_user
     end

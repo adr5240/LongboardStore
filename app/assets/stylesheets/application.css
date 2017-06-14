@@ -19,13 +19,19 @@ aside, div, form, ul, li, a, p {
     margin: 0;
     border: 0;
     padding: 0;
-
     font: inherit;
     font-family: sans-serif;
     text-align: inherit;
     text-decoration: inherit;
     color: #000;
     background: transparent;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Chorme/Opera */
 }
 
 li {
@@ -35,6 +41,7 @@ li {
 img {
     width: 225px;
     height: auto;
+    margin-top: 5px;
 }
 
 a, button, link {
@@ -43,10 +50,11 @@ a, button, link {
 
 body {
     background-color: #fff;
+    background-image: url("https://image.freepik.com/free-vector/grey-linen-texture-background_1053-253.jpg");
 }
 
 input[type="submit"] {
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 strong {
@@ -109,4 +117,9 @@ li.error {
     text-align: center;
     font-weight: bold;
     color: red;
+}
+
+
+div.appBody {
+    padding-top: 70px;
 }
