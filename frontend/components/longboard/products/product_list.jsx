@@ -24,6 +24,25 @@ class ProductList extends React.Component {
         );
 	}
 
+    componentDidMount() {
+        let lastScrollTop = 0;
+
+        $(window).scroll(function(event){
+            let st = $(this).scrollTop();
+            if (st > lastScrollTop){
+                $(".navBar, .main-shop").css("top", "-50px");
+            } else {
+                $(".navBar, .main-shop").css("top", "0");
+            }
+            lastScrollTop = st;
+        });
+    }
+
+    componentWillUnmount() {
+        $(".navBar, .main-shop").css("top", "0");
+        $(window).unbind('scroll');
+    }
+
     _handleClick(product_type, id) {
         this.props.history.push(`/longboards/${product_type}/${id}`);
     }

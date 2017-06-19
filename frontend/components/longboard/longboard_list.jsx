@@ -11,7 +11,7 @@ class LongboardList extends React.Component {
                        videoUrls: {
                            downhill: "https://www.youtube.com/embed/UMoVKW-Yhjw?start=14&iv_load_policy=3",
                            freestyle: "https://www.youtube.com/embed/LWIxGsf0MNM",
-                           cruising: "",
+                           cruising: "https://www.youtube.com/embed/AuCv9DV2Nbc",
                            construction: "https://www.youtube.com/embed/EoJpFQgY9Aw",
                            beginner: "https://www.youtube.com/embed/yDqdF5-qRBM?start=44&iv_load_policy=3"
                        }

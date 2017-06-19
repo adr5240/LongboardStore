@@ -88,6 +88,7 @@ function ThumbNails(props) {
                     <img key={`thumbnail thumbnail-${el}`} onClick={ updateThumbnail } src={item.images[el].image_url} />
                 ))}
             </div>
+            <div className="animated-div"></div>
         </div>
     );
 }

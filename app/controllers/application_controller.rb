@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     end
 
     def check_privileges!
-        redirect_to root_url, notice: 'You dont have enough permissions to be here' unless is_admin? 
+        redirect_to root_url, notice: 'You dont have enough permissions to be here' unless is_admin?
     end
 
     def is_logged_in?

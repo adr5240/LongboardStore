@@ -17,6 +17,7 @@ class SessionForm extends React.Component {
 	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
 			this.props.history.push("/longboards");
+			this.props.getCart().bind(this);
 		}
 	}
 

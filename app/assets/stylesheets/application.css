@@ -106,19 +106,13 @@ img.deckList {
     width: 250px;
 }
 
-img.profile-pic {
-    height: 40px;
-    width: auto;
-    margin: 5px;
-    cursor: pointer;
-}
-
 li.error {
-    text-align: center;
     font-weight: bold;
     color: red;
+    position: absolute;
+    left: 40%;
+    top: 60px;
 }
-
 
 div.appBody {
     padding-top: 70px;

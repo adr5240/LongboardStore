@@ -819,3 +819,4 @@ bearingPics = {
 
 
 profilePic = Picture.create(picturable: guest, image: File.open('app/assets/images/user.png'))
+cartPic = Picture.create(picturable_type: "Cart", image: File.open('app/assets/images/cart.png'))

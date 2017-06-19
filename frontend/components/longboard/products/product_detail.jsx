@@ -62,7 +62,7 @@ class ProductDetail extends React.Component {
                 { this.renderErrors() }
                 <button className="back" onClick={ this.backToList.bind(this) }>Back to {this.product_type}s</button>
                 { results }
-                <AddToCartForm product_id={ currentProduct.id } product_type={ this.product_type } addToCart={ this.props.addToCart } />
+                <AddToCartForm product_id={ currentProduct.id } product_type={ this.product_type } addToCart={ this.props.addToCart } getCart={ this.props.getCart } />
             </div>
         );
     }

@@ -9,12 +9,12 @@ Rails.application.routes.draw do
         resource :sessions, only: [:create, :destroy]
 
         # Products
-        resources :pictures, only: [:index, :show]
-        resources :information, only: [:index]
+        resources :bearings, only: [:create, :index, :show, :update, :destroy]
         resources :decks, only: [:create, :index, :show, :update, :destroy]
+        resources :information, only: [:index]
+        resources :pictures, only: [:index, :show]
         resources :trucks, only: [:create, :index, :show, :update, :destroy]
         resources :wheels, only: [:create, :index, :show, :update, :destroy]
-        resources :bearings, only: [:create, :index, :show, :update, :destroy]
 
     end
 

@@ -1,5 +1,7 @@
 import * as SessionApiUtil from '../util/session_api_util';
 
+import { animateProductToCart } from '../util/misc_util';
+
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const RECEIVE_CURRENT_ORDER = 'RECEIVE_CURRENT_ORDER';
@@ -68,7 +70,9 @@ export const getCart = () => dispatch => (
 export const addToCart = (product) => dispatch => (
     SessionApiUtil.addToCart(product)
         .then(
-            () => dispatch(receiveErrors({responseJSON: { errors: ["Item was successfully added to your cart!"] }})),
+            () => { animateProductToCart();
+                    dispatch(receiveErrors({responseJSON: { errors: ["Item was successfully added to your cart!"] }}));
+            },
             errors => dispatch(receiveErrors(errors))
         )
 );

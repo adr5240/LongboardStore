@@ -1,10 +1,8 @@
 div.navBar {
     background-color: #dad9d9;
-    display: block;
     position: fixed;
     width: 100%;
     height: 50px;
-    margin-bottom: 15px;
     border-bottom: 1px solid black;
     z-index: 500;
 }
@@ -20,7 +18,7 @@ a.appTitle {
 
 .login-signup, .header-name {
     float: right;
-    line-height: 50px;
+    line-height: 55px;
     max-height: 50px;
     padding-right: 30px;
 }
@@ -45,14 +43,13 @@ div.userDropDown {
 }
 
 div.dropDownClosed {
-    width: 40px;
-    margin-right: 160px;
+    width: 180px;
 }
 
 ul.user-drop-down-menu {
     width: 100%;
     margin-left: 4px;
-    margin-top: -3px;
+    margin-top: 51px;
     z-index: 10;
     background: #fff;
 }
@@ -95,16 +92,17 @@ div.main-shop:hover {
 ul.shop-list {
     display: none;
     width: 150px;
-    margin-top: 1px;
     z-index: 10;
     background: #fff;
+    border-top: 1px solid black;
+    border-collapse: collapse;
 }
 
 ul.shop-second-list {
     position: absolute;
     margin-top: 0;
     left: 150px;
-    top: 51px;
+    top: 50px;
 }
 
 ul.shop-second-list > li {
@@ -129,4 +127,43 @@ ul.snowboard {
 ul.surfboard {
     top: 173px;
     border-top: 1px solid black;
+}
+
+img.profile-pic {
+    height: 40px;
+    width: auto;
+    margin: 5px;
+    cursor: pointer;
+    float: right;
+}
+
+img.cart-pic {
+    height: 40px;
+    width: auto;
+    margin: 5px;
+    cursor: pointer;
+}
+
+div.cart-num-items {
+    float: right;
+    margin-right: 160px;
+    position: relative;
+}
+
+div.cart-itemsNum-circle {
+    width: 15px;
+    background: red;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+    font-size: 10pt;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    position: relative;
+    top: -50px;
+    left: 35px;
+}
+
+div.cart-itemsNum-circle > span {
+    color: #fff;
 }
