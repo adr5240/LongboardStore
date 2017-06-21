@@ -21,8 +21,6 @@ npm-debug.log
 *.byebug_history
 test
 
-app/assets/images/*
-
 # Ignore application configuration
 /config/application.yml
 

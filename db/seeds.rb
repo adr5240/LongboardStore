@@ -586,8 +586,11 @@ Picture.destroy_all
 
 deckPics = {
     p1: Picture.create(picturable: d[:d1], image: File.open('app/assets/images/decks/d1.jpg')),
+    p1_2: Picture.create(picturable: d[:d1], image: File.open('app/assets/images/decks/d1-2.jpg')),
     p2: Picture.create(picturable: d[:d2], image: File.open('app/assets/images/decks/d2.jpg')),
+    p2_2: Picture.create(picturable: d[:d2], image: File.open('app/assets/images/decks/d2-2.jpg')),
     p3: Picture.create(picturable: d[:d3], image: File.open('app/assets/images/decks/d3.jpg')),
+    p3_2: Picture.create(picturable: d[:d3], image: File.open('app/assets/images/decks/d3-2.jpg')),
     p4: Picture.create(picturable: d[:d4], image: File.open('app/assets/images/decks/d4.jpg')),
     p4_2: Picture.create(picturable: d[:d4], image: File.open('app/assets/images/decks/d4-2.jpg')),
     p5: Picture.create(picturable: d[:d5], image: File.open('app/assets/images/decks/d5.jpg')),
