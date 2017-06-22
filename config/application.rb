@@ -20,16 +20,6 @@ module LongboardStoreApp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.paperclip_defaults = {
-        storage: :s3,
-        s3_credentials: {
-            bucket: ENV['BUCKET_NAME'],
-            access_key_id: ENV['s3_access_key_id'],
-            secret_access_key: ENV['s3_secret_access_key'],
-            s3_region: "us-east-1",
-        }
-    }
-
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
