@@ -11,6 +11,12 @@ class Api::TrucksController < ApplicationController
 
     def index
         @trucks = params[:filter] ? filter() : Truck.all
+        @order = nil
+        if params[:sortBy]
+            inOrder = @trucks.order(params[:sortBy])
+            @order = inOrder.map { |el| el.id }
+        end
+
         render :index
     end
 

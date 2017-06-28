@@ -15,7 +15,7 @@ class ProductListItem extends React.Component {
 
     render() {
         const { product, img, tileType } = this.props;
-        let option;
+        let option = ['',''];
 
         if (this.props.product.length) {
             option = ["Length", `${this.props.product.length}\"`];

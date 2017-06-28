@@ -14,31 +14,11 @@ class SearchBar extends React.Component {
         );
 
         this.filter = {};
+        this.sortBy = {};
 	}
 
-    update() {
-        this.props._handleSearch(this.filter);
-    }
-
-    _handleFilter(e) {
-        let option, options, str, key, results, state;
-        str = e.target.value.split(",");
-        option = str[1];                                // filter value
-        key = this.state.categories[str[0]];            // filter key
-
-        if (this.filter[key] && this.filter[key].includes(option)) {      // Remove option from filter
-            state = this.filter[key];
-            state.splice( state.indexOf(option), 1 );
-            results = Object.assign({}, this.filter, { [key]: state });
-        } else if (this.filter[key]) {                                    // concat option to filter
-            options = this.filter[key].concat(option);
-            results = Object.assign({}, this.filter, { [key]: options });
-        } else {                                                          // add option as array
-            results = Object.assign({}, this.filter, { [key]: [option] });
-        }
-
-        this.filter = results;
-        this.update();
+    updateList() {
+        this.props._handleSearch(this.filter, this.sortBy);
     }
 
     createOptionsList() {
@@ -64,7 +44,6 @@ class SearchBar extends React.Component {
     }
 
     createLabelsList() {
-        // TODO refactor this nested loop?
         return this.state.categories.map((el) => {
             let hold = [];
             el.split('_').forEach((word) => {
@@ -73,6 +52,34 @@ class SearchBar extends React.Component {
 
             return <th key={el}>{hold.join(' ')}</th>;
         }, this);
+    }
+
+    _handleFilter(e) {
+        let option, options, str, key, results, state;
+        str = e.target.value.split(",");
+        option = str[1];                                // filter value
+        key = this.state.categories[str[0]];            // filter key
+
+        if (this.filter[key] && this.filter[key].includes(option)) {      // Remove option from filter
+            state = this.filter[key];
+            state.splice( state.indexOf(option), 1 );
+            results = Object.assign({}, this.filter, { [key]: state });
+        } else if (this.filter[key]) {                                    // concat option to filter
+            options = this.filter[key].concat(option);
+            results = Object.assign({}, this.filter, { [key]: options });
+        } else {                                                          // add option as array
+            results = Object.assign({}, this.filter, { [key]: [option] });
+        }
+
+        this.filter = results;
+        this.updateList();
+    }
+
+    reorderList(sortBy, order) {
+        if (sortBy === "") { this.sortBy = {}; }
+        else { this.sortBy = { [sortBy]: order }; }
+
+        this.updateList();
     }
 
     render() {
@@ -99,11 +106,11 @@ class SearchBar extends React.Component {
                         <tr className="search-table-options-row">
                             <td>
                                 <ul>
-                                    <li><a>Best Sellers</a></li>
-                                    <li><a>Newest</a></li>
-                                    <li><a>A-Z</a></li>
-                                    <li><a>Price - Low to High</a></li>
-                                    <li><a>Price - High to Low</a></li>
+                                    <li onClick={this.reorderList.bind(this, "")}><a>Best Sellers</a></li>
+                                    <li onClick={this.reorderList.bind(this, "name", "asc")}><a>A-Z</a></li>
+                                    <li onClick={this.reorderList.bind(this, "name", "desc")}><a>Z-A</a></li>
+                                    <li onClick={this.reorderList.bind(this, "price", "asc")}><a>Price - Low to High</a></li>
+                                    <li onClick={this.reorderList.bind(this, "price", "desc")}><a>Price - High to Low</a></li>
                                 </ul>
                             </td>
                             { filterOptions }

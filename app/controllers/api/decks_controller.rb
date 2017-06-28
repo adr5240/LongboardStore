@@ -11,6 +11,12 @@ class Api::DecksController < ApplicationController
 
     def index
         @decks = params[:filter] ? filter() : Deck.all
+        @order = nil
+        if params[:sortBy]
+            inOrder = @decks.order(params[:sortBy])
+            @order = inOrder.map { |el| el.id }
+        end
+
         render :index
     end
 

@@ -11,8 +11,9 @@ class ProductList extends React.Component {
 
         this.listType = this.props.location.pathname.split('/')[2];
         this.picType = capitalizeFirstLetter(this.listType).slice(0, -1);
+        this.unsorted = true;
 
-        this.state = { products: [], pictures: {}, filter: { picture: { picturable_type: this.picType }} };
+        this.state = { products: {}, pictures: {}, filter: { picture: { picturable_type: this.picType }} };
 
         this.callback = `fetch${this.picType}s`;
 
@@ -47,27 +48,50 @@ class ProductList extends React.Component {
         this.props.history.push(`/longboards/${product_type}/${id}`);
     }
 
-    _handleSearch(filter_params) {
-        if(Object.keys(filter_params).length > 0) {
-            this.props[this.callback]({ filter: filter_params }).then(
+    _handleSearch(filter_params, sortBy_params) {
+        if(Object.keys(filter_params).length > 0 || Object.keys(sortBy_params).length > 0) {
+            this.props[this.callback]({ filter: filter_params, sortBy: sortBy_params }).then(
                 data => this.setState({ products: data[this.listType], currentProduct: data["current" + this.picType] })
             );
         }
     }
 
-    render() {
-        let results = <div></div>;
-        if(Object.keys(this.state.products).length > 0 && Object.keys(this.state.pictures).length > 0) {
-            let pictures = this.state.pictures,
-                products = this.state.products;
+    _handleSortBy(productKeys) {
+        let pictures = this.state.pictures,
+            products = this.state.products,
+            results,
+            order;
 
-            results = Object.keys(this.state.products).map((id) => {
+        this.unsorted = products[productKeys[0]].order ? false : true;
+
+        if (this.unsorted) {
+            results = productKeys.map((id) => {
                 return <ProductListItem product={ products[id] }
-                                        img={ pictures.images[id] || "" }
-                                        _handleClick={ this._handleClick.bind(this) }
-                                        tileType={this.listType}
-                                        key={ id }/>;
+                    img={ pictures.images[id] || "" }
+                    _handleClick={ this._handleClick.bind(this) }
+                    tileType={this.listType}
+                    key={ id }/>;
             });
+        } else {
+            order = products[productKeys[0]].order;
+            results = order.map((id) => {
+                return <ProductListItem product={ products[id] }
+                    img={ pictures.images[id] || "" }
+                    _handleClick={ this._handleClick.bind(this) }
+                    tileType={this.listType}
+                    key={ id }/>;
+            });
+        }
+
+        return results;
+    }
+
+    render() {
+        let results = <div></div>,
+            productKeys = Object.keys(this.state.products);
+
+        if(productKeys.length > 0 && Object.keys(this.state.pictures).length > 0) {
+            results = this._handleSortBy(productKeys);
         }
 
         return (

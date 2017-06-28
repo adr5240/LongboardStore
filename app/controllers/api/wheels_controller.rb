@@ -11,6 +11,12 @@ class Api::WheelsController < ApplicationController
 
     def index
         @wheels = params[:filter] ? filter() : Wheel.all
+        @order = nil
+        if params[:sortBy]
+            inOrder = @wheels.order(params[:sortBy])
+            @order = inOrder.map { |el| el.id }
+        end
+
         render :index
     end
 
